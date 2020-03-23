@@ -1,0 +1,5655 @@
+
+#(
+#OMInspection 
+#identifier: 'Measurement Plan 22' 
+#comment: '' 
+#'container$' nil 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings) 
+#recalculate: true) 
+#routingTable: 
+#(
+#Dictionary 
+#('meas' ' ->' 
+#measurement) 
+#('np' ' ->' 
+#nominalPart)) 
+#nominalPart: 
+#(
+#OMPart 
+#identifier: 'np' 
+#comment: '' 
+#'container$' 'container' 
+#routingTable: 
+#(
+#Dictionary 
+#('cf' ' ->' 
+#controlFeatures) 
+#('cg' ' ->' 
+#constructedGeo) 
+#('geo' ' ->' 
+#geometry) 
+#('pcs' ' ->' 
+#pcs)) 
+#geometry: 
+#(
+#OMListBuilder 
+#identifier: 'geo' 
+#comment: '' 
+#'container$' 'container' 
+#dictionary: 
+#(
+#Dictionary 
+#('Cylinder1' ' ->' 
+#(
+#OMGeoCylinder 
+#identifier: 'Cylinder1' 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings) 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary) 
+#parameters: '') 
+#result: 
+#(
+#Dictionary 
+#(
+#center ' ->' 
+#(
+#Vector 
+#x: -67.119017293313d 
+#y: 37.062305898749d 
+#z: -2.0d)) 
+#(
+#dofType ' ->' 
+#allFree) 
+#(
+#evalForCompare ' ->' 
+#OMCfElementFE) 
+#(
+#evalType ' ->' 
+#gauss) 
+#(
+#firstProbeRadius ' ->' 0.0d) 
+#(
+#indexOfMaxDev ' ->' 6) 
+#(
+#indexOfMaxDevOfAll ' ->' 6) 
+#(
+#indexOfMinDev ' ->' 4) 
+#(
+#indexOfMinDevOfAll ' ->' 4) 
+#(
+#isProjected ' ->' false) 
+#(
+#maxDev ' ->' 3.7303493627405d-14) 
+#(
+#minDev ' ->' -4.6185277824407d-14) 
+#(
+#noPt ' ->' 20) 
+#(
+#noPtOfAll ' ->' 20) 
+#(
+#referenceSystemForCompare ' ->' nil) 
+#(
+#restr ' ->' 
+#(
+#OMRestrictMode 
+#collection: 
+#(
+#Array nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil))) 
+#(
+#sigma ' ->' 2.6258656132601d-14) 
+#(
+#startvalue ' ->' 0)) 
+#location: 
+#(
+#OMGeoLocation 
+#'container$' 'container' 
+#vector: 
+#(
+#Vector 
+#x: -67.119017293313d 
+#y: 37.062305898749d 
+#z: -1.446675298406d) 
+#normVector: 
+#(
+#DirectionVector 
+#x: -2.8285479536479d-16 
+#y: 6.5871953997011d-16 
+#z: 1.0d) 
+#uAxis: 
+#(
+#OMuAxis 
+#'container$' 'container' 
+#angle: 0.0d) 
+#status: 0 
+#flags: 
+#(
+#Array true true) 
+#cache: 
+#(
+#OMGeoCache 
+#'container$' 'container' 
+#localPCS: 
+#(
+#OMWPSystem 
+#comment: '' 
+#'container$' nil 
+#matrix: 
+#(
+#RotaryMatrix 
+#rows: 
+#(
+#Array 
+#(
+#Array 1.0d 0.0d 2.8285479536479d-16) 
+#(
+#Array 1.8632198068103d-31 1.0d -6.5871953997011d-16) 
+#(
+#Array -2.8285479536479d-16 6.5871953997011d-16 1.0d))) 
+#vector: 
+#(
+#Vector 
+#x: -67.119017293313d 
+#y: 37.062305898749d 
+#z: -1.446675298406d) 
+#spaceAxis: 3))) 
+#limit: 0.0d 
+#radius: 4.75d 
+#angleSegment: 6.2831853071796d 
+#ioSign: -1 
+#flags: 
+#(
+#Array true))) 
+#('Cylinder2' ' ->' 
+#(
+#OMGeoCylinder 
+#identifier: 'Cylinder2' 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings) 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary) 
+#parameters: '') 
+#result: 
+#(
+#Dictionary 
+#(
+#center ' ->' 
+#(
+#Vector 
+#x: -32.880982706687d 
+#y: 37.062305898749d 
+#z: -2.0d)) 
+#(
+#dofType ' ->' 
+#allFree) 
+#(
+#evalForCompare ' ->' 
+#OMCfElementFE) 
+#(
+#evalType ' ->' 
+#gauss) 
+#(
+#firstProbeRadius ' ->' 0.0d) 
+#(
+#indexOfMaxDev ' ->' 16) 
+#(
+#indexOfMaxDevOfAll ' ->' 16) 
+#(
+#indexOfMinDev ' ->' 14) 
+#(
+#indexOfMinDevOfAll ' ->' 14) 
+#(
+#isProjected ' ->' false) 
+#(
+#maxDev ' ->' 5.1514348342607d-14) 
+#(
+#minDev ' ->' -4.3520742565306d-14) 
+#(
+#noPt ' ->' 20) 
+#(
+#noPtOfAll ' ->' 20) 
+#(
+#referenceSystemForCompare ' ->' nil) 
+#(
+#restr ' ->' 
+#(
+#OMRestrictMode 
+#collection: 
+#(
+#Array nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil))) 
+#(
+#sigma ' ->' 2.8153995055162d-14) 
+#(
+#startvalue ' ->' 0)) 
+#location: 
+#(
+#OMGeoLocation 
+#'container$' 'container' 
+#vector: 
+#(
+#Vector 
+#x: -32.880982706687d 
+#y: 37.062305898749d 
+#z: -1.9762852460249d) 
+#normVector: 
+#(
+#DirectionVector 
+#x: -5.1714104948359d-16 
+#y: -9.3380198113228d-16 
+#z: 1.0d) 
+#uAxis: 
+#(
+#OMuAxis 
+#'container$' 'container' 
+#angle: 0.0d) 
+#status: 0 
+#flags: 
+#(
+#Array true true) 
+#cache: 
+#(
+#OMGeoCache 
+#'container$' 'container' 
+#localPCS: 
+#(
+#OMWPSystem 
+#comment: '' 
+#'container$' nil 
+#matrix: 
+#(
+#RotaryMatrix 
+#rows: 
+#(
+#Array 
+#(
+#Array 1.0d 0.0d 5.1714104948359d-16) 
+#(
+#Array -4.829073365326d-31 1.0d 9.3380198113228d-16) 
+#(
+#Array -5.1714104948359d-16 -9.3380198113228d-16 1.0d))) 
+#vector: 
+#(
+#Vector 
+#x: -32.880982706687d 
+#y: 37.062305898749d 
+#z: -1.9762852460249d) 
+#spaceAxis: 3))) 
+#limit: 0.0d 
+#radius: 4.75d 
+#angleSegment: 6.2831853071796d 
+#ioSign: -1 
+#flags: 
+#(
+#Array true))) 
+#('Cylinder3' ' ->' 
+#(
+#OMGeoCylinder 
+#identifier: 'Cylinder3' 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings) 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary) 
+#parameters: '') 
+#result: 
+#(
+#Dictionary 
+#(
+#center ' ->' 
+#(
+#Vector 
+#x: -39.419865458735d 
+#y: 16.937694101251d 
+#z: -2.0d)) 
+#(
+#dofType ' ->' 
+#allFree) 
+#(
+#evalForCompare ' ->' 
+#OMCfElementFE) 
+#(
+#evalType ' ->' 
+#gauss) 
+#(
+#firstProbeRadius ' ->' 0.0d) 
+#(
+#indexOfMaxDev ' ->' 15) 
+#(
+#indexOfMaxDevOfAll ' ->' 15) 
+#(
+#indexOfMinDev ' ->' 7) 
+#(
+#indexOfMinDevOfAll ' ->' 7) 
+#(
+#isProjected ' ->' false) 
+#(
+#maxDev ' ->' 3.3750779948605d-14) 
+#(
+#minDev ' ->' -4.5297099404706d-14) 
+#(
+#noPt ' ->' 20) 
+#(
+#noPtOfAll ' ->' 20) 
+#(
+#referenceSystemForCompare ' ->' nil) 
+#(
+#restr ' ->' 
+#(
+#OMRestrictMode 
+#collection: 
+#(
+#Array nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil))) 
+#(
+#sigma ' ->' 2.4167594299509d-14) 
+#(
+#startvalue ' ->' 0)) 
+#location: 
+#(
+#OMGeoLocation 
+#'container$' 'container' 
+#vector: 
+#(
+#Vector 
+#x: -39.419865458735d 
+#y: 16.937694101251d 
+#z: -1.8832956725182d) 
+#normVector: 
+#(
+#DirectionVector 
+#x: -1.2793560419005d-16 
+#y: 2.2088561218503d-16 
+#z: 1.0d) 
+#uAxis: 
+#(
+#OMuAxis 
+#'container$' 'container' 
+#angle: 0.0d) 
+#status: 0 
+#flags: 
+#(
+#Array true true) 
+#cache: 
+#(
+#OMGeoCache 
+#'container$' 'container' 
+#localPCS: 
+#(
+#OMWPSystem 
+#comment: '' 
+#'container$' nil 
+#matrix: 
+#(
+#RotaryMatrix 
+#rows: 
+#(
+#Array 
+#(
+#Array 1.0d 0.0d 1.2793560419005d-16) 
+#(
+#Array 2.8259134251781d-32 1.0d -2.2088561218503d-16) 
+#(
+#Array -1.2793560419005d-16 2.2088561218503d-16 1.0d))) 
+#vector: 
+#(
+#Vector 
+#x: -39.419865458735d 
+#y: 16.937694101251d 
+#z: -1.8832956725182d) 
+#spaceAxis: 3))) 
+#limit: 0.0d 
+#radius: 4.75d 
+#angleSegment: 6.2831853071796d 
+#ioSign: -1 
+#flags: 
+#(
+#Array true))) 
+#('Cylinder4' ' ->' 
+#(
+#OMGeoCylinder 
+#identifier: 'Cylinder4' 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings) 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary) 
+#parameters: '') 
+#result: 
+#(
+#Dictionary 
+#(
+#center ' ->' 
+#(
+#Vector 
+#x: -60.580134541264d 
+#y: 16.937694101251d 
+#z: -2.0d)) 
+#(
+#dofType ' ->' 
+#allFree) 
+#(
+#evalForCompare ' ->' 
+#OMCfElementFE) 
+#(
+#evalType ' ->' 
+#gauss) 
+#(
+#firstProbeRadius ' ->' 0.0d) 
+#(
+#indexOfMaxDev ' ->' 15) 
+#(
+#indexOfMaxDevOfAll ' ->' 15) 
+#(
+#indexOfMinDev ' ->' 17) 
+#(
+#indexOfMinDevOfAll ' ->' 17) 
+#(
+#isProjected ' ->' false) 
+#(
+#maxDev ' ->' 3.4638958368305d-14) 
+#(
+#minDev ' ->' -5.3290705182008d-14) 
+#(
+#noPt ' ->' 20) 
+#(
+#noPtOfAll ' ->' 20) 
+#(
+#referenceSystemForCompare ' ->' nil) 
+#(
+#restr ' ->' 
+#(
+#OMRestrictMode 
+#collection: 
+#(
+#Array nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil))) 
+#(
+#sigma ' ->' 2.6018221271518d-14) 
+#(
+#startvalue ' ->' 0)) 
+#location: 
+#(
+#OMGeoLocation 
+#'container$' 'container' 
+#vector: 
+#(
+#Vector 
+#x: -60.580134541264d 
+#y: 16.937694101251d 
+#z: -2.2633769852068d) 
+#normVector: 
+#(
+#DirectionVector 
+#x: 7.1319239921429d-16 
+#y: 4.5313889071306d-17 
+#z: 1.0d) 
+#uAxis: 
+#(
+#OMuAxis 
+#'container$' 'container' 
+#angle: 0.0d) 
+#status: 0 
+#flags: 
+#(
+#Array true true) 
+#cache: 
+#(
+#OMGeoCache 
+#'container$' 'container' 
+#localPCS: 
+#(
+#OMWPSystem 
+#comment: '' 
+#'container$' nil 
+#matrix: 
+#(
+#RotaryMatrix 
+#rows: 
+#(
+#Array 
+#(
+#Array 1.0d 0.0d -7.1319239921429d-16) 
+#(
+#Array -3.2317521264495d-32 1.0d -4.5313889071306d-17) 
+#(
+#Array 7.1319239921429d-16 4.5313889071306d-17 1.0d))) 
+#vector: 
+#(
+#Vector 
+#x: -60.580134541264d 
+#y: 16.937694101251d 
+#z: -2.2633769852068d) 
+#spaceAxis: 3))) 
+#limit: 0.0d 
+#radius: 4.75d 
+#angleSegment: 6.2831853071796d 
+#ioSign: -1 
+#flags: 
+#(
+#Array true))) 
+#('Plane1' ' ->' 
+#(
+#OMGeoPlane 
+#identifier: 'Plane1' 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings 
+#(
+#geoCache ' ->' 
+#(
+#OMGeoCache 
+#'container$' 'container' 
+#localPCS: 
+#(
+#OMWPSystem 
+#comment: '' 
+#'container$' nil 
+#matrix: 
+#(
+#RotaryMatrix 
+#rows: 
+#(
+#Array 
+#(
+#Array 1.0d 0.0d 0.0d) 
+#(
+#Array 0.0d 1.0d 0.0d) 
+#(
+#Array 0.0d 0.0d 1.0d))) 
+#vector: 
+#(
+#Vector 
+#x: -75.7d 
+#y: 10.6d 
+#z: 0.0d) 
+#spaceAxis: 3)))) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings) 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary) 
+#parameters: '') 
+#result: 
+#(
+#Dictionary 
+#(
+#isProjected ' ->' false) 
+#(
+#ptangle ' ->' 0.0d)) 
+#location: 
+#(
+#OMGeoLocation 
+#'container$' 'container' 
+#vector: 
+#(
+#Vector 
+#x: -75.7d 
+#y: 10.6d 
+#z: 0.0d) 
+#normVector: 
+#(
+#ProjectedDirectionVector 
+#x: 0.0d 
+#y: 0.0d 
+#z: 1.0d 
+#referenceAxis: 3) 
+#uAxis: 
+#(
+#OMuAxis 
+#'container$' 'container' 
+#angle: 0.0d) 
+#status: 0 
+#flags: 
+#(
+#Array true true) 
+#cache: 
+#(
+#OMGeoCache 
+#'container$' 'container' 
+#localPCS: 
+#(
+#OMWPSystem 
+#comment: '' 
+#'container$' nil 
+#matrix: 
+#(
+#RotaryMatrix 
+#rows: 
+#(
+#Array 
+#(
+#Array 1.0d 0.0d 0.0d) 
+#(
+#Array 0.0d 1.0d 0.0d) 
+#(
+#Array 0.0d 0.0d 1.0d))) 
+#vector: 
+#(
+#Vector 
+#x: -75.7d 
+#y: 10.6d 
+#z: 0.0d) 
+#spaceAxis: 3))) 
+#ioSign: 1 
+#limit: 
+#(
+#Point 67.5d 70.1d))) 
+#('Plane2' ' ->' 
+#(
+#OMGeoPlane 
+#identifier: 'Plane2' 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings) 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary) 
+#parameters: '') 
+#result: 
+#(
+#Dictionary 
+#(
+#isProjected ' ->' false) 
+#(
+#plcnLine ' ->' 2) 
+#(
+#plcnType ' ->' 
+#line) 
+#(
+#ptangle ' ->' 0.0d)) 
+#location: 
+#(
+#OMGeoLocation 
+#'container$' 'container' 
+#vector: 
+#(
+#Vector 
+#x: 7.6454349282683d-18 
+#y: 23.9d 
+#z: -1.8d) 
+#normVector: 
+#(
+#ProjectedDirectionVector 
+#x: 1.0d 
+#y: 0.0d 
+#z: 0.0d 
+#referenceAxis: 1) 
+#uAxis: 
+#(
+#OMuAxis 
+#'container$' 'container' 
+#angle: -0.0052359877559922d) 
+#status: 0 
+#flags: 
+#(
+#Array true true) 
+#cache: 
+#(
+#OMGeoCache 
+#'container$' 'container' 
+#localPCS: 
+#(
+#OMWPSystem 
+#comment: '' 
+#'container$' 'container' 
+#matrix: 
+#(
+#RotaryMatrix 
+#rows: 
+#(
+#Array 
+#(
+#Array 0.0d 0.99998629224743d -0.0052359638314292d) 
+#(
+#Array 0.0d 0.0052359638314292d 0.99998629224743d) 
+#(
+#Array 1.0d 0.0d 0.0d))) 
+#vector: 
+#(
+#Vector 
+#x: 23.90909711961d 
+#y: -1.6748357904742d 
+#z: 7.6454349282683d-18) 
+#spaceAxis: 3))) 
+#ioSign: 1 
+#limit: 
+#(
+#Point 55.0d 0.0d))) 
+#('Plane3' ' ->' 
+#(
+#OMGeoPlane 
+#identifier: 'Plane3' 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings) 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary) 
+#parameters: '') 
+#result: 
+#(
+#Dictionary 
+#(
+#isProjected ' ->' false) 
+#(
+#plcnLine ' ->' 1) 
+#(
+#plcnType ' ->' 
+#line) 
+#(
+#ptangle ' ->' 0.0d)) 
+#location: 
+#(
+#OMGeoLocation 
+#'container$' 'container' 
+#vector: 
+#(
+#Vector 
+#x: -78.4d 
+#y: 0.0d 
+#z: -1.8d) 
+#normVector: 
+#(
+#ProjectedDirectionVector 
+#x: 0.0d 
+#y: -1.0d 
+#z: 0.0d 
+#referenceAxis: -2) 
+#uAxis: 
+#(
+#OMuAxis 
+#'container$' 'container' 
+#angle: 0.0d) 
+#status: 0 
+#flags: 
+#(
+#Array true true) 
+#cache: 
+#(
+#OMGeoCache 
+#'container$' 'container' 
+#localPCS: 
+#(
+#OMWPSystem 
+#comment: '' 
+#'container$' 'container' 
+#matrix: 
+#(
+#RotaryMatrix 
+#rows: 
+#(
+#Array 
+#(
+#Array 1.0d 0.0d -1.836970198721d-16) 
+#(
+#Array 1.836970198721d-16 0.0d 1.0d) 
+#(
+#Array 0.0d -1.0d 0.0d))) 
+#vector: 
+#(
+#Vector 
+#x: -78.4d 
+#y: -1.8d 
+#z: 0.0d) 
+#spaceAxis: 3))) 
+#ioSign: 1 
+#limit: 
+#(
+#Point 14.3d 0.0d))) 
+#('Plane4' ' ->' 
+#(
+#OMGeoPlane 
+#identifier: 'Plane4' 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings) 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary) 
+#parameters: '') 
+#result: 
+#(
+#Dictionary 
+#(
+#isProjected ' ->' false) 
+#(
+#ptangle ' ->' 0.0d)) 
+#location: 
+#(
+#OMGeoLocation 
+#'container$' 'container' 
+#referenceSystem: 
+#base 
+#vector: 
+#(
+#CylindricalVector 
+#x: -71.2d 
+#y: 0.0d 
+#z: -1.8d 
+#referenceAxis: 3) 
+#normVector: 
+#(
+#ProjectedDirectionVector 
+#x: 0.0d 
+#y: -1.0d 
+#z: 0.0d 
+#referenceAxis: -2) 
+#uAxis: 
+#(
+#OMuAxis 
+#'container$' 'container' 
+#angle: 0.0d) 
+#status: 0 
+#flags: 
+#(
+#Array true true) 
+#cache: 
+#(
+#OMGeoCache 
+#'container$' 'container')) 
+#ioSign: 1 
+#limit: 
+#(
+#Point 0.0d 0.0d))) 
+#('Plane5' ' ->' 
+#(
+#OMGeoPlane 
+#identifier: 'Plane5' 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings) 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary) 
+#parameters: '') 
+#result: 
+#(
+#Dictionary 
+#(
+#isProjected ' ->' false)) 
+#location: 
+#(
+#OMGeoLocation 
+#'container$' 'container' 
+#vector: 
+#(
+#Vector 
+#x: -80.0d 
+#y: 25.0d 
+#z: -2.7191951987122d) 
+#normVector: 
+#(
+#DirectionVector 
+#x: -1.0d 
+#y: 0.0d 
+#z: 0.0d) 
+#uAxis: 
+#(
+#OMuAxis 
+#'container$' 'container' 
+#angle: 0.0d) 
+#status: 0 
+#flags: 
+#(
+#Array true true) 
+#cache: 
+#(
+#OMGeoCache 
+#'container$' 'container' 
+#localPCS: 
+#(
+#OMWPSystem 
+#comment: '' 
+#'container$' nil 
+#matrix: 
+#(
+#RotaryMatrix 
+#rows: 
+#(
+#Array 
+#(
+#Array 0.0d 0.0d 1.0d) 
+#(
+#Array 0.0d 1.0d 0.0d) 
+#(
+#Array -1.0d 0.0d 0.0d))) 
+#vector: 
+#(
+#Vector 
+#x: -2.7191951987122d 
+#y: 25.0d 
+#z: 80.0d) 
+#spaceAxis: 3))) 
+#ioSign: 1 
+#limit: 
+#(
+#Point 0.0d 0.0d))) 
+#('Plane6' ' ->' 
+#(
+#OMGeoPlane 
+#identifier: 'Plane6' 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings) 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary) 
+#parameters: '') 
+#result: 
+#(
+#Dictionary 
+#(
+#isProjected ' ->' false)) 
+#location: 
+#(
+#OMGeoLocation 
+#'container$' 'container' 
+#vector: 
+#(
+#Vector 
+#x: 3.44038d-16 
+#y: 25.0d 
+#z: -2.7192d) 
+#normVector: 
+#(
+#DirectionVector 
+#x: 1.0d 
+#y: 0.0d 
+#z: 0.0d) 
+#uAxis: 
+#(
+#OMuAxis 
+#'container$' 'container' 
+#angle: 0.0d) 
+#status: 0 
+#flags: 
+#(
+#Array true true) 
+#cache: 
+#(
+#OMGeoCache 
+#'container$' 'container' 
+#localPCS: 
+#(
+#OMWPSystem 
+#comment: '' 
+#'container$' nil 
+#matrix: 
+#(
+#RotaryMatrix 
+#rows: 
+#(
+#Array 
+#(
+#Array 0.0d 1.0d -1.836970198721d-16) 
+#(
+#Array 0.0d 1.836970198721d-16 1.0d) 
+#(
+#Array 1.0d 0.0d 0.0d))) 
+#vector: 
+#(
+#Vector 
+#x: 25.0d 
+#y: -2.7192d 
+#z: 3.44038d-16) 
+#spaceAxis: 3))) 
+#ioSign: 1 
+#limit: 
+#(
+#Point 0.0d 0.0d))))) 
+#controlFeatures: 
+#(
+#OMListBuilder 
+#identifier: 'cf' 
+#comment: '' 
+#'container$' 'container' 
+#dictionary: 
+#(
+#Dictionary 
+#('3d Polar Distance1' ' ->' 
+#(
+#OMCFDistancePolar3d 
+#identifier: '3d Polar Distance1' 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings 
+#(
+#actualState ' ->' 
+#inTolerance) 
+#(
+#keyForLabel ' ->' 
+#distancePol3d)) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary) 
+#parameters: '') 
+#featureElement: 
+#(
+#OMCfElementFE 
+#identifier: 'Point2' 
+#'container$' 'container' 
+#evalType: 
+#default 
+#defaultEvalType: 
+#gauss 
+#nominalInsteadActual: false 
+#referencedPoint: 
+#(
+#OMReferencedPoint 
+#comment: '' 
+#'container$' 'container' 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true) 
+#referencedPoint: 
+#elementOrigin 
+#coordSystem: 
+#elementSystem) 
+#evaluation: 
+#OMGeoSpacePoint 
+#dofType: 
+#allFree 
+#modes: 
+#(
+#OMSettings) 
+#probeCorrection: true 
+#mmcElement: 
+#(
+#OMCfElementCF)) 
+#tolerance: 
+#(
+#OMReadUniToleranceLen 
+#comment: '' 
+#'container$' 'container' 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary) 
+#parameters: '') 
+#noneTolUpper: true 
+#noneTolLower: true 
+#quality: 
+#fine 
+#nominal: 80.0d 
+#plusMinusDeviation: 0.15) 
+#plotObject: 
+#(
+#OMCFPlot 
+#comment: '' 
+#'container$' 'container' 
+#tolerance: 
+#(
+#OMReadUniToleranceLen 
+#comment: '' 
+#'container$' 'container' 
+#noneTolUpper: false 
+#noneTolLower: false 
+#quality: 
+#fine 
+#nominal: 0.0d 
+#plusMinusDeviation: 0.05)) 
+#referenceA: 
+#(
+#OMCfElementFE 
+#identifier: 'Point3' 
+#'container$' 'container' 
+#evalType: 
+#default 
+#defaultEvalType: 
+#gauss 
+#nominalInsteadActual: false 
+#referencedPoint: 
+#(
+#OMReferencedPoint 
+#comment: '' 
+#'container$' 'container' 
+#referencedPoint: 
+#elementOrigin 
+#coordSystem: 
+#elementSystem) 
+#evaluation: 
+#OMGeoSpacePoint 
+#dofType: 
+#allFree 
+#modes: 
+#(
+#OMSettings) 
+#probeCorrection: true 
+#mmcElement: 
+#(
+#OMCfElementCF)))) 
+#('Diameter_Circle1' ' ->' 
+#(
+#OMCFabsolute 
+#identifier: 'Diameter_Circle1' 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings 
+#(
+#actualState ' ->' 
+#inTolerance) 
+#(
+#identifierAlreadySet ' ->' true) 
+#(
+#keyForLabel ' ->' 
+#diameter)) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary) 
+#parameters: '') 
+#featureElement: 
+#(
+#OMCfElementFE 
+#identifier: 'Circle1' 
+#'container$' 'container' 
+#evalType: 
+#default 
+#defaultEvalType: 
+#gauss 
+#nominalInsteadActual: false 
+#referencedPoint: 
+#(
+#OMReferencedPoint 
+#comment: '' 
+#'container$' 'container' 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true) 
+#referencedPoint: 
+#elementOrigin 
+#coordSystem: 
+#elementSystem) 
+#evaluation: 
+#OMGeoCircle 
+#dofType: 
+#allFree 
+#modes: 
+#(
+#OMSettings) 
+#probeCorrection: true 
+#mmcElement: 
+#(
+#OMCfElementCF)) 
+#tolerance: 
+#(
+#OMReadUniToleranceLen 
+#identifier: 'Diameter_Circle1' 
+#comment: '' 
+#'container$' 'container' 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary) 
+#parameters: '') 
+#noneTolUpper: false 
+#noneTolLower: false 
+#quality: 
+#fine 
+#nominal: 9.5d 
+#plusMinusDeviation: 0.1) 
+#plotObject: 
+#(
+#OMCFPlot 
+#comment: '' 
+#'container$' 'container' 
+#tolerance: 
+#(
+#OMReadUniToleranceLen 
+#comment: '' 
+#'container$' 'container' 
+#noneTolUpper: false 
+#noneTolLower: false 
+#quality: 
+#fine 
+#nominal: 0.0d 
+#plusMinusDeviation: 0.05) 
+#plotData: 
+#(
+#Dictionary 
+#(
+#chartName ' ->' 'acis_3d.gra') 
+#(
+#formplottOrder ' ->' 
+#(
+#OMFormplottAssociations)) 
+#(
+#magnificationFactor ' ->' 500) 
+#(
+#tableOrder ' ->' 
+#(
+#OMFormplottAssociations))) 
+#plotType: 
+#acisView) 
+#symbol: 
+#diameter)) 
+#('Diameter_Circle2' ' ->' 
+#(
+#OMCFabsolute 
+#identifier: 'Diameter_Circle2' 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings 
+#(
+#actualState ' ->' 
+#inTolerance) 
+#(
+#identifierAlreadySet ' ->' true) 
+#(
+#keyForLabel ' ->' 
+#doNotChangeMyLabel)) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary) 
+#parameters: '') 
+#featureElement: 
+#(
+#OMCfElementFE 
+#identifier: 'Circle2' 
+#'container$' 'container' 
+#evalType: 
+#default 
+#defaultEvalType: 
+#gauss 
+#nominalInsteadActual: false 
+#referencedPoint: 
+#(
+#OMReferencedPoint 
+#comment: '' 
+#'container$' 'container' 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true) 
+#referencedPoint: 
+#elementOrigin 
+#coordSystem: 
+#elementSystem) 
+#evaluation: 
+#OMGeoCircle 
+#dofType: 
+#allFree 
+#modes: 
+#(
+#OMSettings) 
+#probeCorrection: true 
+#mmcElement: 
+#(
+#OMCfElementCF)) 
+#tolerance: 
+#(
+#OMReadUniToleranceLen 
+#identifier: 'Diameter_Circle1' 
+#comment: '' 
+#'container$' 'container' 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary) 
+#parameters: '') 
+#noneTolUpper: false 
+#noneTolLower: false 
+#quality: 
+#fine 
+#nominal: 9.5d 
+#plusMinusDeviation: 0.1) 
+#plotObject: 
+#(
+#OMCFPlot 
+#comment: '' 
+#'container$' 'container' 
+#tolerance: 
+#(
+#OMReadUniToleranceLen 
+#comment: '' 
+#'container$' 'container' 
+#noneTolUpper: false 
+#noneTolLower: false 
+#quality: 
+#fine 
+#nominal: 0.0d 
+#plusMinusDeviation: 0.05) 
+#plotType: 
+#acisView) 
+#symbol: 
+#diameter)) 
+#('Diameter_Circle3' ' ->' 
+#(
+#OMCFabsolute 
+#identifier: 'Diameter_Circle3' 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings 
+#(
+#actualState ' ->' 
+#inTolerance) 
+#(
+#identifierAlreadySet ' ->' true) 
+#(
+#keyForLabel ' ->' 
+#doNotChangeMyLabel)) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary) 
+#parameters: '') 
+#featureElement: 
+#(
+#OMCfElementFE 
+#identifier: 'Circle3' 
+#'container$' 'container' 
+#evalType: 
+#default 
+#defaultEvalType: 
+#gauss 
+#nominalInsteadActual: false 
+#referencedPoint: 
+#(
+#OMReferencedPoint 
+#comment: '' 
+#'container$' 'container' 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true) 
+#referencedPoint: 
+#elementOrigin 
+#coordSystem: 
+#elementSystem) 
+#evaluation: 
+#OMGeoCircle 
+#dofType: 
+#allFree 
+#modes: 
+#(
+#OMSettings) 
+#probeCorrection: true 
+#mmcElement: 
+#(
+#OMCfElementCF)) 
+#tolerance: 
+#(
+#OMReadUniToleranceLen 
+#identifier: 'Diameter_Circle1' 
+#comment: '' 
+#'container$' 'container' 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary) 
+#parameters: '') 
+#noneTolUpper: false 
+#noneTolLower: false 
+#quality: 
+#fine 
+#nominal: 9.5d 
+#plusMinusDeviation: 0.1) 
+#plotObject: 
+#(
+#OMCFPlot 
+#comment: '' 
+#'container$' 'container' 
+#tolerance: 
+#(
+#OMReadUniToleranceLen 
+#comment: '' 
+#'container$' 'container' 
+#noneTolUpper: false 
+#noneTolLower: false 
+#quality: 
+#fine 
+#nominal: 0.0d 
+#plusMinusDeviation: 0.05) 
+#plotType: 
+#acisView) 
+#symbol: 
+#diameter)) 
+#('Diameter_Circle4' ' ->' 
+#(
+#OMCFabsolute 
+#identifier: 'Diameter_Circle4' 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings 
+#(
+#actualState ' ->' 
+#inTolerance) 
+#(
+#identifierAlreadySet ' ->' true) 
+#(
+#keyForLabel ' ->' 
+#doNotChangeMyLabel)) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary) 
+#parameters: '') 
+#featureElement: 
+#(
+#OMCfElementFE 
+#identifier: 'Circle4' 
+#'container$' 'container' 
+#evalType: 
+#default 
+#defaultEvalType: 
+#gauss 
+#nominalInsteadActual: false 
+#referencedPoint: 
+#(
+#OMReferencedPoint 
+#comment: '' 
+#'container$' 'container' 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true) 
+#referencedPoint: 
+#elementOrigin 
+#coordSystem: 
+#elementSystem) 
+#evaluation: 
+#OMGeoCircle 
+#dofType: 
+#allFree 
+#modes: 
+#(
+#OMSettings) 
+#probeCorrection: true 
+#mmcElement: 
+#(
+#OMCfElementCF)) 
+#tolerance: 
+#(
+#OMReadUniToleranceLen 
+#identifier: 'Diameter_Circle1' 
+#comment: '' 
+#'container$' 'container' 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary) 
+#parameters: '') 
+#noneTolUpper: false 
+#noneTolLower: false 
+#quality: 
+#fine 
+#nominal: 9.5d 
+#plusMinusDeviation: 0.1) 
+#plotObject: 
+#(
+#OMCFPlot 
+#comment: '' 
+#'container$' 'container' 
+#tolerance: 
+#(
+#OMReadUniToleranceLen 
+#comment: '' 
+#'container$' 'container' 
+#noneTolUpper: false 
+#noneTolLower: false 
+#quality: 
+#fine 
+#nominal: 0.0d 
+#plusMinusDeviation: 0.05) 
+#plotType: 
+#acisView) 
+#symbol: 
+#diameter)))) 
+#constructedGeo: 
+#(
+#OMListBuilder 
+#identifier: 'cg' 
+#comment: '' 
+#'container$' 'container' 
+#dictionary: 
+#(
+#Dictionary 
+#('CAD-Presentation1' ' ->' 
+#(
+#OMCfActualsPresentation 
+#identifier: 'CAD-Presentation1' 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings 
+#(
+#keyForLabel ' ->' nil) 
+#(
+#printPlotObject ' ->' false)) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary)) 
+#tolerance: 
+#(
+#OMReadUniToleranceLen 
+#comment: '' 
+#'container$' 'container' 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true) 
+#noneTolUpper: false 
+#noneTolLower: false 
+#quality: 
+#fine 
+#nominal: 0.0d 
+#plusMinusDeviation: 0.05) 
+#plotObject: 
+#(
+#OMCFPlot 
+#comment: '' 
+#'container$' 'container' 
+#tolerance: 
+#(
+#OMReadUniToleranceLen 
+#comment: '' 
+#'container$' 'container' 
+#noneTolUpper: false 
+#noneTolLower: false 
+#quality: 
+#fine 
+#nominal: 0.0d 
+#plusMinusDeviation: 0.05) 
+#plotData: 
+#(
+#Dictionary 
+#(
+#chartName ' ->' 'cadframe_portrait.gra') 
+#(
+#selectedACISViewNames ' ->' 
+#(
+#OrderedCollection 
+#view))) 
+#plotType: 
+#acisView 
+#chartName: 'cadframe_portrait.gra'))) 
+#('Measurement Plan 22_1-BS' ' ->' 
+#(
+#OMDefinePCS 
+#identifier: 'Measurement Plan 22_1-BS' 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings 
+#(
+#cncBaseSystem ' ->' true) 
+#(
+#manualBaseSystem ' ->' false)) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary)) 
+#rotationSpace: 
+#(
+#OMDefineFeature 
+#identifier: 'Plane1' 
+#'container$' 'container' 
+#evalType: 
+#default 
+#defaultEvalType: 
+#gauss 
+#nominalInsteadActual: false 
+#referencedPoint: 
+#(
+#OMReferencedPoint 
+#comment: '' 
+#'container$' 'container' 
+#referencedPoint: 
+#elementOrigin 
+#coordSystem: 
+#elementSystem) 
+#evaluation: 
+#OMGeoPlane 
+#dofType: 
+#allFree 
+#modes: 
+#(
+#OMSettings) 
+#probeCorrection: true) 
+#rotationPlane: 
+#(
+#OMDefineFeature 
+#identifier: '2d Line1' 
+#'container$' 'container' 
+#evalType: 
+#default 
+#defaultEvalType: 
+#gauss 
+#nominalInsteadActual: false 
+#referencedPoint: 
+#(
+#OMReferencedPoint 
+#comment: '' 
+#'container$' 'container' 
+#referencedPoint: 
+#elementOrigin 
+#coordSystem: 
+#elementSystem) 
+#evaluation: 
+#OMGeoLine 
+#dofType: 
+#allFree 
+#modes: 
+#(
+#OMSettings) 
+#probeCorrection: true) 
+#translationX: 
+#(
+#OMDefineFeature 
+#identifier: '2d Line1' 
+#'container$' 'container' 
+#evalType: 
+#default 
+#defaultEvalType: 
+#gauss 
+#nominalInsteadActual: false 
+#referencedPoint: 
+#(
+#OMReferencedPoint 
+#comment: '' 
+#'container$' 'container' 
+#referencedPoint: 
+#elementOrigin 
+#coordSystem: 
+#elementSystem) 
+#evaluation: 
+#OMGeoLine 
+#dofType: 
+#allFree 
+#probeCorrection: true) 
+#translationY: 
+#(
+#OMDefineFeature 
+#identifier: 'Point1' 
+#'container$' 'container' 
+#evalType: 
+#default 
+#defaultEvalType: 
+#gauss 
+#nominalInsteadActual: false 
+#referencedPoint: 
+#(
+#OMReferencedPoint 
+#comment: '' 
+#'container$' 'container' 
+#referencedPoint: 
+#elementOrigin 
+#coordSystem: 
+#elementSystem) 
+#evaluation: 
+#OMGeoSpacePoint 
+#dofType: 
+#allFree 
+#modes: 
+#(
+#OMSettings) 
+#probeCorrection: true) 
+#translationZ: 
+#(
+#OMDefineFeature 
+#identifier: 'Plane1' 
+#'container$' 'container' 
+#evalType: 
+#default 
+#defaultEvalType: 
+#gauss 
+#nominalInsteadActual: false 
+#referencedPoint: 
+#(
+#OMReferencedPoint 
+#comment: '' 
+#'container$' 'container' 
+#referencedPoint: 
+#elementOrigin 
+#coordSystem: 
+#elementSystem) 
+#evaluation: 
+#OMGeoPlane 
+#dofType: 
+#allFree 
+#probeCorrection: true) 
+#primAxis: 3 
+#secondAxis: 2 
+#specialFunctions: 
+#(
+#OMSOrderedCollection) 
+#defBaseSystem: 
+#(
+#OMDefineBaseSystem 
+#comment: '' 
+#'container$' 'container' 
+#newBaseSystem: true 
+#newStartSystem: false 
+#baseSystemToFile: false 
+#nameOfBaseSystem: 'Measurement Plan 22_1'))))) 
+#pcs: 
+#(
+#OMListBuilder 
+#identifier: 'pcs' 
+#comment: '' 
+#'container$' 'container' 
+#dictionary: 
+#(
+#Dictionary))) 
+#measurement: 
+#(
+#OMMeasurement 
+#identifier: 'meas' 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings 
+#(
+#index ' ->' nil)) 
+#routingTable: 
+#(
+#Dictionary 
+#('def' ' ->' 
+#measDef)) 
+#measDef: 
+#(
+#OMMeasDefinition 
+#identifier: 'def' 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings 
+#(
+#problemsList ' ->' 
+#(
+#OrderedCollection)) 
+#(
+#protocolDefinitionsFromPCM ' ->' 
+#(
+#OMOrderedDictionary))) 
+#routingTable: 
+#(
+#Dictionary 
+#('cfs' ' ->' 
+#orderedCfs) 
+#('me' ' ->' 
+#measElements) 
+#('pe' ' ->' 
+#pathElements) 
+#('sg' ' ->' 
+#safetyGroups)) 
+#orderedCfs: 
+#(
+#OMOrderedList 
+#identifier: 'cfs' 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings) 
+#collection: 
+#(
+#OrderedCollection 
+#(
+#OMMControlFeature 
+#identifier: '3d Polar Distance1' 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings 
+#(
+#allMERefRef ' ->' 
+#(
+#List 'Point3' 'Point2'))) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary)) 
+#counter: 1) 
+#(
+#OMMControlFeature 
+#identifier: 'Diameter_Circle1' 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings 
+#(
+#allMERefRef ' ->' 
+#(
+#List 'Circle1')) 
+#(
+#identifierAlreadySet ' ->' true) 
+#(
+#resultPresentation ' ->' 
+#(
+#Dictionary 
+#(
+#actualColor ' ->' 1) 
+#(
+#actualGeometry ' ->' false) 
+#(
+#actualPoints ' ->' false) 
+#(
+#actualPointsSize ' ->' false) 
+#(
+#bannerActual ' ->' true) 
+#(
+#bannerCharacteristics ' ->' false) 
+#(
+#bannerDeviation ' ->' true) 
+#(
+#bannerFeatures ' ->' false) 
+#(
+#bannerFilled ' ->' true) 
+#(
+#bannerIdentifier ' ->' true) 
+#(
+#bannerLabels ' ->' true) 
+#(
+#bannerLine ' ->' true) 
+#(
+#bannerNominal ' ->' true) 
+#(
+#bannerOn ' ->' false) 
+#(
+#bannerSettings ' ->' 
+#(
+#OMCADBannerModel 
+#showBanner: false 
+#attributes: 
+#(
+#OMCADBannerItemModel 
+#icon: false 
+#index: false 
+#actual: true 
+#nominal: true 
+#upperTolerance: false 
+#lowerTolerance: false 
+#deviation: true 
+#deviationOutOfTolerance: false 
+#identifier: true 
+#labels: true 
+#viewHorizontal: false 
+#viewFilled: true 
+#viewWithLine: true 
+#viewWithTriangle: false 
+#characterSize: 15) 
+#showBannerFeatures: false 
+#showForEachPoint: false 
+#limitations: '' 
+#bannerPerSheetEnabled: false 
+#bannerPerSheet: 1 
+#currentSheet: 1 
+#arrangeAtDeviation: false 
+#magnificationFactor: 0)) 
+#(
+#colorCoded ' ->' true) 
+#(
+#colorMap ' ->' 
+#(
+#OMCADColorMapModel 
+#colorMapType: 
+#colorSteps 
+#steps: 10 
+#colorMapList: 
+#(
+#OrderedCollection 
+#(
+#OMCADColorMapEntity 
+#color: 
+#(
+#ColorValue 
+#red) 
+#upperBound: 1.0 
+#lowerBound: 0.8) 
+#(
+#OMCADColorMapEntity 
+#color: 
+#(
+#ColorValue 8191 3640 0) 
+#upperBound: 0.8 
+#lowerBound: 0.6) 
+#(
+#OMCADColorMapEntity 
+#color: 
+#(
+#ColorValue 8191 7281 0) 
+#upperBound: 0.6 
+#lowerBound: 0.4) 
+#(
+#OMCADColorMapEntity 
+#color: 
+#(
+#ColorValue 5461 8191 0) 
+#upperBound: 0.4 
+#lowerBound: 0.2) 
+#(
+#OMCADColorMapEntity 
+#color: 
+#(
+#ColorValue 1820 8191 0) 
+#upperBound: 0.2 
+#lowerBound: 2.98023e-8) 
+#(
+#OMCADColorMapEntity 
+#color: 
+#(
+#ColorValue 0 8191 1820) 
+#upperBound: 2.98023e-8 
+#lowerBound: -0.2) 
+#(
+#OMCADColorMapEntity 
+#color: 
+#(
+#ColorValue 0 8191 5461) 
+#upperBound: -0.2 
+#lowerBound: -0.4) 
+#(
+#OMCADColorMapEntity 
+#color: 
+#(
+#ColorValue 0 7281 8191) 
+#upperBound: -0.4 
+#lowerBound: -0.6) 
+#(
+#OMCADColorMapEntity 
+#color: 
+#(
+#ColorValue 0 3640 8191) 
+#upperBound: -0.6 
+#lowerBound: -0.8) 
+#(
+#OMCADColorMapEntity 
+#color: 
+#(
+#ColorValue 
+#blue) 
+#upperBound: -0.8 
+#lowerBound: -1.0)) 
+#colorExtension: false 
+#minExtendedColor: 
+#(
+#ColorValue 3276 0 6553) 
+#maxExtendedColor: 
+#(
+#ColorValue 4915 0 2457) 
+#unComputedPointsColor: 
+#(
+#ColorValue 
+#white) 
+#toleranceMode: true 
+#openOutSide: false 
+#openInSide: false)) 
+#(
+#connectionLines ' ->' false) 
+#(
+#displayCFResult ' ->' false) 
+#(
+#displaymode ' ->' 
+#CAD) 
+#(
+#geometry ' ->' 
+#all) 
+#(
+#grid ' ->' false) 
+#(
+#gridDisplay ' ->' 
+#point) 
+#(
+#gridInterval ' ->' 10) 
+#(
+#magnificationFactor ' ->' 1) 
+#(
+#maximumPoint ' ->' false) 
+#(
+#minimumPoint ' ->' false) 
+#(
+#nominalGeometry ' ->' false) 
+#(
+#nominalGeometryData ' ->' true) 
+#(
+#nominalPoints ' ->' true) 
+#(
+#opticalColor ' ->' 2) 
+#(
+#performViews ' ->' false) 
+#(
+#saveToElement ' ->' true) 
+#(
+#selectedElements ' ->' 
+#(
+#OrderedCollection)) 
+#(
+#shaded ' ->' true) 
+#(
+#showActualPoints ' ->' false) 
+#(
+#showNomPoints ' ->' 
+#on) 
+#(
+#silhouettes ' ->' true) 
+#(
+#tmpColor ' ->' 4) 
+#(
+#viewingCommon ' ->' 
+#(
+#OMCADViewingCommonModel 
+#highlightColor: 
+#(
+#ColorValue 
+#magenta) 
+#workpieceColor: 
+#(
+#ColorValue 
+#white) 
+#backgroundColor: 
+#(
+#ColorValue 
+#black) 
+#colorGradient: true 
+#backgroundColorTop: 
+#(
+#ColorValue 2195 3113 4382) 
+#backgroundColorBottom: 
+#(
+#ColorValue 6553 6553 6553) 
+#edgeColor: 
+#(
+#ColorValue 
+#white) 
+#edgesOn: true 
+#grid: false 
+#gridInterval: 10.0 
+#silhouettes: false 
+#shaded: false)) 
+#(
+#viewingGeometry ' ->' 
+#(
+#OMCADViewingGeometryModel 
+#view2DElements: true 
+#view3DElements: false 
+#view3DElementsWithoutEntity: true 
+#viewCADEntityWithGeometry: true 
+#showLocalCoordinateSystem: true 
+#entityGeometryColor: 
+#(
+#ColorValue 5734 5734 8191))) 
+#(
+#viewingTechnology ' ->' 
+#(
+#OMCADViewingTechnologyModel 
+#arrowLength: 0.05 
+#technologyColor: 
+#(
+#ColorValue 
+#yellow) 
+#showProbeSphere: false 
+#showTechnologyIfSelected: false 
+#showSafetyPositions: false 
+#showEvaluationRange: false 
+#probeTransparency: false 
+#probeTransparencyValue: 0.5 
+#showTechnologyForPointIfSelected: true 
+#showFieldOfView: false)) 
+#(
+#viewingText ' ->' 
+#(
+#OMCADViewingTextModel 
+#textOn: true 
+#textColor: 
+#(
+#ColorValue 
+#white) 
+#banner: true)) 
+#(
+#viewParams ' ->' 
+#(
+#OrderedCollection 
+#(
+#Vector 
+#x: 1060.257284d 
+#y: -2155.375015d 
+#z: 1098.201431d) 
+#(
+#Vector 
+#x: -38.116154d 
+#y: 41.371861d 
+#z: -0.172007d) 
+#(
+#Vector 
+#x: -0.18297411099481d 
+#y: 0.3649483634596d 
+#z: 0.91287083791401d) '125' '117.597765363128' 
+#(
+#OrderedCollection 0 0 895 842)))))) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary)) 
+#counter: 1) 
+#(
+#OMMControlFeature 
+#identifier: 'Diameter_Circle2' 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings 
+#(
+#allMERefRef ' ->' 
+#(
+#List 'Circle2')) 
+#(
+#keyForLabel ' ->' 
+#doNotChangeMyLabel)) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary)) 
+#counter: 1) 
+#(
+#OMMControlFeature 
+#identifier: 'Diameter_Circle3' 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings 
+#(
+#allMERefRef ' ->' 
+#(
+#List 'Circle3')) 
+#(
+#keyForLabel ' ->' 
+#doNotChangeMyLabel)) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary)) 
+#counter: 1) 
+#(
+#OMMControlFeature 
+#identifier: 'Diameter_Circle4' 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings 
+#(
+#allMERefRef ' ->' 
+#(
+#List 'Circle4')) 
+#(
+#keyForLabel ' ->' 
+#doNotChangeMyLabel)) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary)) 
+#counter: 1) 
+#(
+#OMMGeoLinks 
+#identifier: 'CAD-Presentation1' 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary))))) 
+#measElements: 
+#(
+#OMOrderedList 
+#identifier: 'me' 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings) 
+#collection: 
+#(
+#OrderedCollection 
+#(
+#OMMSetOfTasks 
+#identifier: 'BA' 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings 
+#(
+#definitionsForComment ' ->' 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary))) 
+#(
+#patternForGroup ' ->' nil)) 
+#collection: 
+#(
+#OrderedCollection 
+#(
+#OMMGeometry 
+#identifier: 'Plane1' 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings 
+#(
+#absoluteIndex ' ->' 1) 
+#(
+#columns ' ->' nil) 
+#(
+#modifiedPoints ' ->' false) 
+#(
+#pathMode ' ->' 
+#points) 
+#(
+#spacePointMode ' ->' 
+#touchPoint)) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings) 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary) 
+#parameters: '') 
+#referencedGeometry: 'Plane1' 
+#technology: 
+#(
+#Dictionary 
+#('***' ' ->' 
+#(
+#OMTecMeasPath 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings 
+#(
+#firstPosCache ' ->' 
+#(
+#CylindricalVector 
+#x: -24.207491807735d 
+#y: 18.634898023356d 
+#z: 10.750332965571d 
+#referenceAxis: 3)) 
+#(
+#firstPosStep ' ->' 
+#(
+#ScaledDirectionVector 
+#x: 0.0d 
+#y: 0.0d 
+#z: 5.0d)) 
+#(
+#firstPosStepValue ' ->' 
+#(
+#ScaledDirectionVector 
+#x: 0.0d 
+#y: 0.0d 
+#z: 5.0d))) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary)) 
+#segments: 
+#(
+#OMSOrderedCollection 
+#(
+#OMTecSafety 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings 
+#(
+#safetyGroup ' ->' 'SP +Z')) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary) 
+#parameters: '') 
+#safetyVector: 
+#(
+#Vector 
+#x: 0.0d 
+#y: 0.0d 
+#z: 0.0d)) 
+#(
+#OMTecPoint 
+#identifier: '1' 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary) 
+#parameters: '') 
+#step: 2.0d 
+#actualReception: 1 
+#speed: 3.0d 
+#probeName: '1' 
+#probe: 1 
+#angleA: 0.0d 
+#angleB: 0.0d 
+#calculateSpeed: false 
+#calculateStep: false 
+#travelPath: 
+#default 
+#vector: 
+#(
+#CylindricalVector 
+#x: -0.061250000000001d 
+#y: 0.9303d 
+#z: 0.0d 
+#referenceAxis: 3) 
+#normVector: 
+#(
+#DirectionVector 
+#x: 0.0d 
+#y: 0.0d 
+#z: -1.0d) 
+#coordSystem: 
+#local 
+#probeRadius: 0.75033296557107d) 
+#(
+#OMTecPoint 
+#identifier: '2' 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary) 
+#parameters: '') 
+#step: 2.0d 
+#actualReception: 1 
+#speed: 3.0d 
+#probeName: '1' 
+#probe: 1 
+#angleA: 0.0d 
+#angleB: 0.0d 
+#calculateSpeed: false 
+#calculateStep: false 
+#travelPath: 
+#default 
+#vector: 
+#(
+#CylindricalVector 
+#x: 0.0d 
+#y: 52.2512d 
+#z: 0.0d 
+#referenceAxis: 3) 
+#normVector: 
+#(
+#DirectionVector 
+#x: 0.0d 
+#y: 0.0d 
+#z: -1.0d) 
+#coordSystem: 
+#local 
+#probeRadius: 0.75033296557107d) 
+#(
+#OMTecPoint 
+#identifier: '3' 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary) 
+#parameters: '') 
+#step: 2.0d 
+#actualReception: 1 
+#speed: 3.0d 
+#probeName: '1' 
+#probe: 1 
+#angleA: 0.0d 
+#angleB: 0.0d 
+#calculateSpeed: false 
+#calculateStep: false 
+#travelPath: 
+#default 
+#vector: 
+#(
+#CylindricalVector 
+#x: 67.70631d 
+#y: 69.9054d 
+#z: 0.0d 
+#referenceAxis: 3) 
+#normVector: 
+#(
+#DirectionVector 
+#x: 0.0d 
+#y: 0.0d 
+#z: -1.0d) 
+#coordSystem: 
+#local 
+#probeRadius: 0.75033296557107d) 
+#(
+#OMTecPoint 
+#identifier: '4' 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary) 
+#parameters: '') 
+#step: 2.0d 
+#actualReception: 1 
+#speed: 3.0d 
+#probeName: '1' 
+#probe: 1 
+#angleA: 0.0d 
+#angleB: 0.0d 
+#calculateSpeed: false 
+#calculateStep: false 
+#travelPath: 
+#default 
+#vector: 
+#(
+#CylindricalVector 
+#x: 53.4557d 
+#y: 11.4747d 
+#z: -2.2737367544323d-13 
+#referenceAxis: 3) 
+#normVector: 
+#(
+#DirectionVector 
+#x: 0.0d 
+#y: 0.0d 
+#z: -1.0d) 
+#coordSystem: 
+#local 
+#probeRadius: 0.75033296557107d)) 
+#actSegment: 0 
+#actSafety: 1 
+#viewMode: 
+#local 
+#viewSystem: 
+#cartesian 
+#viewAccord: false))) 
+#evaluation: 
+#(
+#OMDefineFeature 
+#'container$' 'container' 
+#evalType: 
+#default 
+#defaultEvalType: 
+#gauss 
+#nominalInsteadActual: false 
+#referencedPoint: 
+#(
+#OMReferencedPoint 
+#comment: '' 
+#'container$' 'container' 
+#coordSystem: 
+#elementSystem) 
+#evaluation: 
+#OMGeoPlane 
+#dofType: 
+#allFree 
+#modes: 
+#(
+#OMSettings) 
+#probeCorrection: true) 
+#projection: 
+#(
+#OMMProjection 
+#'container$' 'container' 
+#reference: 
+#(
+#OMNoReference 
+#'container$' 'container') 
+#measure: 
+#(
+#OMNoProjection 
+#'container$' 'container')) 
+#defaultTechnology: '***') 
+#(
+#OMMGeometry 
+#identifier: '2d Line1' 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings 
+#(
+#absoluteIndex ' ->' 2) 
+#(
+#columns ' ->' nil) 
+#(
+#modifiedPoints ' ->' false) 
+#(
+#pathMode ' ->' 
+#points) 
+#(
+#spacePointMode ' ->' 
+#touchPoint)) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings) 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary) 
+#parameters: '') 
+#referencedGeometry: 'Plane2' 
+#technology: 
+#(
+#Dictionary 
+#('***' ' ->' 
+#(
+#OMTecMeasPath 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings 
+#(
+#firstPosCache ' ->' 
+#(
+#CylindricalVector 
+#x: 10.750332965571d 
+#y: 78.851170430646d 
+#z: -2.077611012443d 
+#referenceAxis: 3)) 
+#(
+#firstPosStep ' ->' 
+#(
+#ScaledDirectionVector 
+#x: 5.0d 
+#y: 0.0d 
+#z: 0.0d)) 
+#(
+#firstPosStepValue ' ->' 
+#(
+#ScaledDirectionVector 
+#x: 5.0d 
+#y: 0.0d 
+#z: 0.0d))) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary)) 
+#segments: 
+#(
+#OMSOrderedCollection 
+#(
+#OMTecSafety 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings 
+#(
+#safetyGroup ' ->' 'SP +Z')) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary) 
+#parameters: '') 
+#safetyVector: 
+#(
+#Vector 
+#x: 0.0d 
+#y: 0.0d 
+#z: 0.0d)) 
+#(
+#OMTecLine 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary) 
+#parameters: '') 
+#countOfMeasPoints: 500 
+#step: 0.0d 
+#actualReception: 1 
+#speed: 10 
+#probeName: '1' 
+#probe: 1 
+#angleA: 0.0d 
+#angleB: 0.0d 
+#calculateSpeed: false 
+#calculateStep: false 
+#mode: 
+#numbersOfPoints 
+#virtualSurface: 
+#(
+#OMVirtualSurfaceMeasurement 
+#'container$' 'container' 
+#active: false) 
+#travelPath: 
+#default 
+#coordSystem: 
+#local 
+#advancedSettings: false 
+#offset: 0.0d 
+#length: 55.0d)) 
+#actSegment: 0 
+#actSafety: 1 
+#viewMode: 
+#local))) 
+#evaluation: 
+#(
+#OMDefineFeature 
+#'container$' 'container' 
+#evalType: 
+#default 
+#defaultEvalType: 
+#gauss 
+#nominalInsteadActual: false 
+#referencedPoint: 
+#(
+#OMReferencedPoint 
+#comment: '' 
+#'container$' 'container' 
+#coordSystem: 
+#elementSystem) 
+#evaluation: 
+#OMGeoLine 
+#dofType: 
+#allFree 
+#modes: 
+#(
+#OMSettings) 
+#probeCorrection: true) 
+#projection: 
+#(
+#OMMProjection 
+#'container$' 'container' 
+#reference: 
+#(
+#OMNoReference 
+#'container$' 'container') 
+#measure: 
+#(
+#OMNoProjection 
+#'container$' 'container')) 
+#defaultTechnology: '***') 
+#(
+#OMMGeometry 
+#identifier: '2d Line2' 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings 
+#(
+#absoluteIndex ' ->' 3) 
+#(
+#columns ' ->' nil) 
+#(
+#modifiedPoints ' ->' false) 
+#(
+#pathMode ' ->' 
+#points) 
+#(
+#spacePointMode ' ->' 
+#touchPoint)) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings) 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary) 
+#parameters: '') 
+#referencedGeometry: 'Plane3' 
+#technology: 
+#(
+#Dictionary 
+#('***' ' ->' 
+#(
+#OMTecMeasPath 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings 
+#(
+#firstPosCache ' ->' 
+#(
+#CylindricalVector 
+#x: -64.046965742621d 
+#y: -10.750332965572d 
+#z: -1.7931958483277d 
+#referenceAxis: 3)) 
+#(
+#firstPosStep ' ->' 
+#(
+#ScaledDirectionVector 
+#x: 0.0d 
+#y: -5.0d 
+#z: 0.0d)) 
+#(
+#firstPosStepValue ' ->' 
+#(
+#ScaledDirectionVector 
+#x: 0.0d 
+#y: -5.0d 
+#z: 0.0d))) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary)) 
+#segments: 
+#(
+#OMSOrderedCollection 
+#(
+#OMTecSafety 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings 
+#(
+#safetyGroup ' ->' 'SP +Z')) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary) 
+#parameters: '') 
+#safetyVector: 
+#(
+#Vector 
+#x: 0.0d 
+#y: 0.0d 
+#z: 0.0d)) 
+#(
+#OMTecLine 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary) 
+#parameters: '') 
+#countOfMeasPoints: 143 
+#step: 0.1d 
+#actualReception: 1 
+#speed: 10 
+#probeName: '1' 
+#probe: 1 
+#angleA: 0.0d 
+#angleB: 0.0d 
+#calculateSpeed: false 
+#calculateStep: false 
+#mode: 
+#step 
+#virtualSurface: 
+#(
+#OMVirtualSurfaceMeasurement 
+#'container$' 'container' 
+#active: false) 
+#travelPath: 
+#default 
+#coordSystem: 
+#local 
+#advancedSettings: false 
+#offset: 0.0d 
+#length: 14.3d)) 
+#actSegment: 0 
+#actSafety: 1 
+#viewMode: 
+#local 
+#viewSystem: 
+#cartesian 
+#viewAccord: false))) 
+#evaluation: 
+#(
+#OMDefineFeature 
+#'container$' 'container' 
+#evalType: 
+#default 
+#defaultEvalType: 
+#gauss 
+#nominalInsteadActual: false 
+#referencedPoint: 
+#(
+#OMReferencedPoint 
+#comment: '' 
+#'container$' 'container' 
+#coordSystem: 
+#elementSystem) 
+#evaluation: 
+#OMGeoLine 
+#dofType: 
+#allFree 
+#modes: 
+#(
+#OMSettings) 
+#probeCorrection: true) 
+#projection: 
+#(
+#OMMProjection 
+#'container$' 'container' 
+#reference: 
+#(
+#OMNoReference 
+#'container$' 'container') 
+#measure: 
+#(
+#OMNoProjection 
+#'container$' 'container')) 
+#defaultTechnology: '***') 
+#(
+#OMMGeometry 
+#identifier: 'Point1' 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings 
+#(
+#absoluteIndex ' ->' 4) 
+#(
+#modifiedPoints ' ->' false) 
+#(
+#spacePointMode ' ->' 
+#touchPoint)) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings) 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary) 
+#parameters: '') 
+#referencedGeometry: 'Plane4' 
+#technology: 
+#(
+#OMGeoRecallPoints 
+#identifier: 'Recall1' 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings) 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary)) 
+#featureElement: 
+#(
+#OrderedCollection 
+#(
+#OMGeoLinkElement 
+#identifier: '2d Line2' 
+#'container$' 'container' 
+#nominalInsteadActual: false 
+#referencedPoint: 
+#(
+#OMReferencedPoint 
+#comment: '' 
+#'container$' 'container' 
+#coordSystem: 
+#elementSystem) 
+#geoIsActual: true)) 
+#filename: 
+#(
+#OrderedCollection) 
+#fromFilename: false) 
+#evaluation: 
+#(
+#OMDefineFeature 
+#'container$' 'container' 
+#evalType: 
+#default 
+#defaultEvalType: 
+#gauss 
+#nominalInsteadActual: false 
+#referencedPoint: 
+#(
+#OMReferencedPoint 
+#comment: '' 
+#'container$' 'container' 
+#coordSystem: 
+#elementSystem) 
+#evaluation: 
+#OMGeoSpacePoint 
+#dofType: 
+#allFree 
+#modes: 
+#(
+#OMSettings) 
+#probeCorrection: true) 
+#projection: 
+#(
+#OMMProjection 
+#'container$' 'container' 
+#reference: 
+#(
+#OMNoReference 
+#'container$' 'container') 
+#measure: 
+#(
+#OMNoProjection 
+#'container$' 'container')) 
+#defaultTechnology: '***'))) 
+#(
+#OMMGeometry 
+#identifier: 'Point2' 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings 
+#(
+#modifiedPoints ' ->' false) 
+#(
+#spacePointMode ' ->' 
+#spacePoint)) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings) 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary)) 
+#referencedGeometry: 'Plane5' 
+#technology: 
+#(
+#Dictionary 
+#('***' ' ->' 
+#(
+#OMTecMeasPath 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary)) 
+#segments: 
+#(
+#OMSOrderedCollection 
+#(
+#OMTecSafety 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings 
+#(
+#probeConfiguration ' ->' 'D1') 
+#(
+#safetyGroup ' ->' 'SP +Z')) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary) 
+#parameters: '') 
+#safetyVector: 
+#(
+#Vector 
+#x: 0.0d 
+#y: 0.0d 
+#z: 0.0d)) 
+#(
+#OMTecPoint 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings 
+#(
+#WBScan ' ->' 'Default')) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary) 
+#parameters: '') 
+#step: 1.0d 
+#actualReception: 1 
+#speed: 30.0d 
+#probeName: '1' 
+#probe: 1 
+#angleA: 89.999996423721d 
+#angleB: 0.0d 
+#calculateSpeed: false 
+#calculateStep: false 
+#mode: 
+#step 
+#wbScanSetting: '' 
+#travelPath: 
+#default 
+#vector: 
+#(
+#CylindricalVector 
+#x: 0.0d 
+#y: 0.0d 
+#z: 0.0d 
+#referenceAxis: 3) 
+#normVector: 
+#(
+#DirectionVector 
+#x: 1.0d 
+#y: 0.0d 
+#z: 0.0d) 
+#coordSystem: 
+#local)) 
+#actSegment: 0 
+#actSafety: 1 
+#viewMode: 
+#local))) 
+#evaluation: 
+#(
+#OMDefineFeature 
+#'container$' 'container' 
+#evalType: 
+#default 
+#defaultEvalType: 
+#gauss 
+#nominalInsteadActual: false 
+#referencedPoint: 
+#(
+#OMReferencedPoint 
+#comment: '' 
+#'container$' 'container' 
+#coordSystem: 
+#elementSystem) 
+#evaluation: 
+#OMGeoSpacePoint 
+#dofType: 
+#allFree 
+#modes: 
+#(
+#OMSettings) 
+#probeCorrection: true) 
+#projection: 
+#(
+#OMMProjection 
+#'container$' 'container' 
+#reference: 
+#(
+#OMNoReference 
+#'container$' 'container') 
+#measure: 
+#(
+#OMNoProjection 
+#'container$' 'container')) 
+#defaultTechnology: '***') 
+#(
+#OMMGeometry 
+#identifier: 'Point3' 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings 
+#(
+#modifiedPoints ' ->' false) 
+#(
+#spacePointMode ' ->' 
+#spacePoint)) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings) 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary)) 
+#referencedGeometry: 'Plane6' 
+#technology: 
+#(
+#Dictionary 
+#('***' ' ->' 
+#(
+#OMTecMeasPath 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary)) 
+#segments: 
+#(
+#OMSOrderedCollection 
+#(
+#OMTecSafety 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings 
+#(
+#probeConfiguration ' ->' 'D1') 
+#(
+#safetyGroup ' ->' 'SP +Z')) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary) 
+#parameters: '') 
+#safetyVector: 
+#(
+#Vector 
+#x: 0.0d 
+#y: 0.0d 
+#z: 0.0d)) 
+#(
+#OMTecPoint 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings 
+#(
+#WBScan ' ->' 'Default')) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary) 
+#parameters: '') 
+#step: 1.0d 
+#actualReception: 1 
+#speed: 30.0d 
+#probeName: '1' 
+#probe: 1 
+#angleA: 89.999996423721d 
+#angleB: 0.0d 
+#calculateSpeed: false 
+#calculateStep: false 
+#mode: 
+#step 
+#wbScanSetting: '' 
+#travelPath: 
+#default 
+#vector: 
+#(
+#CylindricalVector 
+#x: 0.0d 
+#y: 0.0d 
+#z: 0.0d 
+#referenceAxis: 3) 
+#normVector: 
+#(
+#DirectionVector 
+#x: -1.0d 
+#y: 0.0d 
+#z: 0.0d) 
+#coordSystem: 
+#local)) 
+#actSegment: 0 
+#actSafety: 1 
+#viewMode: 
+#local))) 
+#evaluation: 
+#(
+#OMDefineFeature 
+#'container$' 'container' 
+#evalType: 
+#default 
+#defaultEvalType: 
+#gauss 
+#nominalInsteadActual: false 
+#referencedPoint: 
+#(
+#OMReferencedPoint 
+#comment: '' 
+#'container$' 'container' 
+#coordSystem: 
+#elementSystem) 
+#evaluation: 
+#OMGeoSpacePoint 
+#dofType: 
+#allFree 
+#modes: 
+#(
+#OMSettings) 
+#probeCorrection: true) 
+#projection: 
+#(
+#OMMProjection 
+#'container$' 'container' 
+#reference: 
+#(
+#OMNoReference 
+#'container$' 'container') 
+#measure: 
+#(
+#OMNoProjection 
+#'container$' 'container')) 
+#defaultTechnology: '***') 
+#(
+#OMMGeometry 
+#identifier: 'Circle1' 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings 
+#(
+#modifiedPoints ' ->' false) 
+#(
+#pathMode ' ->' 
+#points) 
+#(
+#tangProbActive ' ->' false)) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings) 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary)) 
+#referencedGeometry: 'Cylinder1' 
+#technology: 
+#(
+#Dictionary 
+#('***' ' ->' 
+#(
+#OMTecMeasPath 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings 
+#(
+#firstPosCache ' ->' 
+#(
+#Vector 
+#x: -68.119350258884d 
+#y: 37.062305898749d 
+#z: 8.553324701594d)) 
+#(
+#firstPosStep ' ->' 
+#(
+#ScaledDirectionVector 
+#x: -2.8285479536479d-15 
+#y: 6.5871953997011d-15 
+#z: 10.0d)) 
+#(
+#firstPosStepValue ' ->' 
+#(
+#ScaledDirectionVector 
+#x: -2.8285479536479d-15 
+#y: 6.5871953997011d-15 
+#z: 10.0d))) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary)) 
+#segments: 
+#(
+#OMSOrderedCollection 
+#(
+#OMTecSafety 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings 
+#(
+#safetyGroup ' ->' 'SP +Z')) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary) 
+#parameters: '') 
+#safetyVector: 
+#(
+#Vector 
+#x: 0.0d 
+#y: 0.0d 
+#z: 0.0d)) 
+#(
+#OMTecDisc 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary) 
+#parameters: '') 
+#countOfMeasPoints: 50 
+#step: 0.0d 
+#actualReception: 1 
+#speed: 2.5 
+#probeName: '1' 
+#probe: 1 
+#angleA: 0.0d 
+#angleB: 0.0d 
+#calculateSpeed: false 
+#calculateStep: false 
+#mode: 
+#numbersOfPoints 
+#virtualSurface: 
+#(
+#OMVirtualSurfaceMeasurement 
+#'container$' 'container' 
+#active: false) 
+#travelPath: 
+#default 
+#measuringHeight: 0.0 
+#startAngle: 0 
+#angleSegment: 6.2831853071796d 
+#numberOfPaths: 1 
+#applyRtScanning: false 
+#coordSystem: 
+#local 
+#switchDisplayedNormVector: false)) 
+#actSegment: 2 
+#actSafety: 1 
+#viewMode: 
+#local))) 
+#evaluation: 
+#(
+#OMDefineFeature 
+#'container$' 'container' 
+#evalType: 
+#default 
+#defaultEvalType: 
+#gauss 
+#nominalInsteadActual: false 
+#referencedPoint: 
+#(
+#OMReferencedPoint 
+#comment: '' 
+#'container$' 'container' 
+#coordSystem: 
+#elementSystem) 
+#evaluation: 
+#OMGeoCircle 
+#dofType: 
+#allFree 
+#modes: 
+#(
+#OMSettings) 
+#probeCorrection: true) 
+#projection: 
+#(
+#OMMProjection 
+#'container$' 'container' 
+#reference: 
+#(
+#OMNoReference 
+#'container$' 'container') 
+#measure: 
+#(
+#OMNoProjection 
+#'container$' 'container')) 
+#defaultTechnology: '***') 
+#(
+#OMMGeometry 
+#identifier: 'Circle2' 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings 
+#(
+#tangProbActive ' ->' false)) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings) 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary)) 
+#referencedGeometry: 'Cylinder2' 
+#technology: 
+#(
+#Dictionary 
+#('***' ' ->' 
+#(
+#OMTecMeasPath 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings 
+#(
+#firstPosCache ' ->' 
+#(
+#Vector 
+#x: -33.881315672258d 
+#y: 37.062305898749d 
+#z: 8.0237147539751d)) 
+#(
+#firstPosStep ' ->' 
+#(
+#ScaledDirectionVector 
+#x: -5.1714104948359d-15 
+#y: -9.3380198113228d-15 
+#z: 10.0d)) 
+#(
+#firstPosStepValue ' ->' 
+#(
+#ScaledDirectionVector 
+#x: -5.1714104948359d-15 
+#y: -9.3380198113228d-15 
+#z: 10.0d))) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary)) 
+#segments: 
+#(
+#OMSOrderedCollection 
+#(
+#OMTecSafety 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings 
+#(
+#safetyGroup ' ->' 'SP +Z')) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary) 
+#parameters: '') 
+#safetyVector: 
+#(
+#Vector 
+#x: 0.0d 
+#y: 0.0d 
+#z: 0.0d)) 
+#(
+#OMTecDisc 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary) 
+#parameters: '') 
+#countOfMeasPoints: 50 
+#step: 0 
+#actualReception: 1 
+#speed: 2.5 
+#probeName: '1' 
+#probe: 1 
+#angleA: 0.0d 
+#angleB: 0.0d 
+#calculateSpeed: false 
+#calculateStep: false 
+#mode: 
+#numbersOfPoints 
+#travelPath: 
+#default 
+#measuringHeight: 0.0 
+#startAngle: 0 
+#angleSegment: 6.2831853071796d 
+#numberOfPaths: 1 
+#coordSystem: 
+#local 
+#switchDisplayedNormVector: false)) 
+#actSegment: 0 
+#actSafety: 1))) 
+#evaluation: 
+#(
+#OMDefineFeature 
+#'container$' 'container' 
+#evalType: 
+#default 
+#defaultEvalType: 
+#gauss 
+#nominalInsteadActual: false 
+#referencedPoint: 
+#(
+#OMReferencedPoint 
+#comment: '' 
+#'container$' 'container' 
+#coordSystem: 
+#elementSystem) 
+#evaluation: 
+#OMGeoCircle 
+#dofType: 
+#allFree 
+#modes: 
+#(
+#OMSettings) 
+#probeCorrection: true) 
+#projection: 
+#(
+#OMMProjection 
+#'container$' 'container' 
+#reference: 
+#(
+#OMNoReference 
+#'container$' 'container') 
+#measure: 
+#(
+#OMNoProjection 
+#'container$' 'container')) 
+#defaultTechnology: '***') 
+#(
+#OMMGeometry 
+#identifier: 'Circle3' 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings 
+#(
+#tangProbActive ' ->' false)) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings) 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary)) 
+#referencedGeometry: 'Cylinder3' 
+#technology: 
+#(
+#Dictionary 
+#('***' ' ->' 
+#(
+#OMTecMeasPath 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings 
+#(
+#firstPosCache ' ->' 
+#(
+#Vector 
+#x: -40.420198424307d 
+#y: 16.937694101251d 
+#z: 8.1167043274818d)) 
+#(
+#firstPosStep ' ->' 
+#(
+#ScaledDirectionVector 
+#x: -1.2793560419005d-15 
+#y: 2.2088561218503d-15 
+#z: 10.0d)) 
+#(
+#firstPosStepValue ' ->' 
+#(
+#ScaledDirectionVector 
+#x: -1.2793560419005d-15 
+#y: 2.2088561218503d-15 
+#z: 10.0d))) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary)) 
+#segments: 
+#(
+#OMSOrderedCollection 
+#(
+#OMTecSafety 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings 
+#(
+#safetyGroup ' ->' 'SP +Z')) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary) 
+#parameters: '') 
+#safetyVector: 
+#(
+#Vector 
+#x: 0.0d 
+#y: 0.0d 
+#z: 0.0d)) 
+#(
+#OMTecDisc 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary) 
+#parameters: '') 
+#countOfMeasPoints: 50 
+#step: 0 
+#actualReception: 1 
+#speed: 2.5 
+#probeName: '1' 
+#probe: 1 
+#angleA: 0.0d 
+#angleB: 0.0d 
+#calculateSpeed: false 
+#calculateStep: false 
+#mode: 
+#numbersOfPoints 
+#travelPath: 
+#default 
+#measuringHeight: 0.0 
+#startAngle: 0 
+#angleSegment: 6.2831853071796d 
+#numberOfPaths: 1 
+#coordSystem: 
+#local 
+#switchDisplayedNormVector: false)) 
+#actSegment: 0 
+#actSafety: 1))) 
+#evaluation: 
+#(
+#OMDefineFeature 
+#'container$' 'container' 
+#evalType: 
+#default 
+#defaultEvalType: 
+#gauss 
+#nominalInsteadActual: false 
+#referencedPoint: 
+#(
+#OMReferencedPoint 
+#comment: '' 
+#'container$' 'container' 
+#coordSystem: 
+#elementSystem) 
+#evaluation: 
+#OMGeoCircle 
+#dofType: 
+#allFree 
+#modes: 
+#(
+#OMSettings) 
+#probeCorrection: true) 
+#projection: 
+#(
+#OMMProjection 
+#'container$' 'container' 
+#reference: 
+#(
+#OMNoReference 
+#'container$' 'container') 
+#measure: 
+#(
+#OMNoProjection 
+#'container$' 'container')) 
+#defaultTechnology: '***') 
+#(
+#OMMGeometry 
+#identifier: 'Circle4' 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings 
+#(
+#tangProbActive ' ->' false)) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings) 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary)) 
+#referencedGeometry: 'Cylinder4' 
+#technology: 
+#(
+#Dictionary 
+#('***' ' ->' 
+#(
+#OMTecMeasPath 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings 
+#(
+#firstPosCache ' ->' 
+#(
+#Vector 
+#x: -61.580467506836d 
+#y: 16.937694101251d 
+#z: 7.7366230147932d)) 
+#(
+#firstPosStep ' ->' 
+#(
+#ScaledDirectionVector 
+#x: 7.1319239921429d-15 
+#y: 4.5313889071306d-16 
+#z: 10.0d)) 
+#(
+#firstPosStepValue ' ->' 
+#(
+#ScaledDirectionVector 
+#x: 7.1319239921429d-15 
+#y: 4.5313889071306d-16 
+#z: 10.0d))) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary)) 
+#segments: 
+#(
+#OMSOrderedCollection 
+#(
+#OMTecSafety 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings 
+#(
+#safetyGroup ' ->' 'SP +Z')) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary) 
+#parameters: '') 
+#safetyVector: 
+#(
+#Vector 
+#x: 0.0d 
+#y: 0.0d 
+#z: 0.0d)) 
+#(
+#OMTecDisc 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary) 
+#parameters: '') 
+#countOfMeasPoints: 50 
+#step: 0 
+#actualReception: 1 
+#speed: 2.5 
+#probeName: '1' 
+#probe: 1 
+#angleA: 0.0d 
+#angleB: 0.0d 
+#calculateSpeed: false 
+#calculateStep: false 
+#mode: 
+#numbersOfPoints 
+#travelPath: 
+#default 
+#measuringHeight: 0.0 
+#startAngle: 0 
+#angleSegment: 6.2831853071796d 
+#numberOfPaths: 1 
+#coordSystem: 
+#local 
+#switchDisplayedNormVector: false)) 
+#actSegment: 0 
+#actSafety: 1))) 
+#evaluation: 
+#(
+#OMDefineFeature 
+#'container$' 'container' 
+#evalType: 
+#default 
+#defaultEvalType: 
+#gauss 
+#nominalInsteadActual: false 
+#referencedPoint: 
+#(
+#OMReferencedPoint 
+#comment: '' 
+#'container$' 'container' 
+#coordSystem: 
+#elementSystem) 
+#evaluation: 
+#OMGeoCircle 
+#dofType: 
+#allFree 
+#modes: 
+#(
+#OMSettings) 
+#probeCorrection: true) 
+#projection: 
+#(
+#OMMProjection 
+#'container$' 'container' 
+#reference: 
+#(
+#OMNoReference 
+#'container$' 'container') 
+#measure: 
+#(
+#OMNoProjection 
+#'container$' 'container')) 
+#defaultTechnology: '***'))) 
+#safetyGroups: 
+#(
+#OMListBuilder 
+#identifier: 'sg' 
+#comment: '' 
+#'container$' 'container' 
+#dictionary: 
+#(
+#Dictionary 
+#('GRP -X' ' ->' 
+#(
+#OMFocusGroup 
+#identifier: 'GRP -X' 
+#comment: '' 
+#'container$' 'container' 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true) 
+#safetyPlane: 
+#(
+#OMGeoPlane 
+#comment: '' 
+#'container$' 'container' 
+#location: 
+#(
+#OMGeoLocation 
+#'container$' 'container' 
+#vector: 
+#(
+#Vector 
+#x: 0 
+#y: 0 
+#z: 0) 
+#normVector: 
+#(
+#DirectionVector 
+#x: -1.0d 
+#y: 0.0d 
+#z: 0.0d) 
+#status: 0 
+#flags: 
+#(
+#Array true true)) 
+#ioSign: 1 
+#limit: 
+#(
+#Point 0.0d 0.0d)) 
+#probeName: 'Taster -X' 
+#parentGroup: 'SP -X' 
+#parentGroupName: 'SP -X' 
+#retreat: false)) 
+#('GRP -Y' ' ->' 
+#(
+#OMFocusGroup 
+#identifier: 'GRP -Y' 
+#comment: '' 
+#'container$' 'container' 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true) 
+#safetyPlane: 
+#(
+#OMGeoPlane 
+#comment: '' 
+#'container$' 'container' 
+#location: 
+#(
+#OMGeoLocation 
+#'container$' 'container' 
+#vector: 
+#(
+#Vector 
+#x: 0 
+#y: 0 
+#z: 0) 
+#normVector: 
+#(
+#DirectionVector 
+#x: 0.0d 
+#y: -1.0d 
+#z: 0.0d) 
+#status: 0 
+#flags: 
+#(
+#Array true true)) 
+#ioSign: 1 
+#limit: 
+#(
+#Point 0.0d 0.0d)) 
+#probeName: 'Taster -Y' 
+#parentGroup: 'SP -Y' 
+#parentGroupName: 'SP -Y' 
+#retreat: false)) 
+#('GRP -Z' ' ->' 
+#(
+#OMFocusGroup 
+#identifier: 'GRP -Z' 
+#comment: '' 
+#'container$' 'container' 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true) 
+#safetyPlane: 
+#(
+#OMGeoPlane 
+#comment: '' 
+#'container$' 'container' 
+#location: 
+#(
+#OMGeoLocation 
+#'container$' 'container' 
+#vector: 
+#(
+#Vector 
+#x: 0 
+#y: 0 
+#z: 0) 
+#normVector: 
+#(
+#DirectionVector 
+#x: 0.0d 
+#y: 0.0d 
+#z: -1.0d) 
+#status: 0 
+#flags: 
+#(
+#Array true true)) 
+#ioSign: 1 
+#limit: 
+#(
+#Point 0.0d 0.0d)) 
+#probeName: 'Taster -Z' 
+#parentGroup: 'SP -Z' 
+#parentGroupName: 'SP -Z' 
+#retreat: false)) 
+#('GRP +X' ' ->' 
+#(
+#OMFocusGroup 
+#identifier: 'GRP +X' 
+#comment: '' 
+#'container$' 'container' 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true) 
+#safetyPlane: 
+#(
+#OMGeoPlane 
+#comment: '' 
+#'container$' 'container' 
+#location: 
+#(
+#OMGeoLocation 
+#'container$' 'container' 
+#vector: 
+#(
+#Vector 
+#x: 0 
+#y: 0 
+#z: 0) 
+#normVector: 
+#(
+#DirectionVector 
+#x: 1.0d 
+#y: 0.0d 
+#z: 0.0d) 
+#status: 0 
+#flags: 
+#(
+#Array true true)) 
+#ioSign: 1 
+#limit: 
+#(
+#Point 0.0d 0.0d)) 
+#probeName: 'Taster +X' 
+#parentGroup: 'SP +X' 
+#parentGroupName: 'SP +X' 
+#retreat: false)) 
+#('GRP +Y' ' ->' 
+#(
+#OMFocusGroup 
+#identifier: 'GRP +Y' 
+#comment: '' 
+#'container$' 'container' 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true) 
+#safetyPlane: 
+#(
+#OMGeoPlane 
+#comment: '' 
+#'container$' 'container' 
+#location: 
+#(
+#OMGeoLocation 
+#'container$' 'container' 
+#vector: 
+#(
+#Vector 
+#x: 0 
+#y: 0 
+#z: 0) 
+#normVector: 
+#(
+#DirectionVector 
+#x: 0.0d 
+#y: 1.0d 
+#z: 0.0d) 
+#status: 0 
+#flags: 
+#(
+#Array true true)) 
+#ioSign: 1 
+#limit: 
+#(
+#Point 0.0d 0.0d)) 
+#probeName: 'Taster +Y' 
+#parentGroup: 'SP +Y' 
+#parentGroupName: 'SP +Y' 
+#retreat: false)) 
+#('GRP +Z' ' ->' 
+#(
+#OMFocusGroup 
+#identifier: 'GRP +Z' 
+#comment: '' 
+#'container$' 'container' 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true) 
+#safetyPlane: 
+#(
+#OMGeoPlane 
+#comment: '' 
+#'container$' 'container' 
+#location: 
+#(
+#OMGeoLocation 
+#'container$' 'container' 
+#vector: 
+#(
+#Vector 
+#x: 0 
+#y: 0 
+#z: 0) 
+#normVector: 
+#(
+#DirectionVector 
+#x: 0.0d 
+#y: 0.0d 
+#z: 1.0d) 
+#status: 0 
+#flags: 
+#(
+#Array true true)) 
+#ioSign: 1 
+#limit: 
+#(
+#Point 0.0d 0.0d)) 
+#probeName: 'Taster +Z' 
+#parentGroup: 'SP +Z' 
+#parentGroupName: 'SP +Z' 
+#retreat: false)) 
+#('GRP 2+Z' ' ->' 
+#(
+#OMFocusGroup 
+#identifier: 'GRP 2+Z' 
+#comment: '' 
+#'container$' 'container' 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true) 
+#safetyPlane: 
+#(
+#OMGeoPlane 
+#comment: '' 
+#'container$' 'container' 
+#location: 
+#(
+#OMGeoLocation 
+#'container$' 'container' 
+#vector: 
+#(
+#Vector 
+#x: 0 
+#y: 0 
+#z: 0) 
+#normVector: 
+#(
+#DirectionVector 
+#x: 0.0d 
+#y: 0.0d 
+#z: 1.0d) 
+#status: 0 
+#flags: 
+#(
+#Array true true)) 
+#ioSign: 1 
+#limit: 
+#(
+#Point 0.0d 0.0d)) 
+#probeName: 'Taster GRP 2+Z' 
+#parentGroup: 'SP +Z' 
+#parentGroupName: 'SP +Z' 
+#retreat: false)) 
+#('GRP 3+Z' ' ->' 
+#(
+#OMFocusGroup 
+#identifier: 'GRP 3+Z' 
+#comment: '' 
+#'container$' 'container' 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true) 
+#safetyPlane: 
+#(
+#OMGeoPlane 
+#comment: '' 
+#'container$' 'container' 
+#location: 
+#(
+#OMGeoLocation 
+#'container$' 'container' 
+#vector: 
+#(
+#Vector 
+#x: 0 
+#y: 0 
+#z: 0) 
+#normVector: 
+#(
+#DirectionVector 
+#x: 0.0d 
+#y: 0.0d 
+#z: 1.0d) 
+#status: 0 
+#flags: 
+#(
+#Array true true)) 
+#ioSign: 1 
+#limit: 
+#(
+#Point 0.0d 0.0d)) 
+#probeName: 'Taster GRP 3+Z' 
+#parentGroup: 'SP +Z' 
+#parentGroupName: 'SP +Z' 
+#retreat: false)) 
+#('RTG -X' ' ->' 
+#(
+#OMFocusRtGroup 
+#identifier: 'RTG -X' 
+#comment: '' 
+#'container$' 'container' 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true) 
+#safetyPlane: 
+#(
+#OMGeoPlane 
+#comment: '' 
+#'container$' 'container' 
+#location: 
+#(
+#OMGeoLocation 
+#'container$' 'container' 
+#vector: 
+#(
+#Vector 
+#x: 0 
+#y: 0 
+#z: 0) 
+#normVector: 
+#(
+#DirectionVector 
+#x: -1.0d 
+#y: 0.0d 
+#z: 0.0d) 
+#status: 0 
+#flags: 
+#(
+#Array true true)) 
+#ioSign: 1 
+#limit: 
+#(
+#Point 0.0d 0.0d)) 
+#probeName: 'Taster -X' 
+#parentGroup: 'SP -X' 
+#parentGroupName: 'SP -X' 
+#retreat: false)) 
+#('RTG -Y' ' ->' 
+#(
+#OMFocusRtGroup 
+#identifier: 'RTG -Y' 
+#comment: '' 
+#'container$' 'container' 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true) 
+#safetyPlane: 
+#(
+#OMGeoPlane 
+#comment: '' 
+#'container$' 'container' 
+#location: 
+#(
+#OMGeoLocation 
+#'container$' 'container' 
+#vector: 
+#(
+#Vector 
+#x: 0 
+#y: 0 
+#z: 0) 
+#normVector: 
+#(
+#DirectionVector 
+#x: 0.0d 
+#y: -1.0d 
+#z: 0.0d) 
+#status: 0 
+#flags: 
+#(
+#Array true true)) 
+#ioSign: 1 
+#limit: 
+#(
+#Point 0.0d 0.0d)) 
+#probeName: 'Taster -Y' 
+#parentGroup: 'SP -Y' 
+#parentGroupName: 'SP -Y' 
+#retreat: false)) 
+#('RTG -Z' ' ->' 
+#(
+#OMFocusRtGroup 
+#identifier: 'RTG -Z' 
+#comment: '' 
+#'container$' 'container' 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true) 
+#safetyPlane: 
+#(
+#OMGeoPlane 
+#comment: '' 
+#'container$' 'container' 
+#location: 
+#(
+#OMGeoLocation 
+#'container$' 'container' 
+#vector: 
+#(
+#Vector 
+#x: 0 
+#y: 0 
+#z: 0) 
+#normVector: 
+#(
+#DirectionVector 
+#x: 0.0d 
+#y: 0.0d 
+#z: -1.0d) 
+#status: 0 
+#flags: 
+#(
+#Array true true)) 
+#ioSign: 1 
+#limit: 
+#(
+#Point 0.0d 0.0d)) 
+#probeName: 'Taster -Z' 
+#parentGroup: 'SP -Z' 
+#parentGroupName: 'SP -Z' 
+#retreat: false)) 
+#('RTG +X' ' ->' 
+#(
+#OMFocusRtGroup 
+#identifier: 'RTG +X' 
+#comment: '' 
+#'container$' 'container' 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true) 
+#safetyPlane: 
+#(
+#OMGeoPlane 
+#comment: '' 
+#'container$' 'container' 
+#location: 
+#(
+#OMGeoLocation 
+#'container$' 'container' 
+#vector: 
+#(
+#Vector 
+#x: 0 
+#y: 0 
+#z: 0) 
+#normVector: 
+#(
+#DirectionVector 
+#x: 1.0d 
+#y: 0.0d 
+#z: 0.0d) 
+#status: 0 
+#flags: 
+#(
+#Array true true)) 
+#ioSign: 1 
+#limit: 
+#(
+#Point 0.0d 0.0d)) 
+#probeName: 'Taster +X' 
+#parentGroup: 'SP +X' 
+#parentGroupName: 'SP +X' 
+#retreat: false)) 
+#('RTG +Y' ' ->' 
+#(
+#OMFocusRtGroup 
+#identifier: 'RTG +Y' 
+#comment: '' 
+#'container$' 'container' 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true) 
+#safetyPlane: 
+#(
+#OMGeoPlane 
+#comment: '' 
+#'container$' 'container' 
+#location: 
+#(
+#OMGeoLocation 
+#'container$' 'container' 
+#vector: 
+#(
+#Vector 
+#x: 0 
+#y: 0 
+#z: 0) 
+#normVector: 
+#(
+#DirectionVector 
+#x: 0.0d 
+#y: 1.0d 
+#z: 0.0d) 
+#status: 0 
+#flags: 
+#(
+#Array true true)) 
+#ioSign: 1 
+#limit: 
+#(
+#Point 0.0d 0.0d)) 
+#probeName: 'Taster +Y' 
+#parentGroup: 'SP +Y' 
+#parentGroupName: 'SP +Y' 
+#retreat: false)) 
+#('RTG +Z' ' ->' 
+#(
+#OMFocusRtGroup 
+#identifier: 'RTG +Z' 
+#comment: '' 
+#'container$' 'container' 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true) 
+#safetyPlane: 
+#(
+#OMGeoPlane 
+#comment: '' 
+#'container$' 'container' 
+#location: 
+#(
+#OMGeoLocation 
+#'container$' 'container' 
+#vector: 
+#(
+#Vector 
+#x: 0 
+#y: 0 
+#z: 0) 
+#normVector: 
+#(
+#DirectionVector 
+#x: 0.0d 
+#y: 0.0d 
+#z: 1.0d) 
+#status: 0 
+#flags: 
+#(
+#Array true true)) 
+#ioSign: 1 
+#limit: 
+#(
+#Point 0.0d 0.0d)) 
+#probeName: 'Taster +Z' 
+#parentGroup: 'SP +Z' 
+#parentGroupName: 'SP +Z' 
+#retreat: false)) 
+#('RTSP -X' ' ->' 
+#(
+#OMFocusRtGroup 
+#identifier: 'RTSP -X' 
+#comment: '' 
+#'container$' 'container' 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true) 
+#safetyPlane: 
+#(
+#OMGeoPlane 
+#comment: '' 
+#'container$' 'container' 
+#location: 
+#(
+#OMGeoLocation 
+#'container$' 'container' 
+#vector: 
+#(
+#Vector 
+#x: 0 
+#y: 0 
+#z: 0) 
+#normVector: 
+#(
+#DirectionVector 
+#x: -1.0d 
+#y: 0.0d 
+#z: 0.0d) 
+#status: 0 
+#flags: 
+#(
+#Array true true)) 
+#ioSign: 1 
+#limit: 
+#(
+#Point 0.0d 0.0d)) 
+#probeName: 'Taster -X' 
+#retreat: true)) 
+#('RTSP -Y' ' ->' 
+#(
+#OMFocusRtGroup 
+#identifier: 'RTSP -Y' 
+#comment: '' 
+#'container$' 'container' 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true) 
+#safetyPlane: 
+#(
+#OMGeoPlane 
+#comment: '' 
+#'container$' 'container' 
+#location: 
+#(
+#OMGeoLocation 
+#'container$' 'container' 
+#vector: 
+#(
+#Vector 
+#x: 0 
+#y: 0 
+#z: 0) 
+#normVector: 
+#(
+#DirectionVector 
+#x: 0.0d 
+#y: -1.0d 
+#z: 0.0d) 
+#status: 0 
+#flags: 
+#(
+#Array true true)) 
+#ioSign: 1 
+#limit: 
+#(
+#Point 0.0d 0.0d)) 
+#probeName: 'Taster -Y' 
+#retreat: true)) 
+#('RTSP -Z' ' ->' 
+#(
+#OMFocusRtGroup 
+#identifier: 'RTSP -Z' 
+#comment: '' 
+#'container$' 'container' 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true) 
+#safetyPlane: 
+#(
+#OMGeoPlane 
+#comment: '' 
+#'container$' 'container' 
+#location: 
+#(
+#OMGeoLocation 
+#'container$' 'container' 
+#vector: 
+#(
+#Vector 
+#x: 0 
+#y: 0 
+#z: 0) 
+#normVector: 
+#(
+#DirectionVector 
+#x: 0.0d 
+#y: 0.0d 
+#z: -1.0d) 
+#status: 0 
+#flags: 
+#(
+#Array true true)) 
+#ioSign: 1 
+#limit: 
+#(
+#Point 0.0d 0.0d)) 
+#probeName: 'Taster -Z' 
+#retreat: true)) 
+#('RTSP +X' ' ->' 
+#(
+#OMFocusRtGroup 
+#identifier: 'RTSP +X' 
+#comment: '' 
+#'container$' 'container' 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true) 
+#safetyPlane: 
+#(
+#OMGeoPlane 
+#comment: '' 
+#'container$' 'container' 
+#location: 
+#(
+#OMGeoLocation 
+#'container$' 'container' 
+#vector: 
+#(
+#Vector 
+#x: 0 
+#y: 0 
+#z: 0) 
+#normVector: 
+#(
+#DirectionVector 
+#x: 1.0d 
+#y: 0.0d 
+#z: 0.0d) 
+#status: 0 
+#flags: 
+#(
+#Array true true)) 
+#ioSign: 1 
+#limit: 
+#(
+#Point 0.0d 0.0d)) 
+#probeName: 'Taster +X' 
+#retreat: true)) 
+#('RTSP +Y' ' ->' 
+#(
+#OMFocusRtGroup 
+#identifier: 'RTSP +Y' 
+#comment: '' 
+#'container$' 'container' 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true) 
+#safetyPlane: 
+#(
+#OMGeoPlane 
+#comment: '' 
+#'container$' 'container' 
+#location: 
+#(
+#OMGeoLocation 
+#'container$' 'container' 
+#vector: 
+#(
+#Vector 
+#x: 0 
+#y: 0 
+#z: 0) 
+#normVector: 
+#(
+#DirectionVector 
+#x: 0.0d 
+#y: 1.0d 
+#z: 0.0d) 
+#status: 0 
+#flags: 
+#(
+#Array true true)) 
+#ioSign: 1 
+#limit: 
+#(
+#Point 0.0d 0.0d)) 
+#probeName: 'Taster +Y' 
+#retreat: true)) 
+#('RTSP +Z' ' ->' 
+#(
+#OMFocusRtGroup 
+#identifier: 'RTSP +Z' 
+#comment: '' 
+#'container$' 'container' 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true) 
+#safetyPlane: 
+#(
+#OMGeoPlane 
+#comment: '' 
+#'container$' 'container' 
+#location: 
+#(
+#OMGeoLocation 
+#'container$' 'container' 
+#vector: 
+#(
+#Vector 
+#x: 0 
+#y: 0 
+#z: 0) 
+#normVector: 
+#(
+#DirectionVector 
+#x: 0.0d 
+#y: 0.0d 
+#z: 1.0d) 
+#status: 0 
+#flags: 
+#(
+#Array true true)) 
+#ioSign: 1 
+#limit: 
+#(
+#Point 0.0d 0.0d)) 
+#probeName: 'Taster +Z' 
+#retreat: true)) 
+#('SP -X' ' ->' 
+#(
+#OMFocusGroup 
+#identifier: 'SP -X' 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary)) 
+#safetyPlane: 
+#(
+#OMGeoPlane 
+#comment: '' 
+#'container$' 'container' 
+#location: 
+#(
+#OMGeoLocation 
+#'container$' 'container' 
+#vector: 
+#(
+#Vector 
+#x: -90.0d 
+#y: 0.0d 
+#z: 0.0d) 
+#normVector: 
+#(
+#DirectionVector 
+#x: -1.0d 
+#y: 0.0d 
+#z: 0.0d) 
+#status: 0 
+#flags: 
+#(
+#Array true true)) 
+#ioSign: 1 
+#limit: 
+#(
+#Point 0.0d 0.0d)) 
+#probeName: 'Taster -X' 
+#retreat: true)) 
+#('SP -Y' ' ->' 
+#(
+#OMFocusGroup 
+#identifier: 'SP -Y' 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary)) 
+#safetyPlane: 
+#(
+#OMGeoPlane 
+#comment: '' 
+#'container$' 'container' 
+#location: 
+#(
+#OMGeoLocation 
+#'container$' 'container' 
+#vector: 
+#(
+#Vector 
+#x: 0.0d 
+#y: -10.0d 
+#z: 0.0d) 
+#normVector: 
+#(
+#DirectionVector 
+#x: 0.0d 
+#y: -1.0d 
+#z: 0.0d) 
+#status: 0 
+#flags: 
+#(
+#Array true true)) 
+#ioSign: 1 
+#limit: 
+#(
+#Point 0.0d 0.0d)) 
+#probeName: 'Taster -Y' 
+#retreat: true)) 
+#('SP -Z' ' ->' 
+#(
+#OMFocusGroup 
+#identifier: 'SP -Z' 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary)) 
+#safetyPlane: 
+#(
+#OMGeoPlane 
+#comment: '' 
+#'container$' 'container' 
+#location: 
+#(
+#OMGeoLocation 
+#'container$' 'container' 
+#vector: 
+#(
+#Vector 
+#x: 0.0d 
+#y: 0.0d 
+#z: -14.0d) 
+#normVector: 
+#(
+#DirectionVector 
+#x: 0.0d 
+#y: 0.0d 
+#z: -1.0d) 
+#status: 0 
+#flags: 
+#(
+#Array true true)) 
+#ioSign: 1 
+#limit: 
+#(
+#Point 0.0d 0.0d)) 
+#probeName: 'Taster -Z' 
+#retreat: true)) 
+#('SP +X' ' ->' 
+#(
+#OMFocusGroup 
+#identifier: 'SP +X' 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary)) 
+#safetyPlane: 
+#(
+#OMGeoPlane 
+#comment: '' 
+#'container$' 'container' 
+#location: 
+#(
+#OMGeoLocation 
+#'container$' 'container' 
+#vector: 
+#(
+#Vector 
+#x: 10.0d 
+#y: 0.0d 
+#z: 0.0d) 
+#normVector: 
+#(
+#DirectionVector 
+#x: 1.0d 
+#y: 0.0d 
+#z: 0.0d) 
+#status: 0 
+#flags: 
+#(
+#Array true true)) 
+#ioSign: 1 
+#limit: 
+#(
+#Point 0.0d 0.0d)) 
+#probeName: 'Taster +X' 
+#retreat: true)) 
+#('SP +Y' ' ->' 
+#(
+#OMFocusGroup 
+#identifier: 'SP +Y' 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary)) 
+#safetyPlane: 
+#(
+#OMGeoPlane 
+#comment: '' 
+#'container$' 'container' 
+#location: 
+#(
+#OMGeoLocation 
+#'container$' 'container' 
+#vector: 
+#(
+#Vector 
+#x: 0.0d 
+#y: 100.0d 
+#z: 0.0d) 
+#normVector: 
+#(
+#DirectionVector 
+#x: 0.0d 
+#y: 1.0d 
+#z: 0.0d) 
+#status: 0 
+#flags: 
+#(
+#Array true true)) 
+#ioSign: 1 
+#limit: 
+#(
+#Point 0.0d 0.0d)) 
+#probeName: 'Taster +Y' 
+#retreat: true)) 
+#('SP +Z' ' ->' 
+#(
+#OMFocusGroup 
+#identifier: 'SP +Z' 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary)) 
+#safetyPlane: 
+#(
+#OMGeoPlane 
+#comment: '' 
+#'container$' 'container' 
+#location: 
+#(
+#OMGeoLocation 
+#'container$' 'container' 
+#vector: 
+#(
+#Vector 
+#x: 0.0d 
+#y: 0.0d 
+#z: 10.0d) 
+#normVector: 
+#(
+#DirectionVector 
+#x: 0.0d 
+#y: 0.0d 
+#z: 1.0d) 
+#status: 0 
+#flags: 
+#(
+#Array true true)) 
+#ioSign: 1 
+#limit: 
+#(
+#Point 0.0d 0.0d)) 
+#probeName: 'Taster +Z' 
+#retreat: true)))) 
+#runs: 
+#(
+#Dictionary 
+#(
+#actual ' ->' 
+#(
+#OMMeasRun 
+#identifier: 
+#actual 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings 
+#(
+#cfList ' ->' 
+#(
+#List 'Diameter_Circle1' 'Diameter_Circle2' 'Diameter_Circle3' 'Diameter_Circle4')) 
+#(
+#selectionChanged ' ->' false)))) 
+#(
+#prepare ' ->' 
+#(
+#OMMeasRun 
+#identifier: 
+#prepare 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings) 
+#routingTable: 
+#(
+#Dictionary 
+#('cfs' ' ->' 
+#orderedCfs)) 
+#orderedCfs: 
+#(
+#OMOrderedList 
+#identifier: 'cfs' 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings) 
+#collection: 
+#(
+#OrderedCollection 
+#(
+#OMMGeoLinks 
+#identifier: 'Measurement Plan 22_1-BS' 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true) 
+#counter: 3))))) 
+#(
+#prepareMan ' ->' 
+#(
+#OMMeasRun 
+#identifier: 
+#prepareMan 
+#comment: '' 
+#'container$' 'container'))) 
+#activeRunID: 
+#actual 
+#pathElements: 
+#(
+#OMOrderedList 
+#identifier: 'pe' 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings) 
+#collection: 
+#(
+#OrderedCollection)) 
+#rackAssignment: 
+#(
+#OMParameterizedRackAssignment 
+#comment: '' 
+#'container$' 'container' 
+#active: false 
+#assignmentName: ''))) 
+#baseSystem: 
+#(
+#OMRotaryTableSystem 
+#'container$' nil 
+#settings: 
+#(
+#OMSettings 
+#(
+#rtAxisRotates ' ->' false)) 
+#rotaryAngle: 0.0d 
+#pcs: 
+#(
+#OMWPSystem 
+#identifier: 'Measurement Plan 22_1(CNC)' 
+#comment: '' 
+#'container$' nil 
+#settings: 
+#(
+#OMSettings 
+#(
+#newBaseSystem ' ->' true)) 
+#matrix: 
+#(
+#RotaryMatrix 
+#rows: 
+#(
+#Array 
+#(
+#Array 0.99999961883452d 8.6776867730389d-4 9.6479755606738d-5) 
+#(
+#Array -8.6774889332543d-4 0.9999996025115d -2.049114468786d-4) 
+#(
+#Array -9.6657532992367d-5 2.0482764857227d-4 0.99999997435148d))) 
+#vector: 
+#(
+#Vector 
+#x: 274.9374365696d 
+#y: -713.23607977612d 
+#z: -289.17540363276d) 
+#spaceAxis: 3) 
+#scaling: 
+#(
+#OMShrinkSystem 
+#shrinkCenter: 
+#(
+#Vector 
+#x: 0.0d 
+#y: 0.0d 
+#z: 0.0d) 
+#shrinkFactor: 
+#(
+#ScaledDirectionVector 
+#x: 1.0d 
+#y: 1.0d 
+#z: 1.0d) 
+#scalingFactor: 1.0d 
+#switchAxis: 
+#(
+#Vector 
+#x: 1 
+#y: 2 
+#z: 3)) 
+#rtAxisIsValid: false) 
+#temperatureSensor: 
+#(
+#OMTemperatureModel 
+#comment: '' 
+#'container$' 'container' 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary))) 
+#userDic: 
+#(
+#Dictionary 
+#(
+#changedate ' ->' 'November 4, 2016   5:30:26 pm') 
+#(
+#changeoper ' ->' 'Master') 
+#(
+#changeswi ' ->' '6.2.08') 
+#(
+#changeTimestamp ' ->' '3655733426') 
+#(
+#changeTimestampOld ' ->' '3655733426') 
+#(
+#creationdate ' ->' 'November 4, 2016   4:13:14 pm') 
+#(
+#creationdme ' ->' 'CONT_G2') 
+#(
+#creationswi ' ->' '6.2.08') 
+#(
+#date ' ->' '2016-11-4') 
+#(
+#dateandtime ' ->' 'November 4, 2016 5:26:13 pm') 
+#(
+#datedayofmonth ' ->' '4') 
+#(
+#datemonthindex ' ->' '11') 
+#(
+#datesecondclock ' ->' '3655713373') 
+#(
+#datestring ' ->' 'November 4, 2016') 
+#(
+#dateyear ' ->' '2016') 
+#(
+#dmeid ' ->' 'CONT_G2') 
+#(
+#dmesn ' ->' '194718') 
+#(
+#mccplanversion ' ->' '') 
+#(
+#nameOfFile ' ->' 'C:\Users\inblrPrismo\Desktop\MSP trail\Measurement Plan 22') 
+#(
+#operid ' ->' 'Master') 
+#(
+#partnbinc ' ->' '5') 
+#(
+#partnbpre ' ->' '5') 
+#(
+#planid ' ->' 'Measurement Plan 22') 
+#(
+#produceoper ' ->' 'Master') 
+#(
+#time ' ->' '5:26:13 pm')) 
+#cache: 
+#(
+#Dictionary 
+#(
+#outDecimalUnits ' ->' 4) 
+#(
+#viewsForProtocol ' ->' 
+#(
+#OrderedCollection))) 
+#rotaryTableDefinition: 
+#(
+#OMDefineRotaryTable 
+#comment: '' 
+#'container$' 'container' 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary)) 
+#resultGeoType: 
+#OMGeometry 
+#rtActivated: false 
+#rtAxisSelection: 
+#load 
+#storeToFile: true 
+#rotateBaseSystemToMachineSystem: false 
+#rotateReference: false 
+#retractMode: 
+#setting 
+#retractToActualSide: true 
+#retractToCorner: false 
+#retractToTop: false 
+#roundCenteredPart: false 
+#newRtValue: 0 
+#defaultAxisValidation: true 
+#passiveRt: false 
+#angleAfterRtRef: 0) 
+#activeTechnology: '***' 
+#strategies: 
+#(
+#OMOrderedCollection '***') 
+#showTechnology: '***')

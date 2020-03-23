@@ -1,0 +1,2524 @@
+#Inventor V1.0 ascii
+
+TopLevelDialog {
+  label "VolumeViz demo"
+  minWidth 650
+  width 650
+  height 1000
+  minHeight 1000
+  maxHeight 1200
+  ColumnDialog {
+    TabDialog {
+      width 550
+      height 1000
+      selectedPage 0
+      #====================== Tab 1 : Data ===========================
+      RowDialog {
+        label "Data"
+        maxHeight 950
+        rowSpacing  7
+        width 600
+        height 250
+        fixedHeight TRUE
+
+        #colorMap----------------------------
+        RowDialog {
+          edgeStyle SHADOW_IN
+          rowSpacing 6
+
+          DialogLabel {
+            height 1
+            fixedHeight TRUE
+            label "Volume ColorMap"
+          }
+
+          ColumnDialog {
+            columnSpacing  5
+
+            DialogComboBox {
+              labelAlignment CENTER
+              maxWidth 300
+              height 6
+              fixedHeight TRUE
+              auditorID "colormap"
+              label "Predefined ColorMap"
+              items [ "Seismic", "Standard", "Glow", "BlueRed", "Physics", "Temperature", "Grey", "BlueWhiteRed", "Intensity", "Label 256", "Bonsai", "BlueBrowRed", "volrenGreen", "volrenRed", "Airway", "AirwaySurfaces", "User Defined ColorMap" ]
+            }
+
+            DialogEditText {
+              labelAlignment CENTER
+              maxWidth 300
+              height 6
+              fixedHeight TRUE
+              auditorID "colormapfilename"
+              label    "Filename"
+              editText "BlueWhiteRed.txt"
+              trigOnEnter TRUE
+            }
+
+            DialogPushButton {
+              buttonLabel "..."
+              auditorID "colormapBrowse"
+              height 6
+              fixedHeight TRUE
+              labelAlignment CENTER
+              maxWidth 100
+            }
+          }
+
+          ColumnDialog {
+            columnSpacing  5
+
+            DialogIntegerSlider {
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "colormap min"
+              label "ColorMap Min"
+              min   0
+              max   255
+              value  1
+              fixedLimits        TRUE
+              continuousTrigger  TRUE
+            }
+
+            DialogIntegerSlider {
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "colormap max"
+              label "ColorMap Max"
+              min   0
+              max   255
+              value  255
+              fixedLimits        TRUE
+              continuousTrigger  TRUE
+            }
+          }
+
+          ColumnDialog {
+            columnSpacing  5
+
+            DialogIntegerSlider {
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "opaque min"
+              label " Opaque Min "
+              min   0
+              max   255
+              value  1
+              fixedLimits        TRUE
+              continuousTrigger  TRUE
+            }
+
+            DialogIntegerSlider {
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "opaque max"
+              label " Opaque Max "
+              min   0
+              max   255
+              value  255
+              fixedLimits        TRUE
+              continuousTrigger  TRUE
+            }
+          }
+
+          DialogCheckBox {
+            labelAlignment LEFT
+            height 6
+            fixedHeight TRUE
+            auditorID "invert"
+            label "Transparent Inside Min Max"
+            state   FALSE
+          }
+
+          RowDialog {
+            edgeStyle SHADOW_IN
+            rowSpacing 6
+
+            DialogLabel {
+              height 1
+              fixedHeight TRUE
+              label "Faux Shading"
+            }
+
+            ColumnDialog {
+              DialogRealSlider {
+                height 6
+                fixedHeight TRUE
+                auditorID "fauxShadingStrength"
+                label "Strength "
+                min   0
+                max   10
+                value 1
+                format "%.2f"
+                fixedLimits        TRUE
+                continuousTrigger  TRUE
+              }
+
+              DialogRealSlider {
+                height 6
+                fixedHeight TRUE
+                auditorID "fauxShadingLength"
+                label "Length "
+                min   0
+                max   1
+                value 0
+                format "%.2f"
+                fixedLimits        TRUE
+                continuousTrigger  TRUE
+              }
+            }
+
+            DialogRealSlider {
+              height 6
+              fixedHeight TRUE
+              auditorID "fauxShadingDarkenThreshold"
+              label "Darken Threshold "
+              min   0
+              max   1
+              value 1
+              format "%.2f"
+              fixedLimits        TRUE
+              continuousTrigger  TRUE
+            }
+          }
+        }
+
+        RowDialog {
+          edgeStyle SHADOW_IN
+          rowSpacing 6
+
+          DialogLabel {
+            height 1
+            fixedHeight TRUE
+            label "Slice ColorMap"
+          }
+
+          ColumnDialog {
+            columnSpacing  5
+
+            DialogComboBox {
+              labelAlignment CENTER
+              maxWidth 300
+              height 6
+              fixedHeight TRUE
+              auditorID "slicecolormap"
+              label "Predefined ColorMap"
+              items [ "Seismic", "Standard", "Glow", "BlueRed", "Physics", "Temperature", "Grey", "BlueWhiteRed", "Intensity", "Label 256", "Bonsai", "BlueBrowRed", "volrenGreen", "volrenRed", "User Defined ColorMap" ]
+              selectedItem 5
+            }
+
+            DialogEditText {
+              labelAlignment CENTER
+              maxWidth 300
+              height 6
+              fixedHeight TRUE
+              auditorID "slicecolormapfilename"
+              label    "Filename"
+              editText "BlueWhiteRed.txt"
+              trigOnEnter TRUE
+            }
+
+            DialogPushButton {
+              buttonLabel "..."
+              auditorID "slicecolormapBrowse"
+              height 6
+              fixedHeight TRUE
+              labelAlignment CENTER
+              maxWidth 100
+            }
+          }
+
+          ColumnDialog {
+            columnSpacing  5
+
+            DialogIntegerSlider {
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "slicecolormap min"
+              label "ColorMap Min"
+              min   0
+              max   255
+              value  1
+              fixedLimits        TRUE
+              continuousTrigger  TRUE
+            }
+
+            DialogIntegerSlider {
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "slicecolormap max"
+              label "ColorMap Max"
+              min   0
+              max   255
+              value  255
+              fixedLimits        TRUE
+              continuousTrigger  TRUE
+            }
+          }
+
+          ColumnDialog {
+            columnSpacing  5
+
+            DialogIntegerSlider {
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "sliceopaque min"
+              label " Opaque Min "
+              min   0
+              max   255
+              value  1
+              fixedLimits        TRUE
+              continuousTrigger  TRUE
+            }
+
+            DialogIntegerSlider {
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "sliceopaque max"
+              label " Opaque Max "
+              min   0
+              max   255
+              value  255
+              fixedLimits        TRUE
+              continuousTrigger  TRUE
+            }
+          }
+
+          RowDialog {
+          
+            DialogCheckBox {
+              labelAlignment LEFT
+              height 6
+              fixedHeight TRUE
+                                                  label "Transparent Inside Min Max"
+              auditorID "sliceinvert"
+              state   FALSE
+            }
+          }
+        }
+        #dataRange----------------------------
+        RowDialog {
+          edgeStyle SHADOW_IN
+
+          DialogLabel {
+            height 6
+            fixedHeight TRUE
+            label "Data Range"
+          }
+
+          ColumnDialog {
+            DialogCheckBox {
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "datarangeactive"
+            
+              offString ""
+              label "Active"
+              state   FALSE
+            }
+            DialogRealSlider {
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "datarangemin"
+              label "Min"
+              min   0
+              max   255
+              value 0
+              format "%.2f"
+              fixedLimits        FALSE
+              continuousTrigger  TRUE
+            }
+            DialogRealSlider {
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "datarangemax"
+              label "Max"
+              min   0
+              max   255
+              value 255
+              format "%.2f"
+              fixedLimits        FALSE
+              continuousTrigger  TRUE
+            }
+          }
+        }
+        
+        #dataSet------------------------------
+        RowDialog {
+          edgeStyle SHADOW_IN
+            
+          DialogLabel {
+            height 6
+            fixedHeight TRUE
+            label "Data Set"
+          }
+          ColumnDialog {
+            DialogComboBox {
+              labelAlignment CENTER
+              auditorID "data"
+              maxWidth 300
+              height 6
+              fixedHeight TRUE
+              label "Predefined Data"
+              items [
+                "3DHead   (ldm) 256x256x109x8",
+                "Virus    (am)  50x50x50x8",
+                "Bonsai    (am) 256x256x256x8",
+                "Brill    (am)  122x122x122x8",
+                "CThead8  (am)  128x128x128x8",
+                "CThead16 (am)  128x128x128x16",
+                "agipAVS  (fld) 128x128x128x8",
+                "SYN_64   (vol) 64x64x64x8",
+                "3DHead   (vol) 256x256x109x8",
+                "Engine   (vol) 256x256x110x8",
+                "Lobster  (vol) 320x320x34x8",
+                "Colt     (vol) 300x455x91x8",
+                "Medical Foot  (ldm) 175x239x114x16",
+                "User filename"
+              ]
+            }
+            
+            DialogEditText {
+              labelAlignment CENTER
+              maxWidth 300
+              height 6
+              fixedHeight TRUE
+              auditorID "datafilename"
+              label    "Filename"
+              editText "WahaPub.sgy"
+            }
+            
+            DialogPushButton {
+              buttonLabel "..."
+              auditorID "dataBrowse"
+              height 6
+              fixedHeight TRUE
+              labelAlignment CENTER
+              maxWidth 100
+            }          
+          }
+        }
+
+
+        #16Bit float display------------------------------------
+        RowDialog {
+          edgeStyle SHADOW_IN
+
+          DialogCheckBox {
+            labelAlignment LEFT
+            height 6
+            fixedHeight TRUE
+            auditorID "floatingPointRendering"
+            label "32-Bit Floating Point Rendering"
+            state   FALSE
+          }
+        }
+        RowDialog {
+          edgeStyle SHADOW_IN
+          
+          DialogCheckBox {
+            labelAlignment LEFT
+            height 6
+            fixedHeight TRUE
+            auditorID "usedataext"
+            label "Use Extended Data"
+            state   FALSE
+          }
+        }
+      }#end tab1
+
+      #====================== Tab 2 : VolumeRendering ===========================
+      RowDialog {
+        label "VolumeRendering"
+        maxHeight 1800
+        rowSpacing  5
+        width 400
+        height 250
+        #fixedHeight TRUE
+        fixedHeight FALSE
+        
+        ColumnDialog {
+          edgeStyle SHADOW_IN
+          
+          DialogCheckBox {
+            labelAlignment CENTER
+            height 6
+            fixedHeight TRUE
+            auditorID "visibility"
+            label "Visibility"
+            state   TRUE
+          }
+          DialogCheckBox {
+            labelAlignment CENTER
+            height 6
+            fixedHeight TRUE
+            auditorID "complexity"
+            label "Low Quality Move"
+            state   TRUE
+          }
+          DialogCheckBox {
+            labelAlignment CENTER
+            height 6
+            fixedHeight TRUE
+            auditorID "volumePriority"
+            label "Geometry Priority"
+            state   FALSE
+          }
+        }        
+        
+        RowDialog {
+          edgeStyle SHADOW_IN
+          
+          DialogLabel {
+            height 1
+            fixedHeight TRUE
+            label "Texture"
+          }
+          
+          ColumnDialog {
+            columnSpacing  5
+            
+            DialogCheckBox {
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "compressedtexture"
+              label " Compressed"
+              state TRUE
+              enable FALSE
+            }
+            
+            DialogCheckBox {
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "palettedtexture"
+              label " Paletted "
+              state TRUE
+            }
+            
+            DialogCheckBox {
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "sharedpalettedtexture"
+              label " Shared"
+              state TRUE
+            }
+            
+            DialogComboBox {
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "interpolation"
+              label "Interpolation"
+              items [ "Nearest", "Linear", "Multisample (12 samples)", "Cubic" ]
+              selectedItem 1
+            }
+          }
+          
+          ColumnDialog {
+            columnSpacing  5
+                        
+            DialogComboBox {
+              labelAlignment CENTER
+              height 6
+              width 150
+              fixedWidth TRUE
+              fixedHeight TRUE
+              auditorID "composition"
+              label "RenderMode"
+              items [ "Alpha", "Min (MinIP)", "Max (MIP)", "Sum (RaySum)", "Average (AIP)" ]
+            }
+          }  
+        }
+
+        RowDialog {
+          edgeStyle SHADOW_IN
+          
+          fixedHeight TRUE
+          label "Render style"
+          
+          ColumnDialog {
+            DialogComboBox {
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "renderstyle"
+              label "Rendering style"
+              items ["Volume Rendering",                  
+                "Pre-integrated Volume Rendering",
+                "Lighted Volume Rendering", 
+                "Lighted Pre-integrated Volume Rendering",
+                "Isosurfaces", 
+                "Volume Skin", 
+                "Volume Skin RGBA",
+                "Voxelized"  ]
+              selectedItem 0
+              enable TRUE
+            }
+            DialogCheckBox {
+              state FALSE
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "jittering"
+              label "Jittering"
+              enable FALSE
+            }
+            DialogCheckBox {
+              state FALSE
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "shadows"
+              label "Shadows"
+            }
+            DialogCheckBox {
+              state TRUE
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "raycast"
+              label "Raycasting"
+            }
+            DialogCheckBox {
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "outlined"
+              label "Outlined"
+            }
+          }
+
+          ColumnDialog {
+            DialogComboBox {
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "gradientquality"
+              label "Gradient Quality"
+              items [ "Low", "Medium", "High" ] 
+              selectedItem 1
+            }
+            DialogComboBox {
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "lightmodel"
+              label "Lighting Model"
+              items [ "Oiv6", "OpenGL" ] 
+              selectedItem 1 
+            }
+          }
+          ColumnDialog {
+            DialogIntegerSlider {
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "normalizegradient"
+              label "Normalize Gradient"
+              min   0
+              max   32
+              value  0
+              fixedLimits        TRUE
+              continuousTrigger  TRUE
+              enable FALSE
+            }
+            DialogIntegerSlider {
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "surfacescalar"
+              label "Surface Scalar"
+              min   0
+              max   32
+              value  8
+              fixedLimits        TRUE
+              continuousTrigger  TRUE
+              enable FALSE
+            }
+          }              
+        }      
+        
+        RowDialog {
+          edgeStyle SHADOW_IN
+          
+          DialogLabel {
+            height 1
+            fixedHeight TRUE
+            label "Geometry Control"
+          }
+            
+          ColumnDialog {
+            columnSpacing  5
+            
+            DialogIntegerSlider {
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "numberslices"
+              label "Number of Slices"
+              min   0
+              max   2000
+              value  0
+              fixedLimits        FALSE
+              continuousTrigger  TRUE
+            }
+            
+            DialogComboBox {
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "samplingalignment"
+              label "Sampling Alignment"
+              items [ "View aligned", "Data aligned", "Boundary aligned", "Smooth Boundary aligned" ] 
+              selectedItem 1 
+            }
+          }
+          
+          ##########EARLYZ control
+          ColumnDialog {
+            DialogComboBox {
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "optimMode"
+              label "Optimisation"
+              items [ "None", "All", "Expert" ] 
+              selectedItem 1
+              enable TRUE
+            }
+            
+            DialogCheckBox {
+              state FALSE
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "earlyz"
+              label "EarlyZ"
+              enable FALSE
+            }    
+            
+            DialogCheckBox {
+              state FALSE
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "gpuvertgen"
+              label "GPU vertices"
+              enable FALSE
+            }    
+            
+            DialogCheckBox {
+              state FALSE
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "subdivideTile"
+              label "SubTiles"
+              enable FALSE
+            }  
+          }
+          RowDialog {
+            DialogIntegerSlider {
+              enable FALSE
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "zpass"
+              label "Num Slices By z Passes"
+              min   0
+              max   1000
+              value  30
+              fixedLimits        FALSE
+              continuousTrigger  TRUE
+            }
+          }
+        }
+        
+        #####Edge Enhancement
+        RowDialog {
+          edgeStyle SHADOW_IN
+          auditorID "edgeDialogId"
+          enable TRUE
+          
+          DialogLabel {
+            height 1
+            fixedHeight TRUE
+            label "Edge Enhancement"
+          }
+            
+          #####Edge threshold
+          RowDialog {
+            ColumnDialog {
+              DialogCheckBox {
+                state FALSE
+                labelAlignment CENTER
+                height 6
+                fixedHeight TRUE
+                auditorID "edgecoloring"
+                label "Edge Coloring"
+              }       
+              DialogRealSlider {
+                height 6
+                fixedHeight TRUE
+                auditorID "edgeThr"
+                label "Threshold "
+                min   0
+                max   1
+                value 0.2
+                format "%.2f"
+                fixedLimits        TRUE
+                continuousTrigger  TRUE
+              }
+            }
+          }
+          
+          DialogSeparator{}
+          RowDialog {
+            ColumnDialog {
+              # Ambient occlusion
+              DialogCheckBox {
+                state FALSE
+                  labelAlignment CENTER
+                  height 6
+                  fixedHeight TRUE
+                  auditorID "ambientocclusion"
+                  label "Ambient Occlusion"
+              }
+              # deferred Lighting
+              DialogCheckBox {
+                state FALSE
+                  labelAlignment CENTER
+                  height 6
+                  fixedHeight TRUE
+                  auditorID "deferredLighting"
+                  label "Deferred lighting"
+              }
+            }
+
+            DialogRealSlider {
+              height 6
+              fixedHeight TRUE
+              auditorID "opacityThr"
+              label "Opacity threshold"
+              min   0
+              max   1
+              value 0.0
+              format "%.2f"
+              fixedLimits        TRUE
+              continuousTrigger  TRUE
+            }
+          }
+
+          #Edge 2d 
+          DialogSeparator{}
+          RowDialog {
+            ColumnDialog {
+              DialogCheckBox {
+                state FALSE
+                labelAlignment CENTER
+                height 6
+                fixedHeight TRUE
+                auditorID "edgeimage"
+                label "Edge 2D"
+              }       
+              DialogRealSlider {
+                height 6
+                fixedHeight TRUE
+                auditorID "edgeInnerThr"
+                label "Inner edges "
+                min   0
+                max   1
+                value 0.1
+                format "%.2f"
+                fixedLimits        TRUE
+                continuousTrigger  TRUE
+              }        
+              DialogRealSlider {
+                height 6
+                fixedHeight TRUE
+                auditorID "edgeOutterThr"
+                label "Outer edges "
+                min   0
+                max   1
+                value 0.1
+                format "%.2f"
+                fixedLimits        TRUE
+                continuousTrigger  TRUE
+              }        
+            }
+            ColumnDialog {
+              DialogCheckBox {
+                state TRUE
+                labelAlignment CENTER
+                height 6
+                fixedHeight TRUE
+                auditorID "edgeluminance"
+                label "Luminance"
+              }       
+              DialogCheckBox {
+                state TRUE
+                labelAlignment CENTER
+                height 6
+                fixedHeight TRUE
+                auditorID "edgedepth"
+                label "Depth"
+              }       
+              DialogCheckBox {
+                state FALSE
+                labelAlignment CENTER
+                height 6
+                fixedHeight TRUE
+                auditorID "edgegrad"
+                label "Gradient"
+              }
+            }
+          }      
+        
+          #####Boundary opacity
+          DialogSeparator{}
+          ColumnDialog {                       
+            DialogCheckBox {
+              state FALSE
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "boundopacity"
+              label "Boundary Opacity"
+            }
+            DialogRealSlider {
+              height 6
+              fixedHeight TRUE
+              auditorID "boundOpacityThr"
+              label "Threshold "
+              min   0
+              max   8
+              value 1.5
+              format "%.2f"
+              fixedLimits        FALSE
+              continuousTrigger  TRUE
+            }
+            DialogRealSlider {
+              height 6
+              fixedHeight TRUE
+              auditorID "boundOpacityInt"
+              label "Intensity "
+              min   0
+              max   8
+              value 1.5
+              format "%.2f"
+              fixedLimits        FALSE
+              continuousTrigger  TRUE
+            }
+          }    
+        }
+        
+        RowDialog {
+          edgeStyle SHADOW_IN
+          
+          DialogLabel {
+            height 1
+            fixedHeight TRUE
+            label "Volume Skin"
+          }
+          
+          ColumnDialog {
+            columnSpacing  5
+            
+            DialogCheckBox {
+              state FALSE
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "VSlargeSliceSupport"
+              label "Large Slice Support"
+              enable FALSE
+              }
+            DialogComboBox {
+              labelAlignment CENTER
+              maxWidth 300
+              height 6
+              fixedHeight TRUE
+              auditorID "skinfacemode"
+              label "Face Mode"
+              items [ "FRONT", "BACK", "FRONT_AND_BACK" ] 
+            }
+
+            DialogCheckBox {
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "skinbump"
+              label "Bump Mapping"
+              state FALSE
+              enable FALSE
+            }
+              
+            DialogEditText {
+              auditorID "skinbumpscale"
+              editText "1"
+              isNumeric TRUE
+              height 6
+              fixedHeight TRUE
+              label "Bump Scale"
+              enable FALSE
+            }
+
+            DialogCheckBox {
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "skinoutlined"
+              label "Outlined"
+              state FALSE
+              enable FALSE
+            }
+          }
+        }
+
+        RowDialog {
+          edgeStyle SHADOW_IN
+
+          DialogLabel {
+            height 1
+            fixedHeight TRUE
+            label "Material and Lighting"
+          }
+
+          DialogRealSlider {
+            labelAlignment CENTER
+            height 6
+            fixedHeight TRUE
+            auditorID "globalalpha"
+            label "Global Alpha"
+            min   0
+            max   1
+            value  0.3
+            fixedLimits        TRUE
+            continuousTrigger  TRUE
+          }
+
+          ColumnDialog {
+            columnSpacing 50
+            DialogComboBox {
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              fixedWidth TRUE
+              auditorID "numberOfMaterial"
+              label "Number of Materials to Create:    "
+              items [ "1","2","3","4","5","6" ]
+              selectedItem 0
+              enable TRUE
+            }
+
+            DialogComboBox {
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              fixedWidth TRUE
+              auditorID "selectedmaterial"
+              label "Select Material to Control:    "
+              items [ "1","2","3","4","5","6" ]
+              selectedItem 0
+              enable TRUE
+            }
+          }
+
+          ColumnDialog {
+            columnSpacing  5
+            #          width 200
+
+            DialogPushButton {
+              height 6
+              auditorID "material"
+              fixedHeight TRUE
+              labelAlignment CENTER
+              buttonLabel "Material Editor"
+            }
+
+            DialogPushButton {
+              height 6
+              auditorID "light"
+              fixedHeight TRUE
+              labelAlignment CENTER
+              buttonLabel "Directional Light Editor"
+            }
+          }
+        }
+
+        RowDialog {
+          edgeStyle SHADOW_IN
+
+          DialogLabel {
+            height 1
+            fixedHeight TRUE
+            label "Isosurfaces"
+          }
+
+          ColumnDialog {
+            columnSpacing 20
+            DialogComboBox {
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              fixedWidth TRUE
+              auditorID "interpolationmethod"
+              label "Interpolation Method:"
+              items [ "Color and Gradient", "Segmented","Gradient" ]
+              selectedItem 0
+              enable TRUE
+            }
+
+            DialogRealSlider {
+              height 6
+              fixedHeight TRUE
+              fixedWidth TRUE
+              auditorID "segmentedthreshold"
+              label "Segmented Threshold:"
+              min   .0
+              max   1.
+              value  .5
+              fixedLimits        TRUE
+              continuousTrigger  TRUE
+              enable TRUE
+            }
+          }
+          ColumnDialog {
+            columnSpacing 50
+            DialogComboBox {
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              fixedWidth TRUE
+              auditorID "numberOfIso"
+              label "Number of Isosurfaces to Create:"
+              items [ "1","2","3","4","5","6" ]
+              selectedItem 0
+              enable TRUE
+            }
+
+            DialogComboBox {
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              fixedWidth TRUE
+              auditorID "selectediso"
+              label "Select Isosurface to Control:"
+              items [ "1","2","3","4","5","6" ]
+              selectedItem 0
+              enable TRUE
+            }
+          }
+          DialogRealSlider {
+            height 6
+            fixedHeight TRUE
+            auditorID "isovalue"
+            label "Isovalue"
+            min   0
+            max   255
+            value  0
+            fixedLimits        TRUE
+            continuousTrigger  TRUE
+          }
+        }
+
+        RowDialog {
+          edgeStyle SHADOW_IN
+            
+          DialogCheckBox {
+            height 6
+            fixedHeight TRUE
+            auditorID "probe"
+            label "Probe"
+          }
+        }
+      }#end tab2
+
+      #====================== Tab 3 : Geometry Control ===========================
+      RowDialog {
+        label "Geometry Control"
+        maxHeight 800
+        rowSpacing  7
+        width 400
+        height 250
+        fixedHeight TRUE
+        
+        #Ortho Slice----------------------------
+        RowDialog{
+          edgeStyle SHADOW_IN
+          
+          DialogLabel {
+            height 6
+            fixedHeight TRUE
+            label "Ortho Slice"
+          }
+          
+          ColumnDialog {
+            DialogComboBox {
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "numberOfSlice"
+              label "Number of Slices to Create"
+              items [ "1","2","3","4","5","6","7","8","9","10" ] 
+              selectedItem 0
+            }
+            DialogCheckBox {
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "allvisibility"
+                  label "Enable"
+            }
+          }
+          
+          DialogSeparator{}
+          
+          ColumnDialog {
+            DialogComboBox {
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "selectedslice"
+              label "Select Slice to Control:"
+              items [ "1","2","3" ] 
+              selectedItem 0
+            }
+            DialogCheckBox {
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "orthovisibility"
+                          label "Visible"
+              state TRUE
+            }
+            DialogCheckBox {
+              #labelAlignment LEFT
+              #height 6
+              #fixedHeight TRUE
+              auditorID "largeslicesupport"
+                          label "Large Slice Support"
+              state FALSE
+            }
+          }
+          
+          ColumnDialog {
+
+            RowDialog {
+              DialogCheckBox {
+                labelAlignment CENTER
+                height 6
+                fixedHeight TRUE
+                auditorID "orthoclipping"
+                label "Clipping"
+              }
+              DialogCheckBox {
+                labelAlignment CENTER
+                height 6
+                fixedHeight TRUE
+                auditorID "orthoclippingside"
+                onString "Back"
+                offString "Front"
+                label "Clipping Side"
+                state TRUE
+              }
+            }
+                
+            RowDialog {
+              DialogComboBox {
+                labelAlignment CENTER
+                height 6
+                fixedHeight TRUE
+                auditorID "draggerorientation"
+                label "Dragger Orientation"
+                items [ "X", "Y", "Z" ] 
+                selectedItem 2
+              }
+              DialogEditText {
+                auditorID "bumpscale"
+                editText "1"
+                isNumeric TRUE
+                height 6
+                fixedHeight TRUE          
+                label "Bump Scale"          
+              }
+            }
+          }
+          
+          DialogIntegerSlider {
+            labelAlignment CENTER
+            height 6
+            fixedHeight TRUE
+            auditorID "slicenumber"
+            label "Slice Number"
+            min   0
+            max   256
+            value  1
+            fixedLimits        TRUE
+            continuousTrigger  TRUE
+          }
+          
+          ColumnDialog {
+            DialogComboBox {
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "orthoalphatype"
+              label "Alpha Type"
+              items [ "Binary", "As Is", "Opaque" ] 
+            }
+            DialogComboBox {
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "orthointerpolation"
+              label "Interpolation"
+              items [ "Nearest", "Linear", "Multisample (12 samples)" ]
+              selectedItem 1
+            }
+            DialogCheckBox {
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "orthousergba"
+              label "RGBA"
+              state FALSE
+            }
+            DialogCheckBox {
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "orthobump"
+              label "Bump Mapping"
+              state FALSE
+            }
+            DialogCheckBox {
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "orthooutlined"
+              label "Outlined"
+            }
+          }
+          
+          ColumnDialog {
+            DialogPushButton {
+              buttonLabel  "Start Animation"  
+              auditorID "animbutton"
+            }
+              
+            DialogIntegerSlider {
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "animspeed"
+              label "Animation speed (FPS)"
+              min   0
+              max   30
+              value  10
+              fixedLimits        TRUE
+              continuousTrigger  TRUE
+            }
+          }
+        }
+        
+        #Oblique Slice----------------------------
+        RowDialog {
+          edgeStyle SHADOW_IN
+        
+          DialogLabel {
+            height 6
+            fixedHeight TRUE
+            label "Oblique Slice"
+          }
+          
+          ColumnDialog {
+
+            RowDialog {
+
+              DialogCheckBox {
+                labelAlignment CENTER
+                height 6
+                fixedHeight TRUE
+                auditorID "obliquevisibility"
+                label "Visibility"
+              }
+                
+              DialogCheckBox {
+                labelAlignment CENTER
+                height 6
+                fixedHeight TRUE
+                auditorID "obliqueclipping"
+                label "Clipping"
+              }
+              
+              DialogComboBox {
+                labelAlignment CENTER
+                height 6
+                fixedHeight TRUE
+                auditorID "obliquealphatype"
+                label "Alpha Type"
+                items [ "Binary", "As Is", "Opaque" ] 
+              }
+              
+              DialogCheckBox {
+                labelAlignment CENTER
+                height 6
+                fixedHeight TRUE
+                auditorID "obliquebump"
+                label "Bump Mapping"
+                state FALSE
+              }
+
+              DialogCheckBox {
+                labelAlignment CENTER
+                height 6
+                fixedHeight TRUE
+                auditorID "obliqueoutlined"
+                label "Outlined"
+              }
+            }
+            
+            RowDialog {
+              DialogCheckBox {
+                labelAlignment CENTER
+                height 6
+                fixedHeight TRUE
+                auditorID "obliquedraggervisibility"
+                label "Dragger Visibility"
+                state TRUE
+              }
+              
+              DialogComboBox {
+                labelAlignment CENTER
+                height 6
+                fixedHeight TRUE
+                auditorID "obliqueinterpolation"
+                label "Interpolation"
+                items [ "Off", "Bi-linear", "Tri-linear", "Multisample (12 samples)" ]
+                selectedItem 1
+              }
+              
+              DialogCheckBox {
+                labelAlignment CENTER
+                height 6
+                fixedHeight TRUE
+                auditorID "obliqueusergba"
+                label "RGBA"
+                state FALSE
+              }
+              
+              DialogEditText {
+                auditorID "oblibumpscale"
+                editText "1"
+                isNumeric TRUE
+                height 6
+                fixedHeight TRUE          
+                label "Bump Scale"          
+              }
+            }
+          }
+          
+          DialogSeparator{}
+
+          DialogPushButton {
+            height 6
+            maxWidth 250
+            auditorID "alternate"
+            fixedHeight TRUE
+            labelAlignment CENTER
+            labelVisibility FALSE
+            buttonLabel "Create Alternate Representation"
+          }
+        }
+        
+        RowDialog {
+          edgeStyle SHADOW_IN
+
+          DialogLabel {
+            height 1
+            fixedHeight TRUE
+            label "Slice Material"
+          }
+            
+          ColumnDialog {
+            columnSpacing  5
+            
+            DialogPushButton {
+              height 6
+              auditorID "slicematerial"
+              fixedHeight TRUE
+              labelAlignment CENTER
+              buttonLabel "Material Editor"
+            }          
+          }
+        }
+
+        #Volume Geometry----------------------------
+        RowDialog {
+          edgeStyle SHADOW_IN
+
+          DialogLabel {
+            height 6
+            fixedHeight TRUE
+            label "Volume Geometry Node"
+          }
+
+          DialogCheckBox {
+            labelAlignment CENTER
+            height 6
+            fixedHeight TRUE
+            auditorID "volgeometryvisibility"
+            label "Visibility"
+          }
+          
+          DialogCheckBox {
+            labelAlignment CENTER
+            height 6
+            fixedHeight TRUE
+            auditorID "volgeometryclipping"
+            label "Clip Geometry"
+          }
+          
+          DialogCheckBox {
+            labelAlignment CENTER
+            height 6
+            fixedHeight TRUE
+            auditorID "volgeometryinterpolation"
+            label "Interpolation"
+            state TRUE
+          }
+
+          DialogCheckBox {
+            labelAlignment CENTER
+            height 6
+            fixedHeight TRUE
+            auditorID "volgeometryoutlined"
+            label "Outlined"
+          }
+          
+          DialogRealSlider {
+            labelAlignment CENTER
+            height 6
+            fixedHeight TRUE
+            auditorID "volgeometryoffset"
+            label "Offset"
+            min   -0.1
+            max    0.1
+            value  0.0
+            fixedLimits        TRUE
+            continuousTrigger  TRUE
+          }
+        }
+
+        # Volume Scaling ----------------------------
+        RowDialog {
+          
+          edgeStyle SHADOW_IN
+
+          DialogLabel {
+            height 6
+            fixedHeight TRUE
+            label "Volume Scale Factor"
+          }
+          
+          ColumnDialog {
+            RowDialog {
+              DialogRealSlider {
+                height 6
+                fixedHeight TRUE
+                auditorID "volumeScalingX"
+                label "X axis "
+                min    0.1
+                max   10.0
+                value  1.0
+                continuousTrigger  TRUE
+              }
+              DialogRealSlider {
+                height 6
+                fixedHeight TRUE
+                auditorID "volumeScalingY"
+                label "Y axis "
+                min    0.1
+                max   10.0
+                value  1.0
+                continuousTrigger  TRUE
+              }
+              DialogRealSlider {
+                height 6
+                fixedHeight TRUE
+                auditorID "volumeScalingZ"
+                label "Z axis "
+                min    0.1
+                max   10.0
+                value  1.0
+                continuousTrigger  TRUE
+              }
+            }
+            DialogPushButton {
+              height 6
+              auditorID "volumeScalingReset"
+              fixedHeight TRUE
+              labelAlignment CENTER
+              buttonLabel "Reset"
+            }
+          }          
+        }  
+      }#end tab3
+
+      #====================== Tab 4 : Region Of Interest ===========================
+
+      RowDialog {
+        label "Region Of Interest"
+        maxHeight 800
+        height 200
+        fixedHeight TRUE
+        rowSpacing  7
+        width 400
+        
+        #RoiManip-----------------------------------
+        
+        RowDialog {
+          edgeStyle SHADOW_IN
+          
+          DialogLabel {
+            height 6
+            fixedHeight TRUE
+            label "General"
+          }
+            
+          DialogCheckBox {
+            labelAlignment CENTER
+            height 5
+            fixedHeight TRUE
+            auditorID "draggervisibility"
+            label "Enable"
+          }
+          
+          DialogCheckBox {
+            labelAlignment CENTER
+            height 5
+            fixedHeight TRUE
+            auditorID "replaceroi"
+                    label "Show Manip"
+            state TRUE
+          }
+          
+          DialogPushButton {
+            height 6
+            maxWidth 100
+            auditorID "resetroi"
+            fixedHeight TRUE
+            labelAlignment CENTER
+            labelVisibility FALSE
+            buttonLabel "Reset"
+          }
+          
+          DialogCheckBox {
+            labelAlignment CENTER
+            height 5
+            fixedHeight TRUE
+            auditorID "applyroitogeometry"
+            state TRUE
+            label "Apply to Geometry"
+          }
+        }
+            
+        RowDialog {
+          edgeStyle SHADOW_IN
+            
+          DialogLabel {
+            height 6
+            fixedHeight TRUE
+            label "SoRoiManip Fields"
+          }
+            
+          DialogCheckBox {
+            labelAlignment CENTER
+            height 6
+            fixedHeight TRUE
+            auditorID "constrained"
+            label "Constrained"
+            state TRUE
+          }
+            
+          DialogCheckBox {
+            labelAlignment CENTER
+            height 6
+            fixedHeight TRUE
+            auditorID "controlling"
+            onString "SubVolume"
+            offString "ROI box"
+            state FALSE
+            label "Controlling"
+          }
+        }
+        
+        RowDialog {
+          edgeStyle SHADOW_IN
+          
+          DialogLabel {
+            height 6
+            fixedHeight TRUE
+            label "SoRoi Fields"
+          }
+          
+          DialogComboBox {
+            labelAlignment CENTER
+            height 6
+            fixedHeight TRUE
+            auditorID "roishape"
+            label "ROI Shape"
+            items [ "subVolume","Cross","Fence","ExclusionBox"  ] 
+          }
+        }
+        
+        RowDialog { # Subvolume size/bounds
+          edgeStyle SHADOW_IN
+          DialogLabel {
+            label "Subvolume"
+          }
+          ColumnDialog {
+            RowDialog { # Labels
+              maxWidth 75
+              DialogLabel { label "" }
+              DialogLabel { label "Minimum" }
+              DialogLabel { label "Maximum" }
+              DialogLabel { label "Size"    }
+            }
+            RowDialog { # X values
+              DialogLabel { label "X" labelAlignment CENTER }
+              DialogEditText {
+                auditorID "roi_min_x"
+                editText "0"
+                isNumeric TRUE
+              }
+              DialogEditText {
+                auditorID "roi_max_x"
+                editText "0"
+                isNumeric TRUE
+              }
+              DialogEditText {
+                auditorID "roi_size_x"
+                editText "0"
+                isNumeric TRUE
+                editable FALSE
+              }
+            }
+            RowDialog { # Y values
+              DialogLabel { label "Y" labelAlignment CENTER }
+              DialogEditText {
+                auditorID "roi_min_y"
+                editText "0"
+                isNumeric TRUE
+              }
+              DialogEditText {
+                auditorID "roi_max_y"
+                editText "0"
+                isNumeric TRUE
+              }
+              DialogEditText {
+                auditorID "roi_size_y"
+                editText "0"
+                isNumeric TRUE
+                editable FALSE
+              }
+            }
+            RowDialog { # Z values
+              DialogLabel { label "Z" labelAlignment CENTER }
+              DialogEditText {
+                auditorID "roi_min_z"
+                editText "0"
+              }
+              DialogEditText {
+                auditorID "roi_max_z"
+                editText "0"
+              }
+              DialogEditText {
+                auditorID "roi_size_z"
+                editText "0"
+                editable FALSE
+              }
+            }
+          }
+        }#end Subvolume size/bounds
+            
+        RowDialog { # Camera_Align
+          edgeStyle SHADOW_IN
+          DialogLabel {
+            label "Camera"
+          }
+          ColumnDialog { # Workaround for a minor alignment bug in DialogViz
+            DialogComboBox {
+              auditorID "cam_up_axis"
+              label "Up Axis:"
+              items ["+ X", "- X", "+Y ", "- Y", "+ Z", "- Z"]
+              selectedItem 2
+              maxWidth 150
+            }
+          }
+          ColumnDialog {
+            DialogPushButton {
+              auditorID "cam_align_px"
+              buttonLabel "+ X"
+              label "Align Camera with: "
+            }
+            DialogPushButton {
+              auditorID "cam_align_mx"
+              buttonLabel "- X"
+            }
+            DialogPushButton {
+              auditorID "cam_align_py"
+              buttonLabel "+ Y"
+              enable FALSE
+            }
+            DialogPushButton {
+              auditorID "cam_align_my"
+              buttonLabel "- Y"
+              enable FALSE
+            }
+            DialogPushButton {
+              auditorID "cam_align_pz"
+              buttonLabel "+ Z"
+            }
+            DialogPushButton {
+              auditorID "cam_align_mz"
+              buttonLabel "- Z"
+            }
+          } # end align axis buttons
+          DialogPushButton {
+            auditorID "cam_view_ROI"
+            buttonLabel "Center ROI in view"
+            maxWidth 150
+          }
+          DialogCheckBox {
+            auditorID "cam_lock_ROI"
+                    label  "Lock Camera to ROI"
+          }
+        }#end Camera_Align
+        
+        RowDialog { # Save settings
+          edgeStyle SHADOW_IN
+          DialogLabel {
+            label "Save settings"
+          }
+          ColumnDialog {
+            columnSpacing  5
+            
+            DialogEditText {
+              labelAlignment CENTER
+              maxWidth 300
+              height 6
+              fixedHeight TRUE
+              auditorID "settingsfilename"
+              label    "User Filename"
+              editText "oiv.cfg"
+            }
+            
+            DialogPushButton {
+              buttonLabel "Browse"
+              auditorID "settingsBrowse"
+              height 6
+              fixedHeight TRUE
+              labelAlignment CENTER
+              maxWidth 100
+            }
+          }
+        }#end Save settings
+        
+      }#end tab4
+      
+      #====================== Tab 5 : Volume Clipping ==================
+      RowDialog {
+        label "Volume Clipping"
+        maxHeight 800
+        rowSpacing  7
+        width 400
+        height 250
+        fixedHeight TRUE
+        
+        RowDialog {        
+          edgeStyle SHADOW_IN
+          auditorID "volumeClippingDialogID"
+          rowSpacing 6
+          
+          DialogLabel {
+            height 1
+            fixedHeight TRUE
+            label "Volume Clipping"
+          }
+          
+          ColumnDialog {          
+            #enable/disable clipping
+            DialogCheckBox {
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "volumeClippingEnable"
+              label "Enable"
+              state FALSE
+            }        
+            DialogCheckBox {
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "volClipDraggerVisibility"
+              label "Dragger visibility"
+              state TRUE
+            }
+            DialogCheckBox {
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "volClipModelVisibility"
+              label "Model visibility"
+              state FALSE
+            }
+          }
+          
+          #Model selection
+          ColumnDialog {
+            DialogComboBox {
+              labelAlignment CENTER
+              auditorID "clippingModel"
+              maxWidth 300
+              height 6
+              fixedHeight TRUE
+              label "Predefined Model"
+              items [ "Sphere", "Cone", "Cylinder", "Torus" ]
+            }
+            
+            DialogEditText {
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "clipModelFilename"
+              label    "User Filename"
+              editText ""
+            }
+            
+            DialogPushButton {
+              buttonLabel "Browse"
+              auditorID "clipModelBrowse"
+              height 6
+              fixedHeight TRUE
+              labelAlignment CENTER
+              maxWidth 100
+            }
+          }
+          
+          #Passes & mode selection
+          ColumnDialog {
+            DialogIntegerSlider {
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "volClippingNumPasses"
+              label "Clipping passes"
+              min   0
+              max   5
+              value  2
+              fixedLimits        TRUE
+              continuousTrigger  TRUE
+            }
+            
+            DialogCheckBox {
+              height 6
+              fixedHeight TRUE
+              auditorID "volClippingMode"
+              label "Clip Outside"
+              state TRUE
+            }
+          }
+        }
+        ##Grid clipping
+        RowDialog {
+          edgeStyle SHADOW_IN
+          rowSpacing 6
+          auditorID "uniformGridClippingDialogID"
+          
+          DialogLabel {
+            height 1
+            fixedHeight TRUE
+            label "Uniform Grid Clipping"
+          }
+          
+          ColumnDialog {
+            DialogComboBox {
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "numberOfGridsID"
+              label "Number of Grids to Create"
+              items [ "1","2","3" ] 
+              selectedItem 0
+            }
+            #enable/disable clipping
+            DialogCheckBox {
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "uniformGridClippingEnable"
+              label "Enable"
+              state FALSE
+            }
+          }
+          
+          DialogSeparator {}
+          
+          ColumnDialog {
+            DialogComboBox {
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "selectedGrid"
+              label "Select Grid to Control:"
+              items [ "1" ] 
+              selectedItem 0
+            }
+            DialogCheckBox {
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "gridVisibility"
+              label "Visible"
+              state TRUE
+            }
+            DialogCheckBox {
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "gridDraggerVisibility"
+              label "Dragger visibility"
+              state TRUE
+            }
+          }
+          
+          ColumnDialog {
+            DialogComboBox {
+              labelAlignment CENTER
+              auditorID "gridModel"
+              maxWidth 300
+              height 6
+              fixedHeight TRUE
+              label "Predefined Model"
+              items [ "Noise", "Distance", "Figure" ]
+            }
+            DialogEditText {
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "clipmapFilename"
+              label    "User Filename"
+              editText "imagefile.png"
+            }
+            DialogPushButton {
+              buttonLabel "Browse"
+              auditorID "clipmapBrowse"
+              height 6
+              fixedHeight TRUE
+              labelAlignment CENTER
+              maxWidth 100
+            }  
+          }
+        } 
+      }
+
+      #--------------------- Tab6 : LDM Control ------------------------
+      RowDialog {
+        label "LDM Control"
+        auditorID "ldmTab"
+        #maxHeight 800
+        rowSpacing  7
+        width 400
+        height 250
+        fixedHeight TRUE
+        
+        RowDialog {
+          rowSpacing  15
+          edgeStyle SHADOW_IN
+          
+          DialogLabel {
+            height 1
+            fixedHeight TRUE
+            label "Visual Feedback"
+          }
+          
+          ColumnDialog {
+            RowDialog {
+              DialogCheckBox {
+                auditorID "drawtiles"
+                label "Draw Tiles"
+                height 6
+                fixedHeight TRUE
+                state TRUE
+                onString ""
+                offString ""
+              }
+              DialogCheckBox {
+                auditorID "slicestex"
+                height 6
+                fixedHeight TRUE
+                label "Slice Textures"
+                state TRUE
+                onString ""
+                offString ""
+              }
+              DialogCheckBox {
+                auditorID "fakedata"
+                label "Fake Data"
+                height 6
+                fixedHeight TRUE
+                state FALSE
+                onString ""
+                offString ""
+              }
+              DialogCheckBox {
+                auditorID "loadunloadtiles"
+                label "Load/Unload Tiles"
+                height 6
+                fixedHeight TRUE
+                state FALSE
+                onString ""
+                offString ""
+              }
+            }#end first column
+            RowDialog{
+              DialogCheckBox {
+                auditorID "tileoutline"
+                label "Texture Front Outline"
+                height 6
+                fixedHeight TRUE
+                state FALSE
+                onString ""
+                offString ""
+              }
+              DialogCheckBox {
+                auditorID "dataoutline"
+                label "Data Front Outline"
+                height 6
+                fixedHeight TRUE
+                state FALSE
+                onString ""
+                offString ""
+              }
+              DialogCheckBox {
+                auditorID "octree"
+                label "Valuation Outline"
+                height 6
+                fixedHeight TRUE
+                state FALSE
+                onString ""
+                offString ""
+              }
+              
+            }#end second column
+            RowDialog{
+              DialogCheckBox {
+                auditorID "rayentry"
+                label "Show Ray Entry"
+                height 6
+                fixedHeight TRUE
+                state FALSE
+                onString ""
+                offString ""
+              }
+              DialogCheckBox {
+                auditorID "rayexit"
+                label "Show Ray Exit"
+                height 6
+                fixedHeight TRUE
+                state FALSE
+                onString ""
+                offString ""
+              }
+            }
+          }
+        }#end visual feedback
+      
+        #Options
+        RowDialog {
+          rowSpacing  15
+          edgeStyle SHADOW_IN
+          
+          DialogLabel {
+            height 1
+            fixedHeight TRUE
+            label "Options"
+          }
+          
+          ColumnDialog {
+            RowDialog {
+              DialogCheckBox {
+                auditorID "viewculling"
+                label "View Culling"
+                height 6
+                fixedHeight TRUE
+                state TRUE
+                onString ""
+                offString ""
+              }
+              DialogCheckBox {
+                auditorID "screenres"
+                label "Screen Resolution"
+                height 6
+                fixedHeight TRUE
+                state TRUE
+                onString ""
+                offString ""
+              }
+              DialogCheckBox {
+                auditorID "viewpointrefine"
+                label "View Point Refinement"
+                height 6
+                fixedHeight TRUE
+                state TRUE
+                onString ""
+                offString ""
+              }
+              DialogCheckBox {
+                auditorID "sliceequalresolution"
+                label "Slice Equal Resolution"
+                height 6
+                fixedHeight TRUE
+                state FALSE
+                onString ""
+                offString ""
+              }
+              DialogCheckBox {
+                auditorID "ignoreFullyTransparency"
+                label "Ignore Fully Transparent Tiles"
+                height 6
+                fixedHeight TRUE
+                state FALSE
+                onString ""
+                offString ""
+              }
+              DialogCheckBox {
+                auditorID "proximityVisitor"
+                height 6
+                fixedHeight TRUE
+                state TRUE
+                onString "Proximity Visitor"
+                offString "Tile Visitor"
+              }
+              DialogIntegerSlider {
+                auditorID "numIO"
+                label "Number of Loading Threads"
+                min      1
+                max   20
+                height 6
+                fixedHeight TRUE
+                value 4
+                continuousTrigger  TRUE
+              }  
+            }
+
+            RowDialog {
+              DialogComboBox {
+                height 6
+                fixedHeight TRUE
+                auditorID "tilesize"
+                label "Tile Size"
+                items [ "32","64","128","256","512" ]
+                selectedItem 1
+              }
+              
+              DialogComboBox {
+                height 6
+                fixedHeight TRUE
+                auditorID "subtilesize"
+                label "Subtiles Size"
+                items [ "8","16","32" ]
+                selectedItem 1
+              }
+                
+              DialogComboBox {
+                auditorID "loadingpolicy"
+                label "Loading Policy"
+                height 6
+                fixedHeight TRUE
+                selectedItem 0
+                items [ "No Interaction", "Always","Never" ]
+              }
+              DialogComboBox {
+                height 6
+                fixedHeight TRUE
+                auditorID "resthreshold"
+                selectedItem 1
+                label "Min Resolution Threshold"
+                items [ "Max","1/2","1/4","1/8","1/16","1/32","1/64" ] 
+              }              
+              DialogComboBox {
+                height 6
+                fixedHeight TRUE
+                auditorID "maxresthreshold"
+                selectedItem 0
+                label "Max Resolution Threshold"
+                items [ "Max","1/2","1/4","1/8","1/16","1/32","1/64" ] 
+              }              
+              DialogCheckBox {
+                height 6
+                fixedHeight TRUE
+                auditorID "fixedresmode"
+                state   FALSE
+                label "Fixed Resolution Mode"          
+              }
+              DialogComboBox {
+                height 6
+                fixedHeight TRUE
+                auditorID "requestedres"
+                selectedItem 1
+                label "Requested Resolution"
+                items [ "Max","1/2","1/4","1/8","1/16","1/32","1/64" ] 
+              }  
+              DialogCheckBox {
+                height 6
+                fixedHeight TRUE
+                auditorID "loadingcb"
+                state   TRUE
+                label "Loading Callback"          
+              }
+            }
+          }
+        }#end rowDialog for Options
+        
+        RowDialog {
+          rowSpacing  15
+          edgeStyle SHADOW_IN
+          
+          DialogLabel {
+            height 6
+            fixedHeight TRUE
+            label "Main Memory Control Parameters"
+          }
+          
+          DialogCheckBox {
+            auditorID "mainmemparamauto"
+            label "Automatic Settings"
+            height 6
+            fixedHeight TRUE
+            state TRUE
+            onString ""
+            offString ""
+          }          
+          DialogIntegerSlider {
+            auditorID "mainmemorymb"
+            label "Amount in MB"
+            min     1
+            max   4096
+            height 6
+            fixedHeight TRUE
+            value 256
+            continuousTrigger  TRUE
+          }
+                    
+          DialogIntegerSlider {
+            auditorID "notifyrate"
+            label "Notification Rate"
+            min      1
+            max   100
+            height 6
+            fixedHeight TRUE
+            value 50
+            continuousTrigger  TRUE
+          }
+        }
+      
+        RowDialog {
+          rowSpacing  15
+          edgeStyle SHADOW_IN
+          
+          DialogLabel {
+            height 6
+            fixedHeight TRUE
+            label "Control Parameters for Volume Texturing"
+          }
+          DialogCheckBox {
+            auditorID "texmemparamauto"
+            label "Automatic Settings"
+            height 6
+            fixedHeight TRUE
+            state TRUE
+            onString ""
+            offString ""
+          }  
+          DialogIntegerSlider {
+            auditorID "numtexturesmb"
+            label "Amount in MB"
+            min     1
+            max   1024
+            height 6
+            fixedHeight TRUE
+            value 48
+            continuousTrigger  TRUE
+          }
+                    
+          DialogIntegerSlider {
+            auditorID "textureloadrate"
+            height 6
+            fixedHeight TRUE
+            label "Texture Load Rate"
+            min     0
+            max    64
+            value   1
+            continuousTrigger  TRUE
+          }
+        }
+        RowDialog {
+          rowSpacing  15
+          edgeStyle SHADOW_IN
+          
+          DialogLabel {
+            height 6
+            fixedHeight TRUE
+            label "Control Parameters for Slice Texturing"
+          }
+          
+          DialogCheckBox {
+            auditorID "2dtexmemparamauto"
+            label "Automatic Settings"
+            height 6
+            fixedHeight TRUE
+            state TRUE
+            onString ""
+            offString ""
+          }
+          DialogIntegerSlider {
+            auditorID "slicetextureloadrate"
+            height 5
+            fixedHeight TRUE
+            label "Texture Load Rate for Slices"
+            min     1
+            max    1000
+            value  64
+            continuousTrigger  TRUE
+          }
+        }
+      }#end tab 6
+
+      #--------------------- Tab7 : 2D Infos ------------------------
+      RowDialog {
+        label "2D Infos"
+        auditorID "2dTab"
+        #maxHeight 800
+        rowSpacing  7
+        width 400
+        height 250
+        fixedHeight TRUE
+
+        RowDialog {
+          edgeStyle SHADOW_IN
+          
+          DialogLabel {
+            height 1
+            fixedHeight TRUE
+            label "Decoration"
+          }
+          
+          ColumnDialog {
+            columnSpacing  5
+            
+            DialogCheckBox {
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "colormapvisibility"
+              label "  Colormap  "
+              state TRUE
+            }
+            
+            DialogCheckBox {
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "showhisto"
+              label "  Histogram  "
+              state TRUE
+            }
+            
+            DialogCheckBox {
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "drawboxe"
+              label "  BBox  "
+            }
+            
+            DialogCheckBox {
+              labelAlignment CENTER
+              height 6
+              fixedHeight TRUE
+              auditorID "drawaxes"
+              label " Axes  "
+            }
+          }
+        }
+        #background------------------------------------
+        RowDialog {
+          edgeStyle SHADOW_IN
+          
+          DialogLabel {
+            height 6
+            fixedHeight TRUE
+            label "Background"
+          }
+          
+          DialogRealSlider {
+            auditorID "background"
+            label "Color"
+            valueVisible FALSE
+            fixedHeight TRUE
+            height 32
+            min    0
+            max    13
+            value  0
+            #colors [0 0 0, 0 0 0.5, 0 0 1, 0 0.5 1, 0 1 1, 0 1 0, 0.75 0.5 1, 1 1 0, 1 0 0, 1 0 1, 1 1 1]
+            colors [0 0 0, 0.98 0.92 0.84, 0.83 0.83 0.83, 0.53 0.8 0.98,0.53 0.8 0.98,0 0 0.5,0 0 1, 0.4 0.41 0.66, 0.13 0.54 0.13, 0 0.6 0.54, 0.56 0.93 0.56, 0.8 0.8 0.7,1 1 1,1 1 1]
+            
+            labelAlignment CENTER
+            continuousTrigger TRUE
+          }
+          DialogCheckBox {
+            labelAlignment CENTER
+            height 6
+            fixedHeight TRUE
+            auditorID "backgroundnode"
+          
+            offString "Off"
+            label "Background Node"
+            state   TRUE
+          }
+        }        
+      } # 2dtab
+
+      
+    }#end tabdialog
+  }
+
+  DialogSeparator {}
+
+  DialogPushButton {
+    auditorID "exit"
+    fixedHeight TRUE
+    labelAlignment CENTER
+    labelVisibility FALSE
+    buttonLabel "Exit VolRend"
+  }  
+
+}#end topwidget

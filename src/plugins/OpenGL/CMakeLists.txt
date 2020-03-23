@@ -1,0 +1,8 @@
+openOR_add_subdirectory(DataInterpreter)
+#openOR_add_subdirectory(Shader)
+#openOR_add_subdirectory(Context)
+#openOR_add_subdirectory(Renderer) 
+#openOR_add_subdirectory(Textures)
+#openOR_add_subdirectory(VolumeTextureRenderer)
+#openOR_add_subdirectory(CPUVolumeSliceRenderer)
+#openOR_add_subdirectory(Utility) 

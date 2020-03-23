@@ -1,0 +1,449 @@
+#include "stdafx.h"
+#include "VolumeMeshProvider.h"
+#include "IntPtrConverter.h"
+#include <fstream>
+
+using Zeiss::IMT::NG::NeoInsights::Volume::KunzmannMeshMeasurement::KunzmannMeshMeasurement;
+using Zeiss::IMT::Numerics::Transf3d;
+using namespace Zeiss::IMT::Math;
+using Zeiss::IMT::PointCloudProcessing::MeshImpl;
+using Zeiss::IMT::PointCloudProcessingCLR::IntPtrConverter;
+
+namespace Zeiss
+{
+	namespace IMT
+	{
+		namespace NG
+		{
+			namespace NeoInsights
+			{
+				namespace Volume
+				{
+					namespace MeshProcessing
+					{
+
+						VolumeMeshProvider::VolumeMeshProvider(IVolume^ volumeData):
+							_VolumeData(volumeData),
+							_IsMeshComputed(false),
+							_Positions(new P3Array()),
+							_Normals(new UV3Array()),
+							_Faces(new FaceArray()),
+							_AppliedTransformation(Transformation::Identity)
+						{
+							_VolumeData->AlignmentChanged += gcnew System::Action<Transformation^>(this, &VolumeMeshProvider::OnVolumeAlignmentChanged);
+						}
+
+						VolumeMeshProvider::~VolumeMeshProvider()
+						{
+							_Positions->clear();
+							_Positions->shrink_to_fit();
+							delete _Positions;
+
+							_Normals->clear();
+							_Normals->shrink_to_fit();
+							delete _Normals;
+
+							_Faces->clear();
+							_Faces->shrink_to_fit();
+							delete _Faces;
+
+							_VolumeData->AlignmentChanged -= gcnew System::Action<Transformation^>(this, &VolumeMeshProvider::OnVolumeAlignmentChanged);
+						}
+						
+						VolumeMeshProvider::!VolumeMeshProvider()
+						{
+
+						}
+
+						bool VolumeMeshProvider::ProvideVisualizationMesh([Out] MeshRef^% mesh, Progress^ progress)
+						{
+							Zeiss::IMT::CAD::Viewer::Geometry::SurfaceGrid::P3Array referencePositions;
+							Zeiss::IMT::CAD::Viewer::Geometry::SurfaceGrid::UV3Array referenceNormals;
+							std::vector<size_t> referenceFaces;
+
+							MeshAdaptor tempMesh(referencePositions, referenceNormals, referenceFaces);
+							if (ProvideMesh(tempMesh, progress))
+							{
+								MeshImpl::Ptr meshImpl = MeshImpl::CreateNew(std::move(referencePositions), std::move(referenceFaces), std::move(referenceNormals));
+								mesh = gcnew MeshRef(IntPtrConverter::Convert(meshImpl));
+							}
+							
+							return mesh != nullptr;
+						}
+
+						bool VolumeMeshProvider::ProvideMesh(Zeiss::IMT::MathLayer::MeshAdaptor& mesh, Progress^ progress)
+						{
+							if (!_IsMeshComputed)
+							{
+								try
+								{
+									MeshAdaptor mesht(*_Positions, *_Normals, *_Faces);
+									GenerateMesh(mesht, progress);
+									_IsMeshComputed = (_Positions->size() == 0 || _Faces->size() == 0) ? false : true;
+								}
+								catch (const std::exception& exception)
+								{
+									_IsMeshComputed = false;
+									
+									LoXX::LXLogger* logger = LoXX::LXManager::Manager()
+										.GetLogger("Zeiss.IMT.NG.NeoInsights.Volume.MeshProcessing.VolumeMeshProvider");
+									logger->LogError(exception.what());
+									delete logger;
+								}
+							}
+							return _IsMeshComputed && CopyToMeshAdapter(mesh);
+						}
+
+						bool VolumeMeshProvider::GenerateMesh(MeshAdaptor& mesh, Progress^ progress)
+						{
+							double t0 = GetTickCount();//time(NULL);
+
+							SurfaceTriangulator^ triangulator = gcnew SurfaceTriangulator();
+
+#if 0
+							bool result = triangulator->GenerateWithDesiredTriangleCount(_VolumeData, 
+	                                      SurfaceTriangulator::ReductionMethod::reductionQuadricDecimation, (int)4e6, true, progress) != 0;
+
+							if (result)
+							result = result && triangulator->Export(_VolumeData->GetAlignment(), mesh) != 0;
+#else
+
+							bool result = triangulator->GenerateWithAdaptiveMarchingCubes(_VolumeData, _VolumeData->GetAlignment(), mesh,  progress);
+#endif
+
+							double t1 = GetTickCount();//time(NULL);
+							
+
+							delete triangulator;
+							triangulator = nullptr;
+
+							Transf3d trans = MathConverter::Convert(_VolumeData->GetAlignment());
+							Transf3d invTrans = MathConverter::Convert(Transformation::Inverse(_VolumeData->GetAlignment()));
+
+							if (result)
+							{
+								double const voxelSize = System::Math::Max(_VolumeData->VoxelSize[0], System::Math::Max(_VolumeData->VoxelSize[1], _VolumeData->VoxelSize[2]));
+
+								if (progress == nullptr || !progress->IsCancellationRequested)
+								{
+									//KunzmannMeshMeasurement::KunzmannMeshMeasurement^ measurement = gcnew KunzmannMeshMeasurement::KunzmannMeshMeasurement(_VolumeData);
+									//measurement->ConsiderStaticThreshold = false;
+									//measurement->UseAutoParams = true;
+									//measurement->SearchRange = 5.0 * voxelSize;
+									//measurement->SearchRangeAirSide = 5.0 * voxelSize;
+									//measurement->UseAngleCriterium = false;
+
+									//PointArrayAdaptor::P3Array actualPositions;
+									//PointArrayAdaptor::UV3Array actualNormals;
+									//std::vector<double> actualQualities;
+									//measurement->CalculateNative(&(mesh.Positions()), &(mesh.Normals()), &actualPositions, &actualNormals, &actualQualities);
+
+									//delete measurement;
+
+									int nPoints = (int)mesh.Positions().size();
+
+									for (int i = 0; i < nPoints; i++)
+									{
+										//if (actualNormals[i][0] != 0 || actualNormals[i][1] != 0 || actualNormals[i][2] != 0)
+										//{
+										//	mesh.Positions()[i] = invTrans * actualPositions[i];
+										//	mesh.Normals()[i] = invTrans * actualNormals[i];
+										//}
+										//else
+										//{
+											mesh.Positions()[i] = invTrans * mesh.Positions()[i];
+											mesh.Normals()[i] = invTrans * mesh.Normals()[i];
+										//}
+									}
+								}
+							}
+
+							if (progress != nullptr && progress->IsCancellationRequested)
+							{
+								mesh.Positions().resize(0);
+								mesh.Normals().resize(0);
+								mesh.Faces().resize(0);
+
+								return false;
+							}
+
+
+							for (int i = 0; i < mesh.Positions().size(); i++)
+							{
+								mesh.Positions()[i] = trans * mesh.Positions()[i];
+								mesh.Normals()[i] = trans * mesh.Normals()[i];
+							}
+
+							_AppliedTransformation = _VolumeData->GetAlignment();
+
+							double t2 = GetTickCount();//time(NULL);
+
+							std::fstream logger;
+
+							logger.open("C:/Data/timestamp.txt", std::ios::out);
+
+							logger << " mesh generation time :  " << (t1 - t0) / 1000.0 << " , mesh refinement time : " << (t2 - t1) / 1000.0 << std::endl;
+
+							logger.close();
+
+							return result;
+						}
+
+						bool VolumeMeshProvider::CopyToMeshAdapter(MeshAdaptor& mesh)
+						{
+							P3Array* pos3D = &mesh.Positions();
+							std::copy(_Positions->begin(), _Positions->end(), std::back_inserter(*pos3D));
+
+							UV3Array* normals = &mesh.Normals();
+							std::copy(_Normals->begin(), _Normals->end(), std::back_inserter(*normals));
+
+							FaceArray* faces = &mesh.Faces();
+							std::copy(_Faces->begin(), _Faces->end(), std::back_inserter(*faces));
+
+							return true;
+						}
+
+						void VolumeMeshProvider::OnVolumeAlignmentChanged(Transformation^ transformation)
+						{
+							if (_AppliedTransformation != transformation)
+							{
+								Zeiss::IMT::Numerics::Transf3d invTrans = Zeiss::IMT::Math::MathConverter::Convert(Zeiss::IMT::Math::Transformation::Inverse(_AppliedTransformation));
+
+								for (int i = 0; i < _Positions->size(); i++)
+								{
+									(*_Positions)[i] = invTrans * (*_Positions)[i];
+									(*_Normals)[i] = invTrans * (*_Normals)[i];
+								}
+
+								Zeiss::IMT::Numerics::Transf3d trans = Zeiss::IMT::Math::MathConverter::Convert(transformation);
+
+								for (int i = 0; i < _Positions->size(); i++)
+								{
+									(*_Positions)[i] = trans * (*_Positions)[i];
+									(*_Normals)[i] = trans * (*_Normals)[i];
+								}
+
+								_AppliedTransformation = transformation;
+							}
+						}
+
+						array<unsigned char>^ VolumeMeshProvider::GetMeshAsByteArray()
+						{
+							if (_Positions->size() == 0)
+								return gcnew array<unsigned char>(0);
+
+							OnVolumeAlignmentChanged(Transformation::Inverse(_AppliedTransformation));
+
+							
+
+							//Get mesh in its original position
+							Zeiss::IMT::CAD::Viewer::Geometry::SurfaceGrid::P3Array tempPositions;
+							Zeiss::IMT::CAD::Viewer::Geometry::SurfaceGrid::UV3Array tempNormals;
+							std::vector<size_t> tempFaces;
+							MeshAdaptor originalMesh(tempPositions, tempNormals, tempFaces);
+							GetOriginalMesh(originalMesh);
+
+
+
+							//version number
+							unsigned long versionNumber = 100;
+
+							//Face Array
+							FaceArray* faces = &originalMesh.Faces();
+							unsigned long long sizeOfFaces = static_cast<unsigned long long>(faces->size());;
+
+							//Position Array
+							P3Array* pos3D = &originalMesh.Positions();
+							unsigned long long sizeOfPositions = static_cast<unsigned long long>(pos3D->size());
+
+							//Normal Array
+							UV3Array* vec3D = &originalMesh.Normals();
+							unsigned long long sizeOfNormals = vec3D != nullptr ? static_cast<unsigned long long>(vec3D->size()) : 0;
+
+
+							size_t versionNumberByteSize = sizeof(unsigned long);
+							size_t sizeOfFacesInBytes = sizeof(unsigned long long);
+							size_t totalSizeofAllFacesInBytes = sizeOfFaces * sizeof(size_t);
+							size_t sizeOfPositionInBytes = sizeof(unsigned long long);
+							size_t totalSizeOfAllPositionInBytes = sizeOfPositions * sizeof(Position3d);
+							size_t sizeOfNormalsInBytes = sizeof(unsigned long long);
+							size_t totalSizeOfAllNormalsInBytes = 0;
+
+							if (vec3D != nullptr)
+							{
+								totalSizeOfAllNormalsInBytes = sizeOfPositions * sizeof(UnitVector3d);
+							}
+
+							size_t totalSizeOfMesh = versionNumberByteSize + sizeOfFacesInBytes + totalSizeofAllFacesInBytes +
+								sizeOfPositionInBytes + totalSizeOfAllPositionInBytes + sizeOfNormalsInBytes + totalSizeOfAllNormalsInBytes;
+							unsigned char* byteArrayy = new unsigned char[totalSizeOfMesh];
+
+							try
+							{
+								size_t offset = 0;
+
+								memcpy(byteArrayy + offset, (char*)&versionNumber, sizeof(unsigned long));
+								offset += versionNumberByteSize;
+
+								memcpy(byteArrayy + offset, (char*)&sizeOfFaces, sizeof(unsigned long long));
+								offset += sizeOfFacesInBytes;
+
+								memcpy(byteArrayy + offset, (char*)faces->data(), sizeOfFaces * sizeof(size_t));
+								offset += totalSizeofAllFacesInBytes;
+
+								memcpy(byteArrayy + offset, (char*)&sizeOfPositions, sizeof(unsigned long long));
+								offset += sizeOfPositionInBytes;
+
+								memcpy(byteArrayy + offset, (char*)pos3D->data(), sizeOfPositions * sizeof(Position3d));
+								offset += totalSizeOfAllPositionInBytes;
+
+								memcpy(byteArrayy + offset, (char*)&sizeOfNormals, sizeof(unsigned long long));
+								offset += sizeOfNormalsInBytes;
+
+								if (totalSizeOfAllNormalsInBytes != 0)
+								{
+									memcpy(byteArrayy + offset, (char*)vec3D->data(), sizeOfNormals * sizeof(UnitVector3d));
+								}
+
+								array<unsigned char>^ _Data = gcnew array<unsigned char>((int)totalSizeOfMesh);
+								System::Runtime::InteropServices::Marshal::Copy(IntPtr(byteArrayy), _Data, 0, (int)totalSizeOfMesh);
+
+								//Make mesh aligned again
+								OnVolumeAlignmentChanged(_AppliedTransformation);
+
+								return _Data;
+							}
+							finally
+							{
+								delete[] byteArrayy;
+								tempPositions.clear();
+								tempPositions.shrink_to_fit();
+								tempNormals.clear();
+								tempNormals.shrink_to_fit();
+								tempFaces.clear();
+								tempFaces.shrink_to_fit();
+							}
+						}
+
+						int VolumeMeshProvider::ReadMeshFromByteArray(array<unsigned char>^ byteArr)
+						{
+							if (byteArr == nullptr || byteArr->Length == 0)
+							{
+								return FALSE;
+							}
+
+							if (!_IsMeshComputed)
+							{
+								MeshAdaptor mesh(*_Positions, *_Normals, *_Faces);
+								unsigned char* byteArray = new unsigned char[byteArr->Length];
+
+								try
+								{
+									System::Runtime::InteropServices::Marshal::Copy(byteArr, 0, IntPtr(byteArray), byteArr->Length);
+
+									if (byteArray == nullptr)
+									{
+										return FALSE;
+									}
+
+									size_t offset = 0;
+
+									//reading version number
+									unsigned long versionNumber;
+									memcpy(&versionNumber, byteArray + offset, sizeof(unsigned long));
+									offset += sizeof(unsigned long);
+
+									if (versionNumber != 100)
+										return FALSE;
+
+
+									//Reading the faces...
+									unsigned long long sizeOfFaces = 0;
+									memcpy(&sizeOfFaces, byteArray + offset, sizeof(unsigned long long));
+									offset += sizeof(unsigned long long);
+
+
+									FaceArray* faces = &mesh.Faces();
+									faces->resize(sizeOfFaces, 0);
+									memcpy((char*)faces->data(), byteArray + offset, sizeOfFaces * sizeof(size_t));
+									offset += sizeOfFaces * sizeof(size_t);
+
+
+									//Reading the positions...
+									unsigned long long sizeOfPositions = 0;
+									memcpy(&sizeOfPositions, byteArray + offset, sizeof(unsigned long long));
+									offset += sizeof(unsigned long long);
+
+									P3Array* pos3D = &mesh.Positions();
+									pos3D->clear();
+									pos3D->resize(sizeOfPositions);
+									memcpy((char*)pos3D->data(), byteArray + offset, sizeOfPositions * sizeof(Position3d));
+									offset += sizeOfPositions * sizeof(Position3d);
+
+									//Reading the normals...
+									UV3Array* vec3D = &mesh.Normals();
+									if (vec3D == nullptr)
+									{
+										return sizeOfPositions;
+									}
+
+									unsigned long long sizeOfNormals = 0;
+									memcpy(&sizeOfNormals, byteArray + offset, sizeof(unsigned long long));;
+									offset += sizeof(unsigned long long);
+
+									vec3D->clear();
+									vec3D->resize(sizeOfNormals);
+									memcpy((char*)vec3D->data(), byteArray + offset, sizeOfNormals * sizeof(UnitVector3d));
+
+									
+									_IsMeshComputed = (sizeOfPositions == 0 || sizeOfFaces == 0) ? false : true;
+
+
+									//Apply current Transformation
+									Zeiss::IMT::Numerics::Transf3d trans = Zeiss::IMT::Math::MathConverter::Convert(_VolumeData->GetAlignment());
+
+									for (int i = 0; i < _Positions->size(); i++)
+									{
+										(*_Positions)[i] = trans * (*_Positions)[i];
+										(*_Normals)[i] = trans * (*_Normals)[i];
+									}
+
+									_AppliedTransformation = _VolumeData->GetAlignment();
+
+									return sizeOfPositions;
+								}
+								finally
+								{
+									delete[] byteArray;
+								}
+							}
+							return FALSE;
+						}
+
+						void VolumeMeshProvider::GetOriginalMesh(MeshAdaptor& mesh)
+						{
+							Zeiss::IMT::Numerics::Transf3d invTrans = Zeiss::IMT::Math::MathConverter::Convert(Zeiss::IMT::Math::Transformation::Inverse(_AppliedTransformation));
+
+							P3Array* originalPositions = &mesh.Positions();
+							std::copy(_Positions->begin(), _Positions->end(), std::back_inserter(*originalPositions));
+
+							UV3Array* originalNormals = &mesh.Normals();
+							std::copy(_Normals->begin(), _Normals->end(), std::back_inserter(*originalNormals));
+
+							FaceArray* originalFaces = &mesh.Faces();
+							std::copy(_Faces->begin(), _Faces->end(), std::back_inserter(*originalFaces));
+
+
+							for (int i = 0; i < _Positions->size(); i++)
+							{
+								(*originalPositions)[i] = invTrans * (*_Positions)[i];
+								(*originalNormals)[i] = invTrans * (*_Normals)[i];
+							}
+
+						}
+					}
+				}
+			}
+		}
+	}
+}

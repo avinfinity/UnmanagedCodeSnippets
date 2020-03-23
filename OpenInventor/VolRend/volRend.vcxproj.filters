@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include=".\mainVolVizdemo.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\volRend.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\volRendProfView.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\volumeGeometry.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\VolumeVizAuditor.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\VVizBenchmark.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\volCavelibFuncs.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include=".\ResourceManagerAuditor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include=".\externGlobalVariable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include=".\volRend.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include=".\VVizBenchmark.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include=".\globalVariable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include=".\volRendAllHeader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include=".\VolumeVizAuditor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include=".\resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include=".\volRendProfView.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".\volRendDialog.iv" />
+    <None Include=".\translate1Dragger.iv">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{23C40C62-1DCA-4A25-A063-F49891308336}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{1AF9DE7F-7E30-452A-ADD6-ABCF5AA1BE95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{6BE7F8DD-440A-43E9-883F-E562D58D9046}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

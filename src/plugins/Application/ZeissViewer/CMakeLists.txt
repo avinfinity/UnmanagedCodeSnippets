@@ -1,0 +1,8 @@
+openOR_add_subdirectory(ImageIO)
+openOR_add_subdirectory(backend)
+#openOR_add_subdirectory(cli)
+openOR_add_subdirectory(SeparationInterface)
+openOR_add_subdirectory(SegmentationInterface)
+#openOR_add_subdirectory(gui)
+#openOR_add_subdirectory(testio)
+#openOR_add_subdirectory(tests)

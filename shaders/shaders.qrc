@@ -1,0 +1,20 @@
+<RCC>
+    <qresource prefix="/">
+    <file>backfacefrag.glsl</file>
+    <file>backfacevert.glsl</file>
+    <file>raycastingvert.glsl</file>
+    <file>raycastingfrag.glsl</file>
+	<file>surfacevert.glsl</file>
+	<file>surfacefrag.glsl</file>
+	<file>crosssectionvert.glsl</file>
+    <file>crosssectiongeom.glsl</file>
+	<file>crosssectionfrag.glsl</file>
+	<file>slicerplanefrag.glsl</file>
+	<file>cagefrag.glsl</file>
+	<file>basicvert.glsl</file>
+	<file>crosssectionfbgeom.glsl</file>
+	<file>simplevert.glsl</file>
+	<file>simplefrag.glsl</file>
+	<file>tff.dat</file>
+	</qresource>
+</RCC>

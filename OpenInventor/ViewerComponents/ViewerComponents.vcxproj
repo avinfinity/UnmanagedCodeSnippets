@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGUID>{17A0A987-A849-4CC8-88E1-1B70045EABD2}</ProjectGUID>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>x64</Platform>
+    <ProjectName>ViewerComponents</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+    <PropertyGroup>
+      <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OIVHOME)\arch-windows-x86_64-msvc12-$(Configuration)\Demos\Inventor\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">ViewerComponents.dir\Debug\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">ViewerComponentsD</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OIVHOME)\arch-windows-x86_64-msvc12-$(Configuration)\Demos\Inventor\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">ViewerComponents.dir\Release\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">ViewerComponents</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
+    </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>.;.;$(OIVHOME)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;DEBUG;_DEBUG;_LARGEFILE_SOURCE;_FILE_OFFSET_BITS=64;_BIND_TO_CURRENT_VCLIBS_VERSION=1;_BIND_TO_CURRENT_CRT_VERSION=1;_BIND_TO_CURRENT_ATL_VERSION=1;_BIND_TO_CURRENT_MFC_VERSION=1;_BIND_TO_CURRENT_OPENMP_VERSION=1;WIN64;_CRT_SECURE_NO_DEPRECATE;SO_OIVARCH="arch-Windows-x86_64-msvc12";OIV_ENABLE_DIRECTVIZ;OIV_ENABLE_CUDA;OIV_ENABLE_OPENCL;OIV_ENABLE_OPENCL_ALGORITHMS;OIV_ENABLE_WX;OIV_ENABLE_MESHIVIZ;OIVIO_ENABLE_STL;OIVIO_ENABLE_CAD;OIVIO_ENABLE_DXF;OIVIO_ENABLE_FLT;QT_DLL;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;DEBUG;_DEBUG;_LARGEFILE_SOURCE;_FILE_OFFSET_BITS=64;_BIND_TO_CURRENT_VCLIBS_VERSION=1;_BIND_TO_CURRENT_CRT_VERSION=1;_BIND_TO_CURRENT_ATL_VERSION=1;_BIND_TO_CURRENT_MFC_VERSION=1;_BIND_TO_CURRENT_OPENMP_VERSION=1;WIN64;_CRT_SECURE_NO_DEPRECATE;SO_OIVARCH=\"arch-Windows-x86_64-msvc12\";OIV_ENABLE_DIRECTVIZ;OIV_ENABLE_CUDA;OIV_ENABLE_OPENCL;OIV_ENABLE_OPENCL_ALGORITHMS;OIV_ENABLE_WX;OIV_ENABLE_MESHIVIZ;OIVIO_ENABLE_STL;OIVIO_ENABLE_CAD;OIVIO_ENABLE_DXF;OIVIO_ENABLE_FLT;QT_DLL;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;.;$(OIVHOME)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>.;.;$(OIVHOME)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>.;.;$(OIVHOME)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OpenMPSupport>true</OpenMPSupport>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_SECURE_SCL=0;NDEBUG;OIV_ENABLE_OPENMP;_LARGEFILE_SOURCE;_FILE_OFFSET_BITS=64;_BIND_TO_CURRENT_VCLIBS_VERSION=1;_BIND_TO_CURRENT_CRT_VERSION=1;_BIND_TO_CURRENT_ATL_VERSION=1;_BIND_TO_CURRENT_MFC_VERSION=1;_BIND_TO_CURRENT_OPENMP_VERSION=1;WIN64;_CRT_SECURE_NO_DEPRECATE;SO_OIVARCH="arch-Windows-x86_64-msvc12";OIV_ENABLE_DIRECTVIZ;OIV_ENABLE_CUDA;OIV_ENABLE_OPENCL;OIV_ENABLE_OPENCL_ALGORITHMS;OIV_ENABLE_WX;OIV_ENABLE_MESHIVIZ;OIVIO_ENABLE_STL;OIVIO_ENABLE_CAD;OIVIO_ENABLE_DXF;OIVIO_ENABLE_FLT;QT_DLL;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_SECURE_SCL=0;NDEBUG;OIV_ENABLE_OPENMP;_LARGEFILE_SOURCE;_FILE_OFFSET_BITS=64;_BIND_TO_CURRENT_VCLIBS_VERSION=1;_BIND_TO_CURRENT_CRT_VERSION=1;_BIND_TO_CURRENT_ATL_VERSION=1;_BIND_TO_CURRENT_MFC_VERSION=1;_BIND_TO_CURRENT_OPENMP_VERSION=1;WIN64;_CRT_SECURE_NO_DEPRECATE;SO_OIVARCH=\"arch-Windows-x86_64-msvc12\";OIV_ENABLE_DIRECTVIZ;OIV_ENABLE_CUDA;OIV_ENABLE_OPENCL;OIV_ENABLE_OPENCL_ALGORITHMS;OIV_ENABLE_WX;OIV_ENABLE_MESHIVIZ;OIVIO_ENABLE_STL;OIVIO_ENABLE_CAD;OIVIO_ENABLE_DXF;OIVIO_ENABLE_FLT;QT_DLL;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;.;$(OIVHOME)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>.;.;$(OIVHOME)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include=".\SceneExaminer.h" />
+    <ClInclude Include=".\SceneInteractor.h" />
+    <ClInclude Include=".\Animator.h" />
+    <ClInclude Include=".\AnimatorListener.h" />
+    <ClInclude Include=".\SeekAnimator.h" />
+    <ClCompile Include=".\SceneExaminer.cxx"  />
+    <ClCompile Include=".\SceneInteractor.cxx"  />
+    <ClCompile Include=".\Animator.cxx"  />
+    <ClCompile Include=".\SeekAnimator.cxx"  />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,46 @@
+baseSystemRealName	nil
+baseSystemType	baseSystem
+clearOldRes	false
+compactProtocol	false
+displayPlots	true
+featureListName	
+meMode	cf
+naviMode	automatic
+pdfExport	false
+presProtocol	false
+printer	false
+printPlots	false
+protNumbers	1
+protocolDefinition	default_Prot_SWTest
+protocolHead	true
+psExport	false
+ptxExport	false
+runMode	nil
+selection	actual
+speed	nil
+startedByRightMouseClick	true
+changedate	
+changeoper	
+changeswi	
+changeTimestamp	
+creationdate	November 4, 2016   4:13:14 pm
+creationdme	CONT_G2
+creationswi	6.2.08
+date	2016-11-4
+dateandtime	November 4, 2016 5:25:07 pm
+datedayofmonth	4
+datemonthindex	11
+datesecondclock	3655713307
+datestring	November 4, 2016
+dateyear	2016
+dmeid	CONT_G2
+dmesn	194718
+nameOfFile	c:\Users\Public\Documents\Zeiss\CALYPSO\workarea\inspections\Measurement Plan 22
+operid	Master
+partnbinc	4
+partnbpre	4
+planid	Measurement Plan 22
+produceoper	Master
+runswv	6.2.08
+time	5:25:07 pm
+OrderedCollection ('3d Polar Distance1')

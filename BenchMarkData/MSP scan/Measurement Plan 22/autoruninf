@@ -1,0 +1,33 @@
+
+#(
+#Dictionary 
+#(
+#activeTechnology ' ->' '***') 
+#(
+#comment ' ->' '') 
+#(
+#inspSettings ' ->' 
+#(
+#Dictionary 
+#(
+#baseSystemFile ' ->' 
+#(
+#Association 
+#key: 'Measurement Plan 22_1' 
+#value: 'Measurement Plan 22_1')) 
+#(
+#excelReportName ' ->' nil) 
+#(
+#hasStartSystem ' ->' false) 
+#(
+#protocolSettings ' ->' 
+#(
+#Dictionary)) 
+#(
+#startSystemFile ' ->' nil))) 
+#(
+#phParaFor_R ' ->' nil) 
+#(
+#strategies ' ->' 
+#(
+#OMOrderedCollection '***')))

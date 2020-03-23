@@ -1,0 +1,2 @@
+set(FAKE_CPP_FILE "${CMAKE_CURRENT_BINARY_DIR}/header_only.cpp")
+file(WRITE ${FAKE_CPP_FILE} "/* This file only exists to convince CMake to create a header-only target \(currently not supported in CMake\). */")

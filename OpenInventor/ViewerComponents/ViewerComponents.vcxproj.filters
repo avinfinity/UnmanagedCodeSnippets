@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include=".\SceneExaminer.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\SceneInteractor.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Animator.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\SeekAnimator.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include=".\SceneExaminer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include=".\SceneInteractor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include=".\Animator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include=".\AnimatorListener.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include=".\SeekAnimator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{23C40C62-1DCA-4A25-A063-F49891308336}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{1AF9DE7F-7E30-452A-ADD6-ABCF5AA1BE95}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

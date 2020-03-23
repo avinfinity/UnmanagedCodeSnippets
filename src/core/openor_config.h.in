@@ -1,0 +1,17 @@
+//****************************************************************************
+// (c) 2007 by the openOR Team
+//****************************************************************************
+// The contents of this file are available under the GPL v2.0 license
+// or under the openOR commercial license. see 
+//   /Doc/openOR_free_license.txt or
+//   /Doc/openOR_comercial_license.txt 
+// for Details.
+//****************************************************************************
+
+#ifndef openOR_openOR_config_h
+#define openOR_openOR_config_h
+
+const char* OPENOR_VERSION = "@openOR_VERSION@" ;
+const char* OPENOR_BUILDID = "@openOR_BuildID@" ;
+
+#endif //openOR_openOR_config_h

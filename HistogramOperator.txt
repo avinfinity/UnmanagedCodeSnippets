@@ -1,0 +1,758 @@
+#region Copyright
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Carl Zeiss IMT GmbH
+ * Softwaresystem New Generation
+ * (c) Carl Zeiss 2011
+ *
+ * Filename: HistogramOperator.cs
+ * Author: Matthias Kappel
+ *
+ * Description:
+ *	 Operator which can save and load the histogram of a volume.
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+#endregion
+
+using System;
+using System.Collections.Generic;
+using System.IO;
+using Zeiss.IMT.NG.Metrotom.Data.ReferenceHolders;
+
+namespace Zeiss.IMT.NG.Metrotom.Data.Operators
+{
+	/// <summary>
+	/// Operator which can save and load the histogram of a volume.
+	/// </summary>
+	public static class HistogramOperator
+	{
+		#region Threshold Calculation
+
+		#region ISO 50 threshold
+
+		/// <summary>
+		/// Calculates the ISO-50 threshold.
+		/// </summary>
+		/// <param name="histogram">The histogram.</param>
+		/// <returns>the calculated threshold</returns>
+		public static long ISO50Threshold(long[] histogram)
+		{
+			if (histogram == null)
+				return 22000;
+
+			//First remove outliers (in height) by median filter
+			long[] histogramFiltered = ApplyMedianFilter(histogram, 1);
+
+			//Then filter the histogram with a gaussian kernel of 10 and sigma = 1.2            
+			histogramFiltered = ApplyGaussianFilter(histogramFiltered, 10, 1.4, 10);
+
+			const long step = 100;
+
+			long airPeak = DetectMaximum(histogramFiltered, step);
+			airPeak = DetectLocalMaximum(histogramFiltered, step, airPeak);
+
+			long firstMaterialPeak = DetectMaximum(histogramFiltered, step, airPeak);
+			firstMaterialPeak = DetectLocalMaximum(histogramFiltered, step, firstMaterialPeak);
+
+			// weitere Untersuchungen für separierte Teile (künstlich mit Luft == 0 aufgefüllt):
+			// weitere Suche nache einem Peak links von dem gefundenem "Luftpeak": 
+			// Dafür wird nur noch 3/4 des Histogramms vom Luftpeak untersucht, dieser Peak soll mind. 1/5 so hoch sein als der gefundene Luftpeak
+			long partOfHistogram = airPeak / 4 * 3;
+			if (partOfHistogram > 5000 && (histogram[0] > 1000000))
+			{
+				long[] histogramToAirPeak = new long[partOfHistogram];
+				Array.Copy(histogramFiltered, 0, histogramToAirPeak, 0, partOfHistogram);
+				long peakLeft = DetectMaximum(histogramToAirPeak, step);
+				peakLeft = DetectLocalMaximum(histogramToAirPeak, step, peakLeft);
+				if (histogramFiltered[peakLeft] > histogramFiltered[airPeak] / 5)
+				{
+					firstMaterialPeak = airPeak;
+					airPeak = peakLeft;
+				}
+			}
+
+
+			return airPeak + (firstMaterialPeak - airPeak) / 2;
+		}
+
+		/// <summary>
+		/// Detects the local maximum.
+		/// </summary>
+		/// <param name="histogram">The histogram.</param>
+		/// <param name="step">The step.</param>
+		/// <param name="maximum">The maximum.</param>
+		/// <returns>the index of the local maximum</returns>
+		static long DetectLocalMaximum(long[] histogram, long step, long maximum)
+		{
+			long startValue = System.Math.Max(0, maximum - step);
+			long stopValue = System.Math.Min(histogram.LongLength, maximum + step);
+			long maxGrayValueIndex = maximum;
+			long maxGrayValue = histogram[maximum];
+			for (long nGrayValue = startValue; nGrayValue < stopValue; nGrayValue++)
+			{
+				long currentGrayValue = histogram[nGrayValue];
+				if (maxGrayValue >= currentGrayValue)
+					continue;
+
+				maxGrayValue = currentGrayValue;
+				maxGrayValueIndex = nGrayValue;
+			}
+
+			return maxGrayValueIndex;
+		}
+
+		/// <summary>
+		/// Detects the index of the next maximum in the histogram starting from a specific value.
+		/// </summary>
+		/// <param name="histogram">The histogram.</param>
+		/// <param name="step">The step to process the values.</param>
+		/// <param name="startValue">The start value to begin the calculation.</param>
+		/// <returns>the index of the found maximum</returns>
+		static long DetectMaximum(long[] histogram, long step, long startValue = 0)
+		{
+			if (startValue >= histogram.LongLength)
+				return startValue;
+
+			var clonedHistogram = new long[histogram.Length];
+			Array.Copy(histogram, clonedHistogram, histogram.Length);
+			Array.Sort(clonedHistogram);
+			long highestGrayValue = clonedHistogram[clonedHistogram.Length - 1];
+
+			long maxGrayValueIndex = startValue;
+			long maxGrayValue = 0;
+			long startGrayValue = histogram[startValue];
+			long lastGrayValue = -1;
+			double lastGradient = -1.0;
+			for (long nGrayValue = startValue; nGrayValue < histogram.LongLength; nGrayValue += step)
+			{
+				long currentGrayValue = histogram[nGrayValue];
+
+				if (System.Math.Abs(currentGrayValue - startGrayValue) < (0.001 * highestGrayValue))
+					continue;
+
+				bool maximumReached;
+				if (!CheckGradient(histogram, step, nGrayValue, ref lastGrayValue, ref lastGradient, out maximumReached))
+				{
+					if (maximumReached)
+						return nGrayValue - step / 2;
+
+					continue;
+				}
+
+				if (maxGrayValue >= currentGrayValue)
+					continue;
+
+				maxGrayValue = currentGrayValue;
+				maxGrayValueIndex = nGrayValue;
+			}
+
+			return maxGrayValueIndex;
+		}
+
+		/// <summary>
+		/// Checks the gradient.
+		/// </summary>
+		/// <param name="histogram">The histogram.</param>
+		/// <param name="step">The step.</param>
+		/// <param name="currentValueIndex">Index of the current value.</param>
+		/// <param name="lastGrayValue">The last gray value.</param>
+		/// <param name="lastGradient">The last gradient.</param>
+		/// <param name="maximumReached">if set to <c>true</c> [maximum reached].</param>
+		/// <returns></returns>
+		static bool CheckGradient(long[] histogram, long step, long currentValueIndex, ref long lastGrayValue, ref double lastGradient, out bool maximumReached)
+		{
+			maximumReached = false;
+			long currentGrayValue = histogram[currentValueIndex];
+			double gradient = -1.0;
+			if (lastGrayValue > 0)
+			{
+				gradient = (1.0 * currentGrayValue - lastGrayValue) / step;
+
+				if (!HasNextGradientSameSign(histogram, gradient, lastGrayValue, currentValueIndex, step))
+					return false;
+
+				if (gradient < -1.0 && lastGradient > 1.0)
+				{
+					maximumReached = true;
+					return false;
+				}
+
+				lastGradient = gradient;
+			}
+
+			lastGrayValue = currentGrayValue;
+
+			if (gradient < 0.0)
+				return false;
+
+			return true;
+		}
+
+		/// <summary>
+		/// Determines whether [has next gradient same sign] [the specified histogram].
+		/// </summary>
+		/// <param name="histogram">The histogram.</param>
+		/// <param name="currentGradient">The current gradient.</param>
+		/// <param name="lastGrayValue">The last gray value.</param>
+		/// <param name="currentValueIndex">Index of the current value.</param>
+		/// <param name="step">The step.</param>
+		/// <returns>
+		///   <c>true</c> if [has next gradient same sign] [the specified histogram]; otherwise, <c>false</c>.
+		/// </returns>
+		static bool HasNextGradientSameSign(long[] histogram, double currentGradient, long lastGrayValue, long currentValueIndex, long step)
+		{
+			if (currentValueIndex + step / 10 < histogram.LongLength)
+			{
+				double nextGradient = (1.0 * histogram[currentValueIndex + step / 10] - lastGrayValue) / step;
+				if (nextGradient < 0.0 && currentGradient > 0.0 || nextGradient > 0.0 && currentGradient < 0.0)
+					return false;
+			}
+
+			return true;
+		}
+
+		#endregion ISO 50 threshold
+
+
+		#region Otsu threshold
+
+		/// <summary>
+		/// Otsu's threshold algorithm
+		/// </summary>
+		/// <param name="histogram">the histogram to caclulate the threshold for</param>
+		/// <returns>the calculated threshold after otsu.</returns>
+		/// <remarks>
+		/// Original C++ code by Jordan Bevik (Jordan.Bevic@qtiworld.com)
+		/// Ported from http://compilr.com/vit/ixc1/AutoThreshold.java
+		/// </remarks>
+		public static long OtsuThreshold(long[] histogram)
+		{
+			if (histogram == null)
+				return 22000;
+
+			long[] data = ApplyMedianFilter(histogram, 1);
+			//long[] maxGrayValueIndices;
+			//long[] minGrayValueIndices;
+			//BuildClasses(histogram, countClasses, out data, out maxGrayValueIndices, out minGrayValueIndices);
+
+			// Otsu's threshold algorithm
+			// 
+			// 
+			long kStar;  // k = the current threshold; kStar = optimal threshold
+			long N1, N;    // N1 = # points with intensity <=k; N = total number of points
+			double BCV, BCVmax; // The current Between Class Variance and maximum BCV
+			double num, denom;  // temporary bookeeping
+			long Sk;  // The total intensity for all histogram points <=k
+			long S; // The total intensity of the image
+
+			// Initialize values:
+			S = N = 0;
+			for (int k = 0; k < data.Length; k++)
+			{
+				S += k * data[k];	// Total histogram intensity
+				N += data[k];		// Total number of data points
+			}
+
+			Sk = 0;
+			N1 = data[0]; // The entry for zero intensity
+			BCV = 0;
+			BCVmax = 0;
+			kStar = 0;
+
+			// Look at each possible threshold value,
+			// calculate the between-class variance, and decide if it's a max
+			for (int k = 1; k < data.Length - 1; k++)
+			{
+				// No need to check endpoints k = 0 or k = L-1
+				Sk += k * data[k];
+				N1 += data[k];
+
+				// The float casting here is to avoid compiler warning about loss of precision and
+				// will prevent overflow in the case of large saturated images
+				denom = (double)(N1) * (N - N1); // Maximum value of denom is (N^2)/4 =  approx. 3E10
+
+				if (denom != 0)
+				{
+					// Float here is to avoid loss of precision when dividing
+					num = ((double)N1 / N) * S - Sk; 	// Maximum value of num =  255*N = approx 8E7
+					BCV = (num * num) / denom;
+				}
+				else
+					BCV = 0;
+
+				if (BCV >= BCVmax)
+				{
+					// Assign the best threshold found so far
+					BCVmax = BCV;
+					kStar = k;
+				}
+			}
+			// kStar += 1;	// Use QTI convention that intensity -> 1 if intensity >= k
+			// (the algorithm was developed for I-> 1 if I <= k.)
+
+			//return minGrayValueIndices[kStar];
+			return kStar;
+		}
+
+		#endregion Otsu
+
+		#endregion Threshold Calculation
+
+		#region Classification
+
+		/// <summary>
+		/// Reduces the <paramref name="histogram"/> to <paramref name="classSize"/> classes. 
+		/// If the length of the <paramref name="histogram"/> is smaller than <paramref name="classSize"/>, it is just copied.
+		/// The result histogram is in the out-parameter <paramref name="grayValueClasses" /> along with the indices
+		/// of the maximal gray values in a class (<paramref name="maxGrayValueIndices" />).
+		/// </summary>
+		/// <param name="histogram">the histogram to reduce.</param>
+		/// <param name="classSize">the desired class size</param>
+		/// <param name="grayValueClasses">the build gray value classes</param>
+		/// <param name="maxGrayValueIndices">the indices of <paramref name="histogram"/> with the maximal gray values in a class</param>
+		/// <param name="minGrayValueIndices">the indices of <paramref name="histogram"/> with the minimal gray values in a class</param>
+		public static void BuildClasses(long[] histogram, long classSize, out long[] grayValueClasses, out long[] maxGrayValueIndices, out long[] minGrayValueIndices)
+		{
+			if (histogram == null)
+			{
+				grayValueClasses = null;
+				maxGrayValueIndices = null;
+				minGrayValueIndices = null;
+
+				return;
+			}
+
+			double grayValueInterval = histogram.Length / classSize;
+			if (grayValueInterval > 1)
+			{
+				grayValueClasses = new long[classSize];
+				maxGrayValueIndices = new long[grayValueClasses.Length];
+				minGrayValueIndices = new long[grayValueClasses.Length];
+				long maxGrayValue = histogram[0];
+				long minGrayValue = histogram[0];
+				int maxGrayValueIndex = 0;
+				int minGrayValueIndex = 0;
+				int grayValueIndex = 0;
+				int classIndex = 0;
+				int countGrayValuesInClass = 0;
+				while (grayValueIndex < histogram.Length)
+				{
+					if (classIndex >= grayValueClasses.Length)
+						break;
+
+					grayValueClasses[classIndex] += histogram[grayValueIndex];
+					countGrayValuesInClass++;
+
+					if (histogram[grayValueIndex] >= maxGrayValue)
+					{
+						maxGrayValue = histogram[grayValueIndex];
+						maxGrayValueIndex = grayValueIndex;
+					}
+					if (histogram[grayValueIndex] <= minGrayValue)
+					{
+						minGrayValue = histogram[grayValueIndex];
+						minGrayValueIndex = grayValueIndex;
+					}
+
+					if (grayValueIndex + 1 >= (classIndex + 1) * grayValueInterval || grayValueIndex + 1 == histogram.Length)
+					{
+						grayValueClasses[classIndex] = Convert.ToInt64((double)grayValueClasses[classIndex] / (double)countGrayValuesInClass);
+						maxGrayValueIndices[classIndex] = maxGrayValueIndex;
+						minGrayValueIndices[classIndex] = minGrayValueIndex;
+						classIndex++;
+						countGrayValuesInClass = 0;
+						if (grayValueIndex + 1 != histogram.Length)
+						{
+							maxGrayValue = minGrayValue = histogram[grayValueIndex + 1];
+							maxGrayValueIndex = minGrayValueIndex = grayValueIndex + 1;
+						}
+					}
+					grayValueIndex++;
+				}
+			}
+			else
+			{
+				grayValueInterval = 1;
+				grayValueClasses = new long[histogram.Length];
+				maxGrayValueIndices = new long[histogram.Length];
+				minGrayValueIndices = new long[histogram.Length];
+				for (int i = 0; i < histogram.Length; i++)
+				{
+					grayValueClasses[i] = histogram[i];
+					maxGrayValueIndices[i] = i;
+					minGrayValueIndices[i] = i;
+				}
+			}
+		}
+
+		#endregion Classification
+
+		#region Derivation
+
+		/// <summary>
+		/// Calculates the first derivation of the <paramref name="histogram"/> 
+		/// using the two-point central difference.
+		/// </summary>
+		/// <param name="histogram">the histogram to calculate the first derivation from.</param>
+		/// <returns>array with the first derivation of the histogram.</returns>
+		public static long[] CalculateFirstDerivation(long[] histogram)
+		{
+			if (histogram == null)
+				return null;
+			if (histogram.Length == 0)
+			{
+				return new long[0];
+			}
+			if (histogram.Length == 1)
+			{
+				return new long[] { 0 };
+			}
+
+			long n = histogram.LongLength;
+			long[] derivation = new long[n];
+			derivation[0] = histogram[1] - histogram[0];
+			derivation[n - 1] = histogram[n - 1] - histogram[n - 2];
+
+			for (int i = 1; i < n - 1; i++)
+			{
+				derivation[i] = (histogram[i + 1] - histogram[i - 1]) / 2;
+			}
+
+			return derivation;
+		}
+
+		#endregion Derivation
+
+		#region Evaluation
+
+		/// <summary>
+		/// Sums the occurencies within the given histogram range.
+		/// </summary>
+		/// <param name="histogram">The histogram to sum up its occurencies.</param>
+		/// <param name="leftIndex">The left index of the range.</param>
+		/// <param name="rightIndex">The right (included) index of the range.</param>
+		/// <returns>The summed occurencies of the given range.</returns>
+		public static double SumOccurencies(long[] histogram, long leftIndex, long rightIndex)
+		{
+			if (histogram == null)
+				throw new ArgumentNullException("histogram");
+
+			if (histogram.Length == 0)
+				throw new ArgumentException();
+
+			if (leftIndex > rightIndex)
+				throw new ArgumentOutOfRangeException();
+
+			long startIndex = System.Math.Max(0, leftIndex);
+			long stopIndex = System.Math.Min(histogram.LongLength - 1, rightIndex);
+			double voxelCount = 0;
+			for (long i = startIndex; i <= stopIndex; i++)
+			{
+				voxelCount += histogram[i];
+			}
+
+			return voxelCount;
+		}
+
+		#endregion Evaluation
+
+		#region End of region, last gray value, minimum
+
+		/// <summary>
+		/// Detects the end of region of interest of a histogram. 
+		/// The end of region of interest is determined with the help of the average value of the histogram beginning at beginRegionOfInterest.
+		/// The end of region of interest is the last index i where histogram[i] >= detailPercent * averageValue.
+		/// </summary>
+		/// <param name="histogram">the histogram to detect from.</param>
+		/// <param name="beginIndex">the index where the average value is determined from</param>
+		/// <param name="medianFiltered">true, if the histogram is median filtered before.</param>
+		/// <param name="detailPercent">the percent of the average where the histogram doesn't return any details</param>
+		/// <returns>the index of the end of region of interest.</returns>
+		public static long DetectEndOfRegionOfInterest(long[] histogram, long beginIndex, double detailPercent = .05, bool medianFiltered = true)
+		{
+			if (histogram == null)
+				return 65000;
+			//Calculate the average of the histogram beginning at beginRegionOfInterest
+			double averageValue = 0;
+
+			long[] medianHistogram = histogram;
+
+			if (medianFiltered)
+			{
+				medianHistogram = ApplyMedianFilter(medianHistogram, 2);
+			}
+
+			for (long i = beginIndex; i < medianHistogram.LongLength; i++)
+			{
+				averageValue += medianHistogram[i];
+			}
+
+			averageValue /= (double)(medianHistogram.LongLength - beginIndex);
+
+			long lastIndexGreaterThanAverage = beginIndex;
+
+			for (long i = beginIndex; i < medianHistogram.LongLength; i++)
+			{
+				if (medianHistogram[i] >= detailPercent * averageValue)
+				{
+					lastIndexGreaterThanAverage = i;
+				}
+			}
+
+			return lastIndexGreaterThanAverage;
+		}
+
+		/// <summary>
+		/// Detects the last gray value index in a range.
+		/// </summary>
+		/// <param name="histogram">The histogram.</param>
+		/// <param name="leftIndex">The left Index of the range.</param>
+		/// <param name="rightIndex">The right index of the range.</param>
+		/// <param name="smallestGrayValue">The smallest gray value which is seen as zero.</param>
+		/// <returns>the last gray value index in the range.</returns>
+		public static long DetectLastGrayValueIndexInRange(long[] histogram, long leftIndex, long rightIndex, long smallestGrayValue = 2)
+		{
+			if (histogram == null)
+				return leftIndex;
+
+			long startIndex = System.Math.Max(0, leftIndex);
+			long stopIndex = System.Math.Min(histogram.LongLength - 1, rightIndex);
+			long lastGrayValueIndex = startIndex;
+			for (long nGrayValue = startIndex; nGrayValue <= stopIndex; nGrayValue++)
+			{
+				if (System.Math.Abs(histogram[nGrayValue]) >= smallestGrayValue)
+				{
+					lastGrayValueIndex = nGrayValue;
+				}
+			}
+
+			return lastGrayValueIndex;
+		}
+
+		/// <summary>
+		/// Detects the local minimum in a range.
+		/// </summary>
+		/// <param name="histogram">The histogram.</param>
+		/// <param name="leftIndex">The left Index of the range.</param>
+		/// <param name="rightIndex">The right index of the range.</param>
+		/// <returns>the index of the local minimum in the range.</returns>
+		public static long DetectIndexOfMinimumInRange(long[] histogram, long leftIndex, long rightIndex)
+		{
+			if (histogram == null)
+				return leftIndex;
+
+			long startIndex = System.Math.Max(0, leftIndex);
+			long stopIndex = System.Math.Min(histogram.LongLength - 1, rightIndex);
+			long maxGrayValueIndex = startIndex;
+			long maxGrayValue = histogram[startIndex];
+			for (long nGrayValue = startIndex; nGrayValue <= stopIndex; nGrayValue++)
+			{
+				long currentGrayValue = histogram[nGrayValue];
+				if (maxGrayValue <= currentGrayValue)
+					continue;
+
+				maxGrayValue = currentGrayValue;
+				maxGrayValueIndex = nGrayValue;
+			}
+
+			return maxGrayValueIndex;
+		}
+
+		#endregion eEnd of region, last gray value, minimum
+
+		#region Filter Operators
+
+		/// <summary>
+		/// Applies the median filter on a <paramref name="histogram"/> and returns the filtered histogram.
+		/// </summary>
+		/// <param name="histogram">the histogram</param>
+		/// <param name="halfSizeFilter">the half of the filter size (size is 2 * halfSizeFilter + 1).</param>
+		/// <returns>the filtered histogram.</returns>
+		public static long[] ApplyMedianFilter(long[] histogram, long halfSizeFilter)
+		{
+			if (histogram == null)
+				return null;
+			//Mirror the end and the beginning of the new array...
+			long[] histogramBeginEndWithZeros = new long[histogram.Length + 2 * halfSizeFilter];
+			for (long j = 0; j < halfSizeFilter; ++j)
+			{
+				histogramBeginEndWithZeros[j] = 0;
+			}
+			histogram.CopyTo(histogramBeginEndWithZeros, halfSizeFilter);
+			for (long j = halfSizeFilter; j < 2 * halfSizeFilter; ++j)
+			{
+				histogramBeginEndWithZeros[histogram.Length + j] = 0;
+			}
+
+			//Apply the median filter...
+			long[] histogramFiltered = new long[histogram.Length];
+			long[] arrayForMedianCalculation = new long[2 * halfSizeFilter + 1];
+			for (long i = 0; i < histogram.LongLength; i++)
+			{
+				//Collect the necessary informations...
+				for (int k = 0; k < arrayForMedianCalculation.Length; k++)
+				{
+					arrayForMedianCalculation[k] = histogramBeginEndWithZeros[i + k];
+				}
+				System.Array.Sort(arrayForMedianCalculation);
+				histogramFiltered[i] = arrayForMedianCalculation[halfSizeFilter];
+			}
+			return histogramFiltered;
+		}
+
+		/// <summary>
+		/// Applies the Gaussian filter on a <paramref name="histogram"/> and returns the filtered histogram.
+		/// </summary>
+		/// <param name="histogram">the histogram to filter.</param>
+		/// <param name="k">parameter k. Length of filtermask is 2k + 1.</param>
+		/// <param name="sigma">sigma of the gaussian function</param>
+		/// <param name="times">How many times should the filter be applied</param>
+		/// <returns>the filtered histogram.</returns>
+		public static long[] ApplyGaussianFilter(long[] histogram, long k, double sigma, long times = 1)
+		{
+			if (histogram == null)
+				return null;
+
+			if (times <= 0)
+			{
+				return (long[])histogram.Clone();
+			}
+
+			double[] filterMask = new double[2 * k + 1];
+			filterMask[0] = filterMask[2 * k] = 1;
+			double denominator = 0.5 / (sigma * sigma);
+			double g_k = System.Math.Exp(-k * k * denominator);
+			for (long i = 0; i < k; i++)
+			{
+				double g_i = System.Math.Exp(-i * i * denominator);
+				filterMask[k + i] = filterMask[k - i] = System.Convert.ToInt64(g_i / g_k);
+			}
+			double normFact = 0;
+			for (long i = 0; i < filterMask.LongLength; i++)
+			{
+				normFact += filterMask[i];
+			}
+
+			for (long i = 0; i < filterMask.LongLength; i++)
+			{
+				filterMask[i] = filterMask[i] / normFact;
+			}
+
+			long[] histogramFiltered = histogram;
+
+			for (long i = 0; i < times; i++)
+			{
+				histogramFiltered = ApplyFilter(histogramFiltered, filterMask);
+			}
+
+			return histogramFiltered;
+		}
+
+		/// <summary>
+		/// Applies a filter to a given histogram. The histogram is mirrored at the begin and at the end.
+		/// </summary>
+		/// <param name="histogram">histogram to apply to.</param>
+		/// <param name="filterMask">Filter mask to apply.</param>
+		/// <returns></returns>
+		static long[] ApplyFilter(long[] histogram, double[] filterMask)
+		{
+			if (histogram == null)
+				return null;
+
+			long[] histogramFiltered = new long[histogram.Length];
+			int halfSizeFilter = (filterMask.Length - 1) / 2;
+			long[] histogramBeginEndMirrored = new long[histogram.Length + 2 * halfSizeFilter];
+			for (int j = 0; j < halfSizeFilter; ++j)
+			{
+				histogramBeginEndMirrored[j] = histogram[halfSizeFilter - j];
+			}
+
+			histogram.CopyTo(histogramBeginEndMirrored, halfSizeFilter);
+
+			for (int j = halfSizeFilter; j < 2 * halfSizeFilter; ++j)
+			{
+				histogramBeginEndMirrored[histogram.Length + j] = histogram[histogram.Length - j + halfSizeFilter - 1];
+			}
+
+			for (int j = halfSizeFilter, i = 0; i < histogram.Length; ++i, ++j)
+			{
+				double d = 0.0;
+				for (int k = 0; k < filterMask.Length; ++k)
+				{
+					d += histogramBeginEndMirrored[j - halfSizeFilter + k] * filterMask[k];
+				}
+				histogramFiltered[i] = (long)d;
+			}
+
+			return histogramFiltered;
+		}
+
+		#endregion Filter Operators
+
+		#region Import/Export
+
+		/// <summary>
+		/// Exports the histogram.
+		/// </summary>
+		/// <param name="node">The node.</param>
+		/// <param name="filename">The filename.</param>
+		public static void ExportHistogram(VolumeRef node, string filename)
+		{
+			var histogram = node.Data.Histogram;
+			ExportHistogram(histogram, filename);
+		}
+
+
+		/// <summary>
+		/// Exports the histogram.
+		/// </summary>
+		/// <param name="histogram">The histogram.</param>
+		/// <param name="filename">The filename.</param>
+		public static void ExportHistogram(long[] histogram, string filename)
+		{
+			if (histogram == null || histogram.Length == 0)
+				return;
+
+			var directory = Path.GetDirectoryName(filename);
+			if (!Directory.Exists(directory))
+				Directory.CreateDirectory(directory);
+
+			var stream = File.OpenWrite(filename);
+			var writer = new BinaryWriter(stream);
+
+			foreach (var grayValue in histogram)
+			{
+				writer.Write(grayValue);
+			}
+
+			writer.Dispose();
+			stream.Dispose();
+		}
+
+		/// <summary>
+		/// Imports the histogram.
+		/// </summary>
+		/// <param name="filename">The filename.</param>
+		/// <returns></returns>
+		public static long[] ImportHistogram(string filename)
+		{
+			if (!File.Exists(filename))
+				return new long[0];
+
+			var histogram = new List<long>();
+			var stream = File.OpenRead(filename);
+			var reader = new BinaryReader(stream);
+
+			while (stream.Position < stream.Length)
+			{
+				var grayValue = reader.ReadInt64();
+				histogram.Add(grayValue);
+			}
+
+			reader.Dispose();
+			stream.Dispose();
+
+			return histogram.ToArray();
+		}
+
+		#endregion
+	}
+}

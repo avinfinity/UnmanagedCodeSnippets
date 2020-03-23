@@ -1,0 +1,133 @@
+
+#(
+#OrderedCollection 
+#(
+#OMCfActualsPresentation 
+#identifier: 'CAD-Presentation1' 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings 
+#(
+#keyForLabel ' ->' nil) 
+#(
+#printPlotObject ' ->' false)) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary)) 
+#tolerance: 
+#(
+#OMReadUniToleranceLen 
+#comment: '' 
+#'container$' 'container' 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true) 
+#noneTolUpper: false 
+#noneTolLower: false 
+#quality: 
+#fine 
+#nominal: 0.0d 
+#plusMinusDeviation: 0.05) 
+#plotObject: 
+#(
+#OMCFPlot 
+#comment: '' 
+#'container$' 'container' 
+#tolerance: 
+#(
+#OMReadUniToleranceLen 
+#comment: '' 
+#'container$' 'container' 
+#noneTolUpper: false 
+#noneTolLower: false 
+#quality: 
+#fine 
+#nominal: 0.0d 
+#plusMinusDeviation: 0.05) 
+#plotData: 
+#(
+#Dictionary 
+#(
+#chartName ' ->' 'cadframe_landscape.gra') 
+#(
+#selectedACISViewNames ' ->' 
+#(
+#OrderedCollection 
+#view))) 
+#plotType: 
+#acisView 
+#chartName: 'cadframe_landscape.gra')) 
+#(
+#OMCfActualsPresentation 
+#identifier: 'CAD-Presentation1' 
+#comment: '' 
+#'container$' 'container' 
+#settings: 
+#(
+#OMSettings 
+#(
+#keyForLabel ' ->' nil) 
+#(
+#printPlotObject ' ->' false)) 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true 
+#dict: 
+#(
+#Dictionary)) 
+#tolerance: 
+#(
+#OMReadUniToleranceLen 
+#comment: '' 
+#'container$' 'container' 
+#definitions: 
+#(
+#OMParameters 
+#'container$' 'container' 
+#recalculate: true) 
+#noneTolUpper: false 
+#noneTolLower: false 
+#quality: 
+#fine 
+#nominal: 0.0d 
+#plusMinusDeviation: 0.05) 
+#plotObject: 
+#(
+#OMCFPlot 
+#comment: '' 
+#'container$' 'container' 
+#tolerance: 
+#(
+#OMReadUniToleranceLen 
+#comment: '' 
+#'container$' 'container' 
+#noneTolUpper: false 
+#noneTolLower: false 
+#quality: 
+#fine 
+#nominal: 0.0d 
+#plusMinusDeviation: 0.05) 
+#plotData: 
+#(
+#Dictionary 
+#(
+#chartName ' ->' 'cadframe_portrait.gra') 
+#(
+#selectedACISViewNames ' ->' 
+#(
+#OrderedCollection 
+#view))) 
+#plotType: 
+#acisView 
+#chartName: 'cadframe_portrait.gra')))
